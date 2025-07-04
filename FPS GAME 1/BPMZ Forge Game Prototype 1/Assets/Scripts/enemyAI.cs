@@ -13,6 +13,8 @@ public class enemyAI : MonoBehaviour, IDamage
     void Start()
     {
         colorOrg = model.material.color;
+        //Notify Manager that this enemy is in the level
+        gameManager.instance.enemyCount += 1;
     }
 
     // Update is called once per frame
@@ -29,6 +31,8 @@ public class enemyAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
+            //Keeping track of the enemy count 
+            gameManager.instance.enemyCount -= 1;
             Destroy(gameObject);
         }
         else
