@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class playerController : MonoBehaviour, IDamage
 {
 
     [SerializeField] CharacterController controller;
@@ -8,6 +8,7 @@ public class playerController : MonoBehaviour
 
 
     //Show up in Inspector (Unity)
+    [SerializeField] int HP;
     [SerializeField] int speed;
     [SerializeField] int sprintMod;
     [SerializeField] int jumpVel;
@@ -111,6 +112,16 @@ public class playerController : MonoBehaviour
             {
                 dmg.takeDamage(shootDamage);
             }
+        }
+    }
+
+    public void takeDamage(int amount)
+    {
+        HP -= amount;
+
+        if (HP < 0)
+        {
+            //YOU DIED SCREEN HERE
         }
     }
 }
