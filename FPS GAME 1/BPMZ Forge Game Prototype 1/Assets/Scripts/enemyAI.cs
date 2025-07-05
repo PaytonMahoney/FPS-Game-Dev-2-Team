@@ -20,7 +20,7 @@ public class enemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-
+        //Hello 0/
     }
 
     //Needed so you can implement Damage
