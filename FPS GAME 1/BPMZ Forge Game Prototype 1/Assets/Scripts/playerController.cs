@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class playerController : MonoBehaviour, IDamage
 {
@@ -7,14 +9,34 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] LayerMask ignoreLayer;
 
 
-    //Show up in Inspector (Unity)
     [SerializeField] int HP;
-    [SerializeField] int speed;
+    
+    // Movement
+    [SerializeField] int moveSpeed;
     [SerializeField] int sprintMod;
+    private int moveSpeedOrig;
+
+    private MovementState state; 
+    public enum MovementState
+    {
+        walking,
+        air,
+        sprinting,
+        crouching
+    }
+
+
+    //Crouching
+    [SerializeField] int crouchHeight;
+    private float standingHeight;
+    
+
+    //Jumping 
     [SerializeField] int jumpVel;
     [SerializeField] int jumpMax;
     [SerializeField] int gravity;
 
+    //Shooting
     [SerializeField] int shootDamage;
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
@@ -30,19 +52,18 @@ public class playerController : MonoBehaviour, IDamage
     void Start()
     {
 
+        standingHeight = transform.localScale.y;
+        moveSpeedOrig = moveSpeed;
     }
 
-    // Update is called once per frame    //Should be on inpute functions
+    // Update is called once per frame    //Should be on input functions
     void Update()
     {
         //Drawing it so I can see it in action
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist, Color.violet);
-
-        sprint();
-
+        
         movement();
     }
-
 
     void movement()
     {
@@ -59,9 +80,16 @@ public class playerController : MonoBehaviour, IDamage
         //Tie A and D keys to the player character   //Strafe forward
         moveDir = (Input.GetAxis("Horizontal") * transform.right) + (Input.GetAxis("Vertical") * transform.forward);
         //Time.deltaTime = Ignores Frame Rate
-        controller.Move(moveDir * speed * Time.deltaTime);
+        controller.Move(moveDir * moveSpeed * Time.deltaTime);
+        crouch();
+        sprint();
 
-        jump();
+        if (state != MovementState.crouching)
+        {
+            jump();
+        }
+        
+
 
         controller.Move(playerVel * Time.deltaTime);
         playerVel.y -= gravity * Time.deltaTime;
@@ -82,16 +110,37 @@ public class playerController : MonoBehaviour, IDamage
         }
     }
 
+    void crouch()
+    {
+        if(Input.GetButtonDown("Crouch"))
+        {
+            state = MovementState.crouching;
+            moveSpeed = moveSpeed / 2;
+            transform.localScale = new Vector3(transform.localScale.x, standingHeight / 2, transform.localScale.z);
+
+        }
+        else if (Input.GetButtonUp("Crouch"))
+        {
+            state = MovementState.walking;
+            transform.localScale = new Vector3(transform.localScale.x, standingHeight, transform.localScale.z);
+            moveSpeed = moveSpeedOrig;
+            
+        }
+    }
+
     void sprint()
     {
         if (Input.GetButtonDown("Sprint"))
         {
-            speed *= sprintMod;
+            state = MovementState.sprinting;
+            moveSpeed *= sprintMod;
         }
         else if (Input.GetButtonUp("Sprint"))
         {
-            speed /= sprintMod;
+            state = MovementState.walking;
+            moveSpeed /= sprintMod;
         }
+       
     }
 
     void shoot()
@@ -103,7 +152,7 @@ public class playerController : MonoBehaviour, IDamage
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreLayer))
         {
             //Will tell me what the Raycast hit
-            //Debug.Log(hit.collider.name);
+            Debug.Log(hit.collider.name);
 
             //Damage code: Everything you need is here
             IDamage dmg = hit.collider.GetComponent<IDamage>();
@@ -114,6 +163,8 @@ public class playerController : MonoBehaviour, IDamage
             }
         }
     }
+
+
 
     public void takeDamage(int amount)
     {

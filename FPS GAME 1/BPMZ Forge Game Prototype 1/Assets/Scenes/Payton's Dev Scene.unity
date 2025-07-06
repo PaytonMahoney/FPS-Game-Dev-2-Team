@@ -1165,8 +1165,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   HP: 5
-  speed: 5
-  sprintMod: 3
+  moveSpeed: 15
+  sprintMod: 2
+  crouchHeight: 9
   jumpVel: 20
   jumpMax: 2
   gravity: 35
