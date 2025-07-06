@@ -16,7 +16,8 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int sprintMod;
     private int moveSpeedOrig;
 
-    private MovementState state; 
+    private MovementState state;
+    private MovementState stateOrig;
     public enum MovementState
     {
         walking,
@@ -51,7 +52,7 @@ public class playerController : MonoBehaviour, IDamage
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        stateOrig = state;
         standingHeight = transform.localScale.y;
         moveSpeedOrig = moveSpeed;
     }
@@ -82,11 +83,12 @@ public class playerController : MonoBehaviour, IDamage
         //Time.deltaTime = Ignores Frame Rate
         controller.Move(moveDir * moveSpeed * Time.deltaTime);
         crouch();
-        sprint();
+        
 
         if (state != MovementState.crouching)
         {
             jump();
+            sprint();
         }
         
 
@@ -115,17 +117,18 @@ public class playerController : MonoBehaviour, IDamage
         if(Input.GetButtonDown("Crouch"))
         {
             state = MovementState.crouching;
-            moveSpeed = moveSpeed / 2;
+            moveSpeed = moveSpeedOrig / 2;
             transform.localScale = new Vector3(transform.localScale.x, standingHeight / 2, transform.localScale.z);
 
         }
         else if (Input.GetButtonUp("Crouch"))
         {
-            state = MovementState.walking;
+            state = stateOrig;
             transform.localScale = new Vector3(transform.localScale.x, standingHeight, transform.localScale.z);
             moveSpeed = moveSpeedOrig;
             
         }
+        
     }
 
     void sprint()
@@ -137,8 +140,8 @@ public class playerController : MonoBehaviour, IDamage
         }
         else if (Input.GetButtonUp("Sprint"))
         {
-            state = MovementState.walking;
-            moveSpeed /= sprintMod;
+            state = stateOrig;
+            moveSpeed = moveSpeedOrig;
         }
        
     }
