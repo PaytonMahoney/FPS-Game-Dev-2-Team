@@ -1,6 +1,5 @@
 using UnityEngine;
-using UnityEngine;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 
 public class playerController : MonoBehaviour, IDamage
 {
