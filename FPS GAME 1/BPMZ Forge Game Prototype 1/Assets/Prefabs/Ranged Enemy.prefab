@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8546731811713025682}
   - component: {fileID: 400451678481292665}
   - component: {fileID: 1992365581509772032}
-  m_Layer: 0
-  m_Name: enemy Temp
+  m_Layer: 7
+  m_Name: Ranged Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8546550073978417564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.80269, y: 1, z: -25.413681}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -80,7 +80,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae4f8c01d80025549ae9b27d7f103c42, type: 2}
+  - {fileID: 2100000, guid: 55f39652c4946cf40961fa40b775b151, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
