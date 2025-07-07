@@ -1174,6 +1174,8 @@ MonoBehaviour:
   shootDamage: 1
   shootRate: 0.25
   shootDist: 150
+  maxSlopeAngle: 40
+  slopeForce: 5
 --- !u!1001 &895865830
 PrefabInstance:
   m_ObjectHideFlags: 0
