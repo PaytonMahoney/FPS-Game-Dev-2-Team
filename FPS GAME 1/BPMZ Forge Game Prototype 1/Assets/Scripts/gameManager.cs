@@ -52,10 +52,10 @@ public class gameManager : MonoBehaviour
             }
         }
 
-        if (mainBoss.HP <= 0)
-        {
-            youWin();
-        }
+        //if (mainBoss.HP <= 0)
+        //{
+            //youWin();
+        //}
     }
 
     public void statePause()
