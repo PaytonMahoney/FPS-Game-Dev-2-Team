@@ -172,7 +172,7 @@ public class playerController : MonoBehaviour, IDamage
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreLayer))
         {
             //Will tell me what the Raycast hit
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
 
             //Damage code: Everything you need is here
             IDamage dmg = hit.collider.GetComponent<IDamage>();
@@ -205,9 +205,10 @@ public class playerController : MonoBehaviour, IDamage
     {
         HP -= amount;
 
-        if (HP < 0)
+        if (HP <= 0)
         {
             //YOU DIED SCREEN HERE
+            gameManager.instance.youLose();
         }
     }
 }
