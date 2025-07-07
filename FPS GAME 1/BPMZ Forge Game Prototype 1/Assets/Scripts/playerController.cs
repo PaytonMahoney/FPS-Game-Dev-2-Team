@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour, IDamage
 
     [SerializeField] int HP;
     
+    
     // Movement
     [SerializeField] int moveSpeed;
     [SerializeField] int sprintMod;
@@ -42,6 +43,12 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
 
+
+    //Slope Handling
+    [SerializeField] float maxSlopeAngle;
+    [SerializeField] float slopeForce;
+    private RaycastHit slopeHit;
+
     Vector3 moveDir;
     Vector3 playerVel;
 
@@ -70,31 +77,42 @@ public class playerController : MonoBehaviour, IDamage
     {
         shootTimer += Time.deltaTime;
 
-        //Now Gravity won't stack
-        if (controller.isGrounded)
-        {
-            playerVel = Vector3.zero;
-            jumpCount = 0;
-        }
-
-
         //Tie A and D keys to the player character   //Strafe forward
         moveDir = (Input.GetAxis("Horizontal") * transform.right) + (Input.GetAxis("Vertical") * transform.forward);
         //Time.deltaTime = Ignores Frame Rate
         controller.Move(moveDir * moveSpeed * Time.deltaTime);
+
+        if (OnSlope())
+        {
+            Vector3 slopeMove = GetSlopeMoveDirection() * moveSpeed;
+
+            slopeMove += Vector3.down * slopeForce;
+
+            controller.Move(slopeMove * Time.deltaTime);
+        }
+        else if (controller.isGrounded)
+        {
+            //Now Gravity won't stack
+            playerVel = Vector3.zero;
+            jumpCount = 0;
+            controller.Move(playerVel * Time.deltaTime);
+        }
+        else
+        {
+            controller.Move(playerVel * Time.deltaTime);
+            playerVel.y -= gravity * Time.deltaTime;
+            jumpCount = 0;
+        }
+
         crouch();
         
-
         if (state != MovementState.crouching)
         {
             jump();
             sprint();
         }
-        
 
-
-        controller.Move(playerVel * Time.deltaTime);
-        playerVel.y -= gravity * Time.deltaTime;
+       
 
         if (Input.GetButton("Fire1") && shootTimer > shootRate)
         {
@@ -167,6 +185,21 @@ public class playerController : MonoBehaviour, IDamage
         }
     }
 
+    private bool OnSlope()
+    {
+        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, standingHeight * 0.5f + 0.3f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < maxSlopeAngle && angle != 0; 
+        }
+
+        return false;
+    }
+
+    private Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(moveDir, slopeHit.normal).normalized;
+    }
 
 
     public void takeDamage(int amount)
