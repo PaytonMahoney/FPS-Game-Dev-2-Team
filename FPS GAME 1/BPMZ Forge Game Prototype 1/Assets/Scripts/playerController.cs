@@ -38,9 +38,8 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int gravity;
 
     //Shooting
-    [SerializeField] int shootDamage;
-    [SerializeField] float shootRate;
-    [SerializeField] int shootDist;
+    [SerializeField] public Gun equipGun;
+    
 
 
     //Slope Handling
@@ -67,7 +66,7 @@ public class playerController : MonoBehaviour, IDamage
     void Update()
     {
         //Drawing it so I can see it in action
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist, Color.violet);
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * equipGun.mRange, Color.violet);
         
         movement();
     }
@@ -113,7 +112,7 @@ public class playerController : MonoBehaviour, IDamage
 
        
 
-        if (Input.GetButton("Fire1") && shootTimer > shootRate)
+        if (Input.GetButton("Fire1") && shootTimer > equipGun.mFireRate && equipGun.currentMag > 0)
         {
             shoot();
         }
@@ -169,7 +168,7 @@ public class playerController : MonoBehaviour, IDamage
 
         RaycastHit hit;
         //First person view location
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreLayer))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, equipGun.mRange, ~ignoreLayer))
         {
             //Will tell me what the Raycast hit
             //Debug.Log(hit.collider.name);
@@ -179,7 +178,7 @@ public class playerController : MonoBehaviour, IDamage
 
             if (dmg != null)
             {
-                dmg.takeDamage(shootDamage);
+                dmg.takeDamage(equipGun.mDMG);
             }
         }
     }

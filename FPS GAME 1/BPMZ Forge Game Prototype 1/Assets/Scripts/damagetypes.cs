@@ -10,7 +10,8 @@ public class damagetypes : MonoBehaviour
         moving, //bullets
         stationary, //Spike walls, etc.
         DOT, //Damage over time
-        homing
+        homing,
+        healing //Heals instead of damaging
     }
 
     [SerializeField] damageType type;
@@ -55,18 +56,36 @@ public class damagetypes : MonoBehaviour
 
 
         //checks to see if the thing collied can be damaged 
-        IDamage dmg = other.GetComponent<IDamage>();
-
-        //Every other type other than DOT
-        if (dmg != null && type != damageType.DOT)
+        if (type != damageType.healing)
         {
-            dmg.takeDamage(damageAmount);
-        }
+            IDamage dmg = other.GetComponent<IDamage>();
 
-        if (type == damageType.moving || type == damageType.homing)
-        {
-            Destroy(gameObject);
+
+
+
+            //Every other type other than DOT
+            if (dmg != null && type != damageType.DOT)
+            {
+                dmg.takeDamage(damageAmount);
+            }
+
+            if (type == damageType.moving || type == damageType.homing)
+            {
+                Destroy(gameObject);
+            }
         }
+        else
+        {
+            IHeal heal = other.GetComponent<IHeal>();
+            if (heal != null)
+            {
+                if (heal.Heal(damageAmount))
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+            
     }
 
     private void OnTriggerStay(Collider other)
