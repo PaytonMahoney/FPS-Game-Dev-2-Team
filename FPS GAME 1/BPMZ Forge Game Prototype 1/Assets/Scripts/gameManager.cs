@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -10,22 +11,15 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
 
-
+    public Image playerHPBar;
+    public GameObject playerDMGPanel;
     public bool isPaused;
     public GameObject player;
     public playerController playerScript;
-<<<<<<< Updated upstream
-=======
     public GameObject mainBoss;
-   
-    
->>>>>>> Stashed changes
 
-    float timescaleOrig;
-
-    //Boss Variable // Different AI
-    int bossDead;
-
+    float timescaleOriginal;
+    bool bossDead;
     public int enemyCount;
 
     void Awake()
@@ -33,24 +27,16 @@ public class gameManager : MonoBehaviour
         instance = this;
 
         player = GameObject.FindWithTag("Player");
+        mainBoss = GameObject.FindWithTag("MainBoss");
         playerScript = player.GetComponent<playerController>();
-<<<<<<< Updated upstream
-        timescaleOrig = Time.timeScale;
-=======
         timescaleOriginal = Time.timeScale;
         
-       
         
-        
->>>>>>> Stashed changes
     }
 
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
-        
-=======
         // Pausing
         if (Input.GetButtonDown("Cancel"))
         {
@@ -66,10 +52,10 @@ public class gameManager : MonoBehaviour
             }
         }
 
-        //if (bossScript. <= 0)
-        //{
-        //    youWin();
-        //}
+        if (mainBoss.HP <= 0)
+        {
+            youWin();
+        }
     }
 
     public void statePause()
@@ -102,6 +88,5 @@ public class gameManager : MonoBehaviour
         statePause();
         menuActive = menuWin;
         menuActive.SetActive(true);
->>>>>>> Stashed changes
     }
 }
