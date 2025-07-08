@@ -1,13 +1,17 @@
 using UnityEngine;
 using System.Collections;
+using System.Numerics;
 
 public class enemyAI : MonoBehaviour, IDamage
 {
     [SerializeField] Renderer model;
 
-
+    
     [SerializeField] int HP;
 
+    [SerializeField] bool DropGun;
+    [SerializeField] Gun gunDrop;
+    [SerializeField] int dropChance;
     Color colorOrg;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,6 +37,10 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             //Keeping track of the enemy count 
             gameManager.instance.enemyCount -= 1;
+            if (Random.Range(0, 100) <= dropChance)
+            {
+                DropRandomGun();
+            }
             Destroy(gameObject);
         }
         else
@@ -48,5 +56,59 @@ public class enemyAI : MonoBehaviour, IDamage
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = colorOrg;
+    }
+
+   void DropRandomGun()
+    {
+        Gun gun = Instantiate(gunDrop,transform.position,transform.rotation);
+        switch (Random.Range(0,3))
+        {
+            case 0:
+                {
+                    gun.mtype = Gun.WeaponClass.Pistol;
+                    gun.mDMG = Random.Range(1,10);
+                    gun.mFireRate = Random.Range(.25f,2);
+                    gun.mMaxAmmo = Random.Range(45,90);
+                    gun.mMaxMag = Random.Range(5,15);
+                    gun.mRange = Random.Range(50,150);
+                    gun.mReloadSpeed = Random.Range(3,6);
+                    break;
+            }
+            case 1:
+                {
+                    gun.mtype = Gun.WeaponClass.SMG;
+                    gun.mDMG = Random.Range(3,10);
+                    gun.mFireRate = Random.Range(.05f,.5f);
+                    gun.mMaxAmmo = Random.Range(300,750);
+                    gun.mMaxMag = Random.Range(30,60);
+                    gun.mRange = Random.Range(40,120);
+                    gun.mReloadSpeed = Random.Range(2,5);
+                    break;
+                }
+            case 2:
+                {
+                    gun.mtype = Gun.WeaponClass.Rifle;
+                    gun.mDMG = Random.Range(10,20);
+                    gun.mFireRate = Random.Range(.2f,2);
+                    gun.mMaxAmmo = Random.Range(300, 450);
+                    gun.mMaxMag = Random.Range(15,40);
+                    gun.mRange = Random.Range(150,250);
+                    gun.mReloadSpeed = Random.Range(4,8);
+                    break;
+                }
+            default:
+                {
+                    gun.mtype = Gun.WeaponClass.Sniper;
+                    gun.mDMG = Random.Range(50,100);
+                    gun.mFireRate = Random.Range(2f,5);
+                    gun.mMaxAmmo = Random.Range(30,60);
+                    gun.mMaxMag = Random.Range(5,10);
+                    gun.mRange = Random.Range(200,300);
+                    gun.mReloadSpeed = Random.Range(5,9);
+                    break;
+                }
+
+        }
+        
     }
 }

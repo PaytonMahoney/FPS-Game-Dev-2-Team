@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class playerController : MonoBehaviour, IDamage
+public class playerController : MonoBehaviour, IDamage, IHeal
 {
 
     [SerializeField] CharacterController controller;
@@ -10,6 +10,7 @@ public class playerController : MonoBehaviour, IDamage
 
 
     [SerializeField] int HP;
+    int HPMax;
     
     // Movement
     [SerializeField] int moveSpeed;
@@ -37,9 +38,25 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int gravity;
 
     //Shooting
+<<<<<<< Updated upstream
     [SerializeField] int shootDamage;
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
+=======
+    [SerializeField] Gun equip;
+    
+    // mDMG 
+    // mFireRate 
+    // mMaxAmmo = Maximum amount of ammo that can be held
+    // mMaxMag = Max amount of ammo in the magazine
+    // mRange
+    // mReloadSpeed
+
+    //Slope Handling
+    [SerializeField] float maxSlopeAngle;
+    [SerializeField] float slopeForce;
+    private RaycastHit slopeHit;
+>>>>>>> Stashed changes
 
     Vector3 moveDir;
     Vector3 playerVel;
@@ -48,19 +65,21 @@ public class playerController : MonoBehaviour, IDamage
 
     float shootTimer;
 
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
         standingHeight = transform.localScale.y;
         moveSpeedOrig = moveSpeed;
+        HPMax = HP;
     }
 
     // Update is called once per frame    //Should be on input functions
     void Update()
     {
         //Drawing it so I can see it in action
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist, Color.violet);
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * equip.mRange, Color.violet);
         
         movement();
     }
@@ -94,7 +113,7 @@ public class playerController : MonoBehaviour, IDamage
         controller.Move(playerVel * Time.deltaTime);
         playerVel.y -= gravity * Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && shootTimer > shootRate)
+        if (Input.GetButton("Fire1") && shootTimer > equip.mFireRate && equip.currentMag > 0)
         {
             shoot();
         }
@@ -146,20 +165,21 @@ public class playerController : MonoBehaviour, IDamage
     void shoot()
     {
         shootTimer = 0;
-
+        equip.currentMag--;
         RaycastHit hit;
         //First person view location
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreLayer))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, equip.mRange, ~ignoreLayer))
         {
             //Will tell me what the Raycast hit
             Debug.Log(hit.collider.name);
 
             //Damage code: Everything you need is here
+           
             IDamage dmg = hit.collider.GetComponent<IDamage>();
 
             if (dmg != null)
             {
-                dmg.takeDamage(shootDamage);
+                dmg.takeDamage(equip.mDMG);
             }
         }
     }
@@ -174,5 +194,26 @@ public class playerController : MonoBehaviour, IDamage
         {
             //YOU DIED SCREEN HERE
         }
+    }
+
+    public bool Heal(int amount)
+    {
+        bool isHealed = false;
+        if (HP < HPMax)
+        {
+            HP += amount;
+            isHealed = true;
+        }
+        if (HP > HPMax) { 
+        HP = HPMax;
+        }
+        return isHealed;
+    }
+
+    public void equipGun(Gun newgun)
+    {
+        //Instantiate(equip, newgun.transform);
+        equip = newgun;
+        
     }
 }
