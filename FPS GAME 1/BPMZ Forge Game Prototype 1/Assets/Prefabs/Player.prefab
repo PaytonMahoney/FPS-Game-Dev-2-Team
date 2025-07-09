@@ -213,9 +213,7 @@ MonoBehaviour:
   jumpVel: 0
   jumpMax: 0
   gravity: 9
-  shootDamage: 0
-  shootRate: 0
-  shootDist: 0
+  equipGun: {fileID: 3182136731845895234, guid: cdbf76f1a0160524a9fab420e5f39304, type: 3}
   maxSlopeAngle: 0
   slopeForce: 0
 --- !u!33 &7189910975712374665

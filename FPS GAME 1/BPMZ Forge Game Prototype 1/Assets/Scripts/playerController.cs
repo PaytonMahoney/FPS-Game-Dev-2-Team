@@ -1,10 +1,9 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.AI;
-using System.Threading;
-using UnityEngine.InputSystem;
 
-public class playerController : MonoBehaviour, IDamage
+//using UnityEngine.InputSystem;
+
+public class playerController : MonoBehaviour, IDamage, IHeal
 {
 
     [SerializeField] CharacterController controller;
@@ -12,7 +11,7 @@ public class playerController : MonoBehaviour, IDamage
 
 
     [SerializeField] int HP;
-    
+    int maxHP;
     
     // Movement
     [SerializeField] int moveSpeed;
@@ -41,9 +40,8 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int gravity;
 
     //Shooting
-    [SerializeField] int shootDamage;
-    [SerializeField] float shootRate;
-    [SerializeField] int shootDist;
+    [SerializeField] public Gun equipGun;
+    
 
 
     //Slope Handling
@@ -57,20 +55,22 @@ public class playerController : MonoBehaviour, IDamage
     int jumpCount;
 
     float shootTimer;
-
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         stateOrig = state;
         standingHeight = transform.localScale.y;
         moveSpeedOrig = moveSpeed;
+        maxHP = HP;
+        
     }
 
     // Update is called once per frame    //Should be on input functions
     void Update()
     {
         //Drawing it so I can see it in action
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist, Color.violet);
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * equipGun.mRange, Color.violet);
         
         movement();
     }
@@ -103,7 +103,7 @@ public class playerController : MonoBehaviour, IDamage
         {
             controller.Move(playerVel * Time.deltaTime);
             playerVel.y -= gravity * Time.deltaTime;
-            jumpCount = 0;
+            //jumpCount = 0;
         }
 
         crouch();
@@ -116,7 +116,7 @@ public class playerController : MonoBehaviour, IDamage
 
        
 
-        if (Input.GetButton("Fire1") && shootTimer > shootRate)
+        if (Input.GetButton("Fire1") && shootTimer > equipGun.mFireRate && equipGun.currentMag > 0)
         {
             shoot();
         }
@@ -172,7 +172,7 @@ public class playerController : MonoBehaviour, IDamage
 
         RaycastHit hit;
         //First person view location
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreLayer))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, equipGun.mRange, ~ignoreLayer))
         {
             //Will tell me what the Raycast hit
             //Debug.Log(hit.collider.name);
@@ -182,7 +182,7 @@ public class playerController : MonoBehaviour, IDamage
 
             if (dmg != null)
             {
-                dmg.takeDamage(shootDamage);
+                dmg.takeDamage(equipGun.mDMG);
             }
         }
     }
@@ -207,11 +207,40 @@ public class playerController : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
-
+        StartCoroutine(DamageFlashScreen());
         if (HP <= 0)
         {
             //YOU DIED SCREEN HERE
             gameManager.instance.youLose();
         }
+    }
+
+    public bool Heal(int amount)
+    {
+        if (HP < maxHP)   
+        {
+            StartCoroutine(HealFlashScreen());
+            HP += amount;
+            if (HP > maxHP)
+            {
+                HP = maxHP;
+            }
+            return true;
+        }
+        
+            return false;
+    }
+
+    IEnumerator DamageFlashScreen()
+    {
+        gameManager.instance.playerDMGPanel.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        gameManager.instance.playerDMGPanel.SetActive(false);
+    }
+    IEnumerator HealFlashScreen()
+    {
+        gameManager.instance.playerHealPanel.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        gameManager.instance.playerHealPanel.SetActive(false);
     }
 }

@@ -1171,9 +1171,7 @@ MonoBehaviour:
   jumpVel: 20
   jumpMax: 2
   gravity: 35
-  shootDamage: 1
-  shootRate: 0.25
-  shootDist: 150
+  equipGun: {fileID: 3182136731845895234, guid: cdbf76f1a0160524a9fab420e5f39304, type: 3}
   maxSlopeAngle: 40
   slopeForce: 5
 --- !u!1001 &895865830
@@ -1479,9 +1477,12 @@ MonoBehaviour:
   menuPause: {fileID: 0}
   menuWin: {fileID: 0}
   menuLose: {fileID: 0}
+  playerHPBar: {fileID: 0}
+  playerDMGPanel: {fileID: 0}
   isPaused: 0
   player: {fileID: 0}
   playerScript: {fileID: 0}
+  mainBoss: {fileID: 0}
   enemyCount: 0
 --- !u!4 &1078904858 stripped
 Transform:
