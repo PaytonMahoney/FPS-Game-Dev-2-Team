@@ -1,7 +1,9 @@
 using UnityEngine;
+using System.Collections;
+
 //using UnityEngine.InputSystem;
 
-public class playerController : MonoBehaviour, IDamage
+public class playerController : MonoBehaviour, IDamage, IHeal
 {
 
     [SerializeField] CharacterController controller;
@@ -9,7 +11,7 @@ public class playerController : MonoBehaviour, IDamage
 
 
     [SerializeField] int HP;
-    
+    int maxHP;
     
     // Movement
     [SerializeField] int moveSpeed;
@@ -53,13 +55,15 @@ public class playerController : MonoBehaviour, IDamage
     int jumpCount;
 
     float shootTimer;
-
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         stateOrig = state;
         standingHeight = transform.localScale.y;
         moveSpeedOrig = moveSpeed;
+        maxHP = HP;
+        
     }
 
     // Update is called once per frame    //Should be on input functions
@@ -99,7 +103,7 @@ public class playerController : MonoBehaviour, IDamage
         {
             controller.Move(playerVel * Time.deltaTime);
             playerVel.y -= gravity * Time.deltaTime;
-            jumpCount = 0;
+            //jumpCount = 0;
         }
 
         crouch();
@@ -203,11 +207,40 @@ public class playerController : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
-
+        StartCoroutine(DamageFlashScreen());
         if (HP <= 0)
         {
             //YOU DIED SCREEN HERE
             gameManager.instance.youLose();
         }
+    }
+
+    public bool Heal(int amount)
+    {
+        if (HP < maxHP)   
+        {
+            StartCoroutine(HealFlashScreen());
+            HP += amount;
+            if (HP > maxHP)
+            {
+                HP = maxHP;
+            }
+            return true;
+        }
+        
+            return false;
+    }
+
+    IEnumerator DamageFlashScreen()
+    {
+        gameManager.instance.playerDMGPanel.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        gameManager.instance.playerDMGPanel.SetActive(false);
+    }
+    IEnumerator HealFlashScreen()
+    {
+        gameManager.instance.playerHealPanel.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        gameManager.instance.playerHealPanel.SetActive(false);
     }
 }
