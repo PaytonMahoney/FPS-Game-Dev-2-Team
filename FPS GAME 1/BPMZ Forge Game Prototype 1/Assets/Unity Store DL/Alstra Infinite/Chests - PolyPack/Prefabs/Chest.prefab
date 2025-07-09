@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 389145416c3991c4fa052f7911e54332, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 389145416c3991c4fa052f7911e54332, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 389145416c3991c4fa052f7911e54332, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 389145416c3991c4fa052f7911e54332, type: 3}
       propertyPath: m_LocalPosition.x
       value: -36.851357
       objectReference: {fileID: 0}
@@ -66,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a48d3b2af4afc554b9d2a8166db2d502, type: 2}
     - target: {fileID: 919132149155446097, guid: 389145416c3991c4fa052f7911e54332, type: 3}
       propertyPath: m_Name
-      value: ChestV1 1
+      value: Chest
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
