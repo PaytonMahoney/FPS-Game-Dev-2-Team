@@ -1,6 +1,8 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Threading;
+using System.Numerics;
 
 public class Gun : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class Gun : MonoBehaviour
         SMG,
         Rifle,
         Sniper,
-    }
+    } 
     [SerializeField] public WeaponClass mtype;
     [SerializeField] public int mDMG;
     [SerializeField] public float mFireRate;
@@ -28,7 +30,7 @@ public class Gun : MonoBehaviour
         currentMag = mMaxMag;
     }
 
-    public Gun(int type, int DMG, float FireRate, int MaxAmmo,int MaxMag,int Range,int ReloadSpeed)
+    public Gun(int type, int DMG = 0, float FireRate = 0, int MaxAmmo = 0,int MaxMag = 0,int Range = 0,int ReloadSpeed = 0)
     {
         switch (type) {
             case 0:
@@ -87,10 +89,15 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == gameManager.instance.player) {
-            gameManager.instance.playerScript.equipGun = this;
-            Destroy(gameObject);
-        }
+        
+            if (other.gameObject.CompareTag("Player"))
+            {
+          //  Instantiate(other.GetComponent<playerController>().equipGun,transform.position,transform.rotation);
+            other.GetComponent<playerController>().equipGun = this;
+                Destroy(gameObject);
+            }
+        
+        
     }
 
 

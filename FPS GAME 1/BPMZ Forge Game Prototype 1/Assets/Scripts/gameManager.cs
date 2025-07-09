@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.Mathematics;
 
 public class gameManager : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class gameManager : MonoBehaviour
 
     public Image playerHPBar;
     public GameObject playerDMGPanel;
+    public GameObject playerHealPanel;
     public bool isPaused;
     public GameObject player;
     public playerController playerScript;
     public GameObject mainBoss;
+    public Gun gunScript;
 
     float timescaleOriginal;
     bool bossDead;
@@ -30,6 +33,7 @@ public class gameManager : MonoBehaviour
         mainBoss = GameObject.FindWithTag("MainBoss");
         playerScript = player.GetComponent<playerController>();
         timescaleOriginal = Time.timeScale;
+        
         
         
     }
