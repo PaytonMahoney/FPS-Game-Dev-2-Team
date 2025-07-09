@@ -91,7 +91,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     bool canSeePlayer()
     {
-        playerDir = gameManager.instance.player.transform.position - headPos.position;
+        playerDir = GameObject.FindWithTag("Player").transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(playerDir, transform.forward);
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
@@ -103,7 +103,7 @@ public class enemyAI : MonoBehaviour, IDamage
                 {
                     shoot();
                 }
-                agent.SetDestination(gameManager.instance.player.transform.position);
+                agent.SetDestination(GameObject.FindWithTag("Player").transform.position);
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     faceTarget();
