@@ -13,6 +13,9 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     [SerializeField] int HP;
     int maxHP;
     
+
+
+
     // Movement
     [SerializeField] int moveSpeed;
     [SerializeField] int sprintMod;
@@ -69,6 +72,11 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     // Update is called once per frame    //Should be on input functions
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            takeDamage(10);
+        }
         //Drawing it so I can see it in action
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * equipGun.mRange, Color.violet);
         
@@ -206,7 +214,9 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     public void takeDamage(int amount)
     {
+        
         HP -= amount;
+        updatePlayerUI();
         StartCoroutine(DamageFlashScreen());
         if (HP <= 0)
         {
@@ -221,6 +231,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         {
             StartCoroutine(HealFlashScreen());
             HP += amount;
+            updatePlayerUI();
+
             if (HP > maxHP)
             {
                 HP = maxHP;
@@ -230,6 +242,13 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         
             return false;
     }
+
+    public void updatePlayerUI()
+    {
+        Debug.Log("HP UI Updated: " + HP + "/" + maxHP);
+        gameManager.instance.playerHPBar.fillAmount = (float)HP / maxHP;
+    }
+
 
     IEnumerator DamageFlashScreen()
     {
