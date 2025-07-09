@@ -1,4 +1,7 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.AI;
+using System.Threading;
 using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
@@ -30,8 +33,9 @@ public class gameManager : MonoBehaviour
         mainBoss = GameObject.FindWithTag("MainBoss");
         playerScript = player.GetComponent<playerController>();
         timescaleOriginal = Time.timeScale;
-        
-        
+
+
+
     }
 
     // Update is called once per frame
@@ -54,7 +58,7 @@ public class gameManager : MonoBehaviour
 
         //if (mainBoss.HP <= 0)
         //{
-            //youWin();
+        //    youWin();
         //}
     }
 
