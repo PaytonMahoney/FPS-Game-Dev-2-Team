@@ -231,12 +231,12 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         {
             StartCoroutine(HealFlashScreen());
             HP += amount;
-            updatePlayerUI();
-
+            
             if (HP > maxHP)
             {
                 HP = maxHP;
             }
+            updatePlayerUI();
             return true;
         }
         
@@ -259,7 +259,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     IEnumerator HealFlashScreen()
     {
         gameManager.instance.playerHealPanel.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         gameManager.instance.playerHealPanel.SetActive(false);
     }
 }
