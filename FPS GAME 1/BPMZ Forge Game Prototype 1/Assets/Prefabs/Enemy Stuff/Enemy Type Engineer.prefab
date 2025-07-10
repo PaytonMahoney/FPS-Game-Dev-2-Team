@@ -215,16 +215,12 @@ MonoBehaviour:
   shootPos2: {fileID: 1848480644233459045}
   headPos: {fileID: 6341432581828644461}
   bullet: {fileID: 1953041360110378719, guid: 369773060bc84854fbf5cbded5f742e8, type: 3}
-  shootRate: 1.5
-  HP: 5
+  shootRate: 3
+  HP: 30
   fov: 90
   faceTargetSpeed: 3
   roamDis: 10
   roamPauseTime: 1
-  pistolDrop: {fileID: 0}
-  SMGDrop: {fileID: 0}
-  RifleDrop: {fileID: 0}
-  SniperDrop: {fileID: 0}
   dropChance: 0
 --- !u!195 &96297071679792297
 NavMeshAgent:
