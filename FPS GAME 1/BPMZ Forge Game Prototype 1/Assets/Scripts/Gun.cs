@@ -30,6 +30,8 @@ public class Gun : MonoBehaviour
         currentMag = mMaxMag;
     }
 
+
+    //Dont really know why I made this constructor cause I dont think it has been used at all :)
     public Gun(int type)
     {
         switch (type) {

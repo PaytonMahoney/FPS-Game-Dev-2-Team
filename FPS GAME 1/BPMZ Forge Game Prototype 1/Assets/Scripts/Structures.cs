@@ -67,7 +67,7 @@ public class Structures : MonoBehaviour
     }
     void DropRandomGun()
     {
-        int num = Random.Range(0, 3);
+        int num = Random.Range(0, 4);
         Vector3 position = transform.position;
         position.y += 0.5f;
         switch (num)
@@ -111,7 +111,7 @@ public class Structures : MonoBehaviour
 
                     break;
                 }
-            default:
+            case 3:
                 {
                     Gun gun = Instantiate(SniperDrop, position, transform.rotation);
                     gun.mtype = Gun.WeaponClass.Sniper;
@@ -124,6 +124,8 @@ public class Structures : MonoBehaviour
 
                     break;
                 }
+            default:
+                break;
         }
     }
 }
