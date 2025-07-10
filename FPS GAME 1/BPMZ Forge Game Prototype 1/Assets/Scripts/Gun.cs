@@ -24,11 +24,7 @@ public class Gun : MonoBehaviour
     public int currentAmmo;
     public int currentMag;
 
-    private void Start()
-    {
-        currentAmmo = mMaxAmmo;
-        currentMag = mMaxMag;
-    }
+    
 
     public Gun(int type)
     {
