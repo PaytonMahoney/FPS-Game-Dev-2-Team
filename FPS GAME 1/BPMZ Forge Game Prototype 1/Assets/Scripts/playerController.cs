@@ -43,6 +43,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     //Shooting
     [SerializeField] public Gun equipGun;
+    AudioSource shootingSound;
     
     //Slope Handling
     [SerializeField] float maxSlopeAngle;
@@ -63,8 +64,12 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         standingHeight = transform.localScale.y;
         moveSpeedOrig = moveSpeed;
         maxHP = HP;
+<<<<<<< HEAD
         gunUIActive = null;
         
+=======
+        shootingSound = GetComponent<AudioSource>();  
+>>>>>>> a85ad7878eca083ae90cc4772c189106868a06e7
     }
 
     // Update is called once per frame    //Should be on input functions
@@ -171,6 +176,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         //First person view location
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, equipGun.mRange, ~ignoreLayer))
         {
+            shootingSound.Play();
             IDamage dmg = hit.collider.GetComponent<IDamage>();
 
             if (dmg != null)

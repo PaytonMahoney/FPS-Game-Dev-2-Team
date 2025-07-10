@@ -22,6 +22,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int dropChance;
 
     Transform player;
+    AudioSource shootingSound;
 
     Color colorOrg;
     float shootTimer;
@@ -39,6 +40,7 @@ public class enemyAI : MonoBehaviour, IDamage
         startPos = transform.position;
         agentStopDisOrig = agent.stoppingDistance;
         player = gameManager.instance.player.transform;
+        shootingSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -167,11 +169,14 @@ public class enemyAI : MonoBehaviour, IDamage
 
         GameObject bullet1 = Instantiate(bullet, shootPos.position, Quaternion.identity);
         bullet1.GetComponent<BulletMovement>().SetDirection(directionToPlayer);
+        shootingSound.Play();
 
         Vector3 directionToPlayer2 = (player.position - shootPos2.position).normalized;
 
         GameObject bullet2 = Instantiate(bullet, shootPos2.position, Quaternion.identity);
         bullet2.GetComponent<BulletMovement>().SetDirection(directionToPlayer2);
+        
+        shootingSound.Play();
 
     }
 
