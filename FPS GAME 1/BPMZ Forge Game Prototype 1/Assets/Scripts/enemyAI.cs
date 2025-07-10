@@ -39,7 +39,7 @@ public class enemyAI : MonoBehaviour, IDamage
         colorOrg = model.material.color;
         startPos = transform.position;
         agentStopDisOrig = agent.stoppingDistance;
-        player = gameManager.instance.player.transform;
+        player = GameObject.FindWithTag("Player").transform;
         shootingSound = GetComponent<AudioSource>();
         gameManager.instance.enemyCount++;
     }
@@ -172,13 +172,13 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         shootTimer = 0;
         shootTimer = 0;
-        Vector3 directionToPlayer = (player.position - shootPos.position).normalized;
+        Vector3 directionToPlayer = (GameObject.FindWithTag("Player").transform.position - shootPos.position).normalized;
 
         GameObject bullet1 = Instantiate(bullet, shootPos.position, Quaternion.identity);
         bullet1.GetComponent<BulletMovement>().SetDirection(directionToPlayer);
         shootingSound.Play();
 
-        Vector3 directionToPlayer2 = (player.position - shootPos2.position).normalized;
+        Vector3 directionToPlayer2 = (GameObject.FindWithTag("Player").transform.position - shootPos2.position).normalized;
 
         GameObject bullet2 = Instantiate(bullet, shootPos2.position, Quaternion.identity);
         bullet2.GetComponent<BulletMovement>().SetDirection(directionToPlayer2);

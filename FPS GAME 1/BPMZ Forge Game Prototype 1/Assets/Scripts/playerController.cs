@@ -134,11 +134,10 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         {
             shoot();
         }
-
-        if (Input.GetButton("Reload"))
+        if (Input.GetButtonDown("Reload"))
         {
-            equipGun.ReloadGun();
-            //Reload();
+            
+            StartCoroutine(ReloadGun());
         }
     }
 
@@ -211,18 +210,24 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         else
         {
             shootTimer = 0;
+            /*
             if (equipGun.currentAmmo > 0 )
             {
                 equipGun.ReloadGun();
             }
+            */
             audioSource.PlayOneShot(emptyShotSoundClip);
         }
         
     }
     
-    void Reload()
+    IEnumerator ReloadGun()
     {
        // if (Input.GetKeyDown)
+       audioSource.PlayOneShot(reloadSoundClip);
+       yield return new WaitForSeconds(equipGun.mReloadSpeed);
+       equipGun.ReloadGun();
+       
     }
     private bool OnSlope()
     {
