@@ -224,12 +224,6 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         Debug.Log("HP UI Updated: " + HP + "/" + maxHP);
         gameManager.instance.playerHPBar.fillAmount = (float)HP / maxHP;
     }
-    
-    public void UpdatePlayerGun(Gun gun)
-    {
-        this.equipGun = gun;
-        gameManager.instance.UpdateGunUI();
-    }
 
     IEnumerator DamageFlashScreen()
     {

@@ -69,7 +69,7 @@ public class Gun : MonoBehaviour
     {
             if (other.gameObject.CompareTag("Player"))
             {
-                gameManager.instance.GetComponent<playerController>().UpdatePlayerGun(this);
+                other.GetComponent<playerController>().equipGun = this;
                 gameObject.SetActive(false);
             }
         
