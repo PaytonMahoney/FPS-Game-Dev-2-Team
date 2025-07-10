@@ -54,22 +54,15 @@ public class Structures : MonoBehaviour
         if (rotateSpeed > 0)
         {
             transform.Rotate(0, rotateSpeed, 0);
-
         }
-
-
-        
     }
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.gameObject.CompareTag("Player") && dropLoot)
         {
             DropRandomGun();
             Destroy(gameObject);
         }
-
-
     }
     void DropRandomGun()
     {
@@ -128,8 +121,6 @@ public class Structures : MonoBehaviour
 
                     break;
                 }
-
         }
-
     }
 }

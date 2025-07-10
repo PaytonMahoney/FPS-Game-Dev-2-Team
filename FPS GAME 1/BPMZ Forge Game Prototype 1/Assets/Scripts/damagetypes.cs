@@ -23,10 +23,7 @@ public class damagetypes : MonoBehaviour
     [SerializeField] int destroyTime; //if moving or homing type doesn't hit  
 
     bool isDamaging; //for DOT
-
-
-
-
+    
     void Start()
     {
         if (type == damageType.moving || type == damageType.homing)

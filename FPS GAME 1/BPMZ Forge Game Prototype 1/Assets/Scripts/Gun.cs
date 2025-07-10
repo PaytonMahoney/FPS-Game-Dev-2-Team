@@ -69,9 +69,9 @@ public class Gun : MonoBehaviour
     {
             if (other.gameObject.CompareTag("Player"))
             {
-          //  Instantiate(other.GetComponent<playerController>().equipGun,transform.position,transform.rotation);
-            other.GetComponent<playerController>().equipGun = this;
-                Destroy(gameObject);
+                gameManager.instance.GetComponent<playerController>().UpdatePlayerGun(this);
+                gameObject.SetActive(false);
             }
+        
     }
 }

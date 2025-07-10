@@ -86,4 +86,9 @@ public class gameManager : MonoBehaviour
         menuActive = menuWin;
         menuActive.SetActive(true);
     }
+
+    public void UpdateGunUI()
+    {
+        
+    }
 }
