@@ -8,14 +8,10 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     [SerializeField] CharacterController controller;
     [SerializeField] LayerMask ignoreLayer;
-
-
+    
     [SerializeField] int HP;
     int maxHP;
     
-
-
-
     // Movement
     [SerializeField] int moveSpeed;
     [SerializeField] int sprintMod;
@@ -36,7 +32,6 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     [SerializeField] int crouchHeight;
     private float standingHeight;
     
-
     //Jumping 
     [SerializeField] int jumpVel;
     [SerializeField] int jumpMax;
@@ -45,8 +40,6 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     //Shooting
     [SerializeField] public Gun equipGun;
     
-
-
     //Slope Handling
     [SerializeField] float maxSlopeAngle;
     [SerializeField] float slopeForce;
@@ -66,20 +59,17 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         standingHeight = transform.localScale.y;
         moveSpeedOrig = moveSpeed;
         maxHP = HP;
-        
     }
 
     // Update is called once per frame    //Should be on input functions
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.K))
         {
             takeDamage(10);
         }
         //Drawing it so I can see it in action
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * equipGun.mRange, Color.violet);
-        
         movement();
     }
 
@@ -121,14 +111,11 @@ public class playerController : MonoBehaviour, IDamage, IHeal
             jump();
             sprint();
         }
-
-       
-
+        
         if (Input.GetButton("Fire1") && shootTimer > equipGun.mFireRate && equipGun.currentMag > 0)
         {
             shoot();
         }
-
     }
 
     void jump()
@@ -147,16 +134,13 @@ public class playerController : MonoBehaviour, IDamage, IHeal
             state = MovementState.crouching;
             moveSpeed = moveSpeedOrig / 2;
             transform.localScale = new Vector3(transform.localScale.x, standingHeight / 2, transform.localScale.z);
-
         }
         else if (Input.GetButtonUp("Crouch"))
         {
             state = stateOrig;
             transform.localScale = new Vector3(transform.localScale.x, standingHeight, transform.localScale.z);
             moveSpeed = moveSpeedOrig;
-            
         }
-        
     }
 
     void sprint()
@@ -171,13 +155,11 @@ public class playerController : MonoBehaviour, IDamage, IHeal
             state = stateOrig;
             moveSpeed = moveSpeedOrig;
         }
-       
     }
 
     void shoot()
     {
         shootTimer = 0;
-
         RaycastHit hit;
         //First person view location
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, equipGun.mRange, ~ignoreLayer))
@@ -202,7 +184,6 @@ public class playerController : MonoBehaviour, IDamage, IHeal
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0; 
         }
-
         return false;
     }
 
@@ -214,7 +195,6 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     public void takeDamage(int amount)
     {
-        
         HP -= amount;
         updatePlayerUI();
         StartCoroutine(DamageFlashScreen());
@@ -239,8 +219,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
             updatePlayerUI();
             return true;
         }
-        
-            return false;
+        return false;
     }
 
     public void updatePlayerUI()
