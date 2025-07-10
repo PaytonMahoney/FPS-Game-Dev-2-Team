@@ -133,6 +133,11 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         {
             shoot();
         }
+
+        if (Input.GetButton("Fire3"))
+        {
+            equipGun.ReloadGun();
+        }
     }
 
     void jump()
@@ -185,7 +190,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
                     ~ignoreLayer))
             {
                 //Debug.Log(equipGun.currentAmmo);
-                equipGun.currentAmmo--;
+                equipGun.currentMag--;
                 audioSource.PlayOneShot(shootingSoundClip);
                 IDamage dmg = hit.collider.GetComponent<IDamage>();
 
@@ -195,13 +200,24 @@ public class playerController : MonoBehaviour, IDamage, IHeal
                     dmg.takeDamage(equipGun.mDMG);
                 }
             }
+            else
+            {
+                equipGun.currentMag--;
+                audioSource.PlayOneShot(shootingSoundClip);
+            }
         }
         else
         {
             shootTimer = 0;
+            if (equipGun.currentAmmo > 0 )
+            {
+                equipGun.ReloadGun();
+            }
             audioSource.PlayOneShot(emptyShotSoundClip);
         }
+        
     }
+    
 
     private bool OnSlope()
     {
@@ -301,7 +317,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
             gunUIActive.SetActive(true);
         }
 
-        BulletCountUIText.text = equipGun.currentAmmo.ToString() + " / " + equipGun.mMaxAmmo.ToString();
+        BulletCountUIText.text = equipGun.currentMag.ToString() + " / " + equipGun.currentAmmo.ToString();
 
     }
 }
