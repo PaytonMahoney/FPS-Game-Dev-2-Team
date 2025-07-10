@@ -75,6 +75,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         maxHP = HP;
         gunUIActive = null;
         equipGun.currentAmmo = equipGun.mMaxAmmo;
+        equipGun.currentMag = equipGun.mMaxMag;
     }
 
     // Update is called once per frame    //Should be on input functions
@@ -134,9 +135,10 @@ public class playerController : MonoBehaviour, IDamage, IHeal
             shoot();
         }
 
-        if (Input.GetButton("Fire3"))
+        if (Input.GetButton("Reload"))
         {
             equipGun.ReloadGun();
+            //Reload();
         }
     }
 
@@ -218,7 +220,10 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         
     }
     
-
+    void Reload()
+    {
+       // if (Input.GetKeyDown)
+    }
     private bool OnSlope()
     {
         if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, standingHeight * 0.5f + 0.3f))
