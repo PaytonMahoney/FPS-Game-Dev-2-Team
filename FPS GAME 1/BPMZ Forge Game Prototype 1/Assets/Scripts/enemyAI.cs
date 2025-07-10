@@ -189,7 +189,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     void DropRandomGun()
     {
-        int num = Random.Range(0, 3);
+        int num = Random.Range(0, 4);
         switch (num)
         {
             case 0:
