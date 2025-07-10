@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-//using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -33,10 +32,10 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     private GameObject gunUIActive;
 
     [SerializeField] private TMP_Text BulletCountUIText;
-    [SerializeField] private GameObject PistolUI;
-    [SerializeField] private GameObject RifleUI;
-    [SerializeField] private GameObject SMGUI;
-    [SerializeField] private GameObject SniperUI;
+    [SerializeField] public GameObject PistolUI;
+    [SerializeField] public GameObject RifleUI;
+    [SerializeField] public GameObject SMGUI;
+    [SerializeField] public GameObject SniperUI;
     
     //Crouching
     [SerializeField] int crouchHeight;
