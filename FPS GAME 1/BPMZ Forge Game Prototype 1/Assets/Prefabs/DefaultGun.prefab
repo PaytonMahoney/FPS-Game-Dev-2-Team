@@ -47,9 +47,9 @@ MonoBehaviour:
   mtype: 0
   mDMG: 5
   mFireRate: 1
-  mMaxAmmo: 15
-  mMaxMag: 20
+  mMaxAmmo: 50
+  mMaxMag: 15
   mRange: 50
   mReloadSpeed: 1
-  currentAmmo: 5
-  currentMag: 1
+  currentAmmo: 98
+  currentMag: 20
