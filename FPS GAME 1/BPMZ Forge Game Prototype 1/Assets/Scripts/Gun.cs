@@ -56,12 +56,21 @@ public class Gun : MonoBehaviour
         }
     }
     
-    public IEnumerator ReloadGun()
+    public void ReloadGun()
     {
         if (currentMag < mMaxMag && currentAmmo >= 0)
         {
-            yield return new WaitForSeconds(mReloadSpeed);
-            currentAmmo = mMaxAmmo;
+            if (mMaxMag < currentAmmo)
+            {
+                currentAmmo -= mMaxMag - currentMag;
+                currentMag = mMaxMag;
+            }
+            else
+            {
+                currentMag += currentAmmo;
+                currentAmmo = 0;
+            }
+
         }
     }
 
