@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="57763170-3bc3-4ff0-b429-55d6d8ad55cb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Audio.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1_1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1_1.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1_2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1_2.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1_3.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1_3.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1_4.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1_4.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1_Load.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun1_Load.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2_1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2_1.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2_2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2_2.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2_3.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2_3.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2_4.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2_4.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2_load.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun2_load.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3_1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3_1.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3_2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3_2.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3_3.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3_3.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3_4.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3_4.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3_load.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun3_load.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4_1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4_1.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4_2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4_2.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4_3.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4_3.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4_4.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4_4.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4_load.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun4_load.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5_1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5_1.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5_2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5_2.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5_3.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5_3.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5_4.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5_4.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5_Load.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/Gun5_Load.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/filelist.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/Scifi Guns SFX Pack/filelist.pdf.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy Stuff/Enemy Type Drone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy Stuff/Enemy Type Drone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy Stuff/Enemy Type Engineer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy Stuff/Enemy Type Engineer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy Stuff/Enemy Type Infantry.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy Stuff/Enemy Type Infantry.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/enemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/enemyAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/playerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/playerController.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2zfKatf7BEOgGKcJzQNuiB7Spz2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "Merging main",
+    "ignore.virus.scanning.warn.message": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57763170-3bc3-4ff0-b429-55d6d8ad55cb" name="Changes" comment="" />
+      <created>1752116754373</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1752116754373</updated>
+      <workItem from="1752116756320" duration="97000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
