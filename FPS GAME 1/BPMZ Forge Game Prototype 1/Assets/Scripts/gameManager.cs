@@ -32,6 +32,7 @@ public class gameManager : MonoBehaviour
         mainBoss = GameObject.FindWithTag("MainBoss");
         playerScript = player.GetComponent<playerController>();
         timescaleOriginal = Time.timeScale;
+        enemyCount = 0;
     }
 
     // Update is called once per frame

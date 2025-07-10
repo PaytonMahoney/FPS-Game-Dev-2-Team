@@ -218,9 +218,9 @@ MonoBehaviour:
   shootPos2: {fileID: 1848480644233459045}
   headPos: {fileID: 6341432581828644461}
   bullet: {fileID: 1953041360110378719, guid: 369773060bc84854fbf5cbded5f742e8, type: 3}
-  shootRate: 3
-  HP: 30
-  fov: 90
+  shootRate: 1.5
+  HP: 150
+  fov: 160
   faceTargetSpeed: 3
   roamDis: 10
   roamPauseTime: 1
@@ -303,7 +303,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 08f78eba48bb21c44ac5a74ca84efc83, type: 3}
   m_Resource: {fileID: 8300000, guid: 08f78eba48bb21c44ac5a74ca84efc83, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0

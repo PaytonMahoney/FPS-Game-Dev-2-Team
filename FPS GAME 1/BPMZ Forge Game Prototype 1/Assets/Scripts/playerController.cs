@@ -1,6 +1,10 @@
 using UnityEngine;
+using TMPro;
+//using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine.Video;
 
 public class playerController : MonoBehaviour, IDamage, IHeal
 {
@@ -27,6 +31,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     }
 
     private GameObject gunUIActive;
+
+    [SerializeField] private TMP_Text BulletCountUIText;
     [SerializeField] private GameObject PistolUI;
     [SerializeField] private GameObject RifleUI;
     [SerializeField] private GameObject SMGUI;
@@ -43,7 +49,11 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     //Shooting
     [SerializeField] public Gun equipGun;
-    AudioSource shootingSound;
+    
+    [SerializeField] AudioClip shootingSoundClip;
+    [SerializeField] AudioClip emptyShotSoundClip;
+    [SerializeField] AudioClip reloadSoundClip;
+    [SerializeField] AudioSource audioSource;
     
     //Slope Handling
     [SerializeField] float maxSlopeAngle;
@@ -64,12 +74,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         standingHeight = transform.localScale.y;
         moveSpeedOrig = moveSpeed;
         maxHP = HP;
-<<<<<<< HEAD
         gunUIActive = null;
-        
-=======
-        shootingSound = GetComponent<AudioSource>();  
->>>>>>> a85ad7878eca083ae90cc4772c189106868a06e7
+        equipGun.currentAmmo = equipGun.mMaxAmmo;
     }
 
     // Update is called once per frame    //Should be on input functions
@@ -171,19 +177,30 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     void shoot()
     {
-        shootTimer = 0;
-        RaycastHit hit;
-        //First person view location
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, equipGun.mRange, ~ignoreLayer))
+        if (equipGun.currentAmmo > 0)
         {
-            shootingSound.Play();
-            IDamage dmg = hit.collider.GetComponent<IDamage>();
-
-            if (dmg != null)
+            shootTimer = 0;
+            RaycastHit hit;
+            //First person view location
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, equipGun.mRange,
+                    ~ignoreLayer))
             {
-                //Debug.Log(equipGun.mDMG);
-                dmg.takeDamage(equipGun.mDMG);
+                //Debug.Log(equipGun.currentAmmo);
+                equipGun.currentAmmo--;
+                audioSource.PlayOneShot(shootingSoundClip);
+                IDamage dmg = hit.collider.GetComponent<IDamage>();
+
+                if (dmg != null)
+                {
+                    //Debug.Log(equipGun.mDMG);
+                    dmg.takeDamage(equipGun.mDMG);
+                }
             }
+        }
+        else
+        {
+            shootTimer = 0;
+            audioSource.PlayOneShot(emptyShotSoundClip);
         }
     }
 
@@ -234,7 +251,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     public void updatePlayerUI()
     {
-        Debug.Log("HP UI Updated: " + HP + "/" + maxHP);
+        //Debug.Log("HP UI Updated: " + HP + "/" + maxHP);
         gameManager.instance.playerHPBar.fillAmount = (float)HP / maxHP;
     }
 
@@ -275,14 +292,17 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         {
             gunUIActive = GetGunUIType();
             gunUIActive.SetActive(true);
-            Debug.Log("Step 1");
+            //Debug.Log("Step 1");
         }
         else
         {
-            Debug.Log("Step 2");
+            //Debug.Log("Step 2");
             gunUIActive.SetActive(false);
             gunUIActive = GetGunUIType();
             gunUIActive.SetActive(true);
         }
+
+        BulletCountUIText.text = equipGun.currentAmmo.ToString() + " / " + equipGun.mMaxAmmo.ToString();
+
     }
 }

@@ -210,6 +210,10 @@ MonoBehaviour:
   HP: 100
   moveSpeed: 5
   sprintMod: 2
+  PistolUI: {fileID: 0}
+  RifleUI: {fileID: 0}
+  SMGUI: {fileID: 0}
+  SniperUI: {fileID: 0}
   crouchHeight: 0
   jumpVel: 0
   jumpMax: 0
@@ -307,7 +311,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 929fd214252d7034d93c9463bf63e091, type: 3}
   m_Resource: {fileID: 8300000, guid: 929fd214252d7034d93c9463bf63e091, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0

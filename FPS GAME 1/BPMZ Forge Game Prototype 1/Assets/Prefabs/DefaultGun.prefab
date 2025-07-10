@@ -51,5 +51,5 @@ MonoBehaviour:
   mMaxMag: 20
   mRange: 50
   mReloadSpeed: 1
-  currentAmmo: 15
+  currentAmmo: 5
   currentMag: 1

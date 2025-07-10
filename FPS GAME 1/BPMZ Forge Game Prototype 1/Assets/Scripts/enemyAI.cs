@@ -41,6 +41,7 @@ public class enemyAI : MonoBehaviour, IDamage
         agentStopDisOrig = agent.stoppingDistance;
         player = gameManager.instance.player.transform;
         shootingSound = GetComponent<AudioSource>();
+        gameManager.instance.enemyCount++;
     }
 
     // Update is called once per frame
@@ -147,6 +148,12 @@ public class enemyAI : MonoBehaviour, IDamage
                 DropRandomGun(); ;
             }
             Destroy(gameObject);
+            gameManager.instance.enemyCount--;
+            Debug.Log(gameManager.instance.enemyCount);
+            if (gameManager.instance.enemyCount <= 0)
+            {
+                gameManager.instance.youWin();
+            }
         }
         else
         {
@@ -156,7 +163,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     IEnumerator flashRed()
     {
-        model.material.color = Color.red;
+        model.material.color = Color.green;
         yield return new WaitForSeconds(0.1f);
         model.material.color = colorOrg;
     }
