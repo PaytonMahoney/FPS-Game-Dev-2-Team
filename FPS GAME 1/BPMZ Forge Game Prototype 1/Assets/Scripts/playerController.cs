@@ -130,7 +130,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
             sprint();
         }
         
-        if (Input.GetButton("Fire1") && shootTimer > equipGun.mFireRate && equipGun.currentMag > 0)
+        if (Input.GetButton("Fire1") && shootTimer > equipGun.mFireRate)
         {
             shoot();
         }
@@ -183,7 +183,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     void shoot()
     {
-        if (equipGun.currentAmmo > 0)
+        if (equipGun.currentMag > 0)
         {
             shootTimer = 0;
             RaycastHit hit;
