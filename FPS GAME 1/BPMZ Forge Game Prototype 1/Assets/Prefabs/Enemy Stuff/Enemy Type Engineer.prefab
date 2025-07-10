@@ -217,7 +217,7 @@ MonoBehaviour:
   shootPos: {fileID: 1689809987258878537}
   shootPos2: {fileID: 1848480644233459045}
   headPos: {fileID: 6341432581828644461}
-  bullet: {fileID: 1953041360110378719, guid: 369773060bc84854fbf5cbded5f742e8, type: 3}
+  bullet: {fileID: 1953041360110378719, guid: 66e29b061ea39894e9796c55d2906728, type: 3}
   shootRate: 1.5
   HP: 150
   fov: 160
