@@ -18,9 +18,13 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int roamDis;
     [SerializeField] int roamPauseTime;
 
+    
+
     Gun pistolDrop, SMGDrop, RifleDrop, SniperDrop;
     [SerializeField] int dropChance;
-    
+
+    Transform player;
+
     Color colorOrg;
     float shootTimer;
     float angleToPlayer;
@@ -36,6 +40,7 @@ public class enemyAI : MonoBehaviour, IDamage
         colorOrg = model.material.color;
         startPos = transform.position;
         agentStopDisOrig = agent.stoppingDistance;
+        player = gameManager.instance.player.transform;
     }
 
     // Update is called once per frame
@@ -79,6 +84,7 @@ public class enemyAI : MonoBehaviour, IDamage
         playerDir = GameObject.FindWithTag("Player").transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(playerDir, transform.forward);
         RaycastHit hit;
+        
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
             if (hit.collider.CompareTag("Player") && angleToPlayer <= fov)
@@ -159,8 +165,17 @@ public class enemyAI : MonoBehaviour, IDamage
     void shoot()
     {
         shootTimer = 0;
-        Instantiate(bullet, shootPos.position, transform.rotation);
-        Instantiate(bullet, shootPos2.position, transform.rotation);
+        //Instantiate(bullet, shootPos.position, transform.rotation);
+        Vector3 directionToPlayer = (player.position - shootPos.position).normalized;
+
+        GameObject bullet1 = Instantiate(bullet, shootPos.position, Quaternion.identity);
+        bullet1.GetComponent<BulletMovement>().SetDirection(directionToPlayer);
+
+        Vector3 directionToPlayer2 = (player.position - shootPos2.position).normalized;
+        
+        GameObject bullet2 = Instantiate(bullet, shootPos2.position, Quaternion.identity);
+        bullet2.GetComponent<BulletMovement>().SetDirection(directionToPlayer2);
+        //Instantiate(bullet, shootPos2.position, transform.rotation);
     }
 
     void DropRandomGun()

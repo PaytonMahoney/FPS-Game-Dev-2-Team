@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5253668499834613752}
+  - component: {fileID: -1653806444065883742}
   - component: {fileID: 1395623360526353439}
   - component: {fileID: 6499341530765298430}
   - component: {fileID: 1011868720863069471}
   - component: {fileID: 6503255928159155971}
   m_Layer: 8
-  m_Name: Bullet
+  m_Name: Bullet Engineer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +36,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1653806444065883742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953041360110378719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a222d375bcc2eea49a867e2e3960ceb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 35
 --- !u!114 &1395623360526353439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,9 +63,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rb: {fileID: 1011868720863069471}
-  damageAmount: 2
+  damageAmount: 10
   damageRate: 0
-  speed: 25
+  speed: 35
   destroyTime: 3
 --- !u!65 &6499341530765298430
 BoxCollider:
