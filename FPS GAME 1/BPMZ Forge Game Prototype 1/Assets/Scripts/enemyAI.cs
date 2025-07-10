@@ -20,7 +20,9 @@ public class enemyAI : MonoBehaviour, IDamage
 
     Gun pistolDrop, SMGDrop, RifleDrop, SniperDrop;
     [SerializeField] int dropChance;
-    
+
+    Transform player;
+
     Color colorOrg;
     float shootTimer;
     float angleToPlayer;
@@ -36,6 +38,7 @@ public class enemyAI : MonoBehaviour, IDamage
         colorOrg = model.material.color;
         startPos = transform.position;
         agentStopDisOrig = agent.stoppingDistance;
+        player = gameManager.instance.player.transform;
     }
 
     // Update is called once per frame
@@ -159,8 +162,17 @@ public class enemyAI : MonoBehaviour, IDamage
     void shoot()
     {
         shootTimer = 0;
-        Instantiate(bullet, shootPos.position, transform.rotation);
-        Instantiate(bullet, shootPos2.position, transform.rotation);
+        shootTimer = 0;
+        Vector3 directionToPlayer = (player.position - shootPos.position).normalized;
+
+        GameObject bullet1 = Instantiate(bullet, shootPos.position, Quaternion.identity);
+        bullet1.GetComponent<BulletMovement>().SetDirection(directionToPlayer);
+
+        Vector3 directionToPlayer2 = (player.position - shootPos2.position).normalized;
+
+        GameObject bullet2 = Instantiate(bullet, shootPos2.position, Quaternion.identity);
+        bullet2.GetComponent<BulletMovement>().SetDirection(directionToPlayer2);
+
     }
 
     void DropRandomGun()
