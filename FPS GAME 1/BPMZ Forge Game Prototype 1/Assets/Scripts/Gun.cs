@@ -67,11 +67,11 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                other.GetComponent<playerController>().equipGun = this;
-                gameObject.SetActive(false);
-            }
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.GetComponent<playerController>().equipGun = this;
+            gameObject.SetActive(false);
+            //gameManager.instance.GetComponent<playerController>().UpdateGunUI();
+        }
     }
 }

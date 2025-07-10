@@ -59983,6 +59983,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
+      propertyPath: SMGUI
+      value: 
+      objectReference: {fileID: 139434515}
+    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
+      propertyPath: RifleUI
+      value: 
+      objectReference: {fileID: 2022916202}
+    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
       propertyPath: gravity
       value: 35
       objectReference: {fileID: 0}
@@ -59994,6 +60002,14 @@ PrefabInstance:
       propertyPath: jumpVel
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
+      propertyPath: PistolUI
+      value: 
+      objectReference: {fileID: 729933386}
+    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
+      propertyPath: SniperUI
+      value: 
+      objectReference: {fileID: 1327962659}
     - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
       propertyPath: equipGun
       value: 

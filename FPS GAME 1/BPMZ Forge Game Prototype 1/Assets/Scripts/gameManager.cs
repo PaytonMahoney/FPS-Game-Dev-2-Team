@@ -28,12 +28,10 @@ public class gameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-
         player = GameObject.FindWithTag("Player");
         mainBoss = GameObject.FindWithTag("MainBoss");
         playerScript = player.GetComponent<playerController>();
         timescaleOriginal = Time.timeScale;
-        
     }
 
     // Update is called once per frame
@@ -85,10 +83,5 @@ public class gameManager : MonoBehaviour
         statePause();
         menuActive = menuWin;
         menuActive.SetActive(true);
-    }
-
-    public void UpdateGunUI()
-    {
-        
     }
 }

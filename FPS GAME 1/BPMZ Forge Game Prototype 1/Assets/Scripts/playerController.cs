@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
-//using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class playerController : MonoBehaviour, IDamage, IHeal
 {
@@ -27,7 +26,12 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         crouching
     }
 
-
+    private GameObject gunUIActive;
+    [SerializeField] private GameObject PistolUI;
+    [SerializeField] private GameObject RifleUI;
+    [SerializeField] private GameObject SMGUI;
+    [SerializeField] private GameObject SniperUI;
+    
     //Crouching
     [SerializeField] int crouchHeight;
     private float standingHeight;
@@ -59,6 +63,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         standingHeight = transform.localScale.y;
         moveSpeedOrig = moveSpeed;
         maxHP = HP;
+        gunUIActive = null;
+        
     }
 
     // Update is called once per frame    //Should be on input functions
@@ -71,6 +77,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         //Drawing it so I can see it in action
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * equipGun.mRange, Color.violet);
         movement();
+        UpdateGunUI();
     }
 
     void movement()
@@ -236,5 +243,40 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         gameManager.instance.playerHealPanel.SetActive(true);
         yield return new WaitForSeconds(0.3f);
         gameManager.instance.playerHealPanel.SetActive(false);
+    }
+
+    public GameObject GetGunUIType()
+    {
+        switch (equipGun.mtype)
+        {
+            case Gun.WeaponClass.Pistol:
+                return PistolUI;
+            case Gun.WeaponClass.SMG:
+                return SMGUI;
+            case Gun.WeaponClass.Rifle:
+                return RifleUI;
+            case Gun.WeaponClass.Sniper:
+                return SniperUI;
+            default:
+                return PistolUI;
+        }
+    }
+    
+    public void UpdateGunUI()
+    {
+        //Debug.Log("Step 1");
+        if (gunUIActive == null)
+        {
+            gunUIActive = GetGunUIType();
+            gunUIActive.SetActive(true);
+            Debug.Log("Step 1");
+        }
+        else
+        {
+            Debug.Log("Step 2");
+            gunUIActive.SetActive(false);
+            gunUIActive = GetGunUIType();
+            gunUIActive.SetActive(true);
+        }
     }
 }
