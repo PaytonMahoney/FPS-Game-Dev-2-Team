@@ -6,6 +6,11 @@ TagManager:
   tags:
   - MainBoss
   - Enemy
+  - PistolUI
+  - RifleUI
+  - SMGUI
+  - SniperUI
+  - BulletCount
   layers:
   - Default
   - TransparentFX
