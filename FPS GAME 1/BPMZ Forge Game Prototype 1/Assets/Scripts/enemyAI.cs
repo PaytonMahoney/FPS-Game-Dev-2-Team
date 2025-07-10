@@ -6,49 +6,28 @@ using System.Threading;
 public class enemyAI : MonoBehaviour, IDamage
 {
     [SerializeField] Renderer model;
-
     [SerializeField] NavMeshAgent agent;
-
     [SerializeField] Transform shootPos;
-
     [SerializeField] Transform shootPos2;
-
     [SerializeField] Transform headPos;
-
     [SerializeField] GameObject bullet;
-
     [SerializeField] float shootRate;
-
     [SerializeField] int HP;
-
     [SerializeField] int fov;
-
     [SerializeField] int faceTargetSpeed;
-
     [SerializeField] int roamDis;
-
     [SerializeField] int roamPauseTime;
 
-
-    [SerializeField] Gun pistolDrop, SMGDrop, RifleDrop, SniperDrop;
+    Gun pistolDrop, SMGDrop, RifleDrop, SniperDrop;
     [SerializeField] int dropChance;
-
-
-
+    
     Color colorOrg;
-
     float shootTimer;
-
     float angleToPlayer;
-
     float roamTime;
-
     float agentStopDisOrig;
-
     Vector3 playerDir;
-
     Vector3 startPos;
-
     bool playerInTrigger;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -241,8 +220,6 @@ public class enemyAI : MonoBehaviour, IDamage
 
                     break;
                 }
-
         }
-
     }
 }

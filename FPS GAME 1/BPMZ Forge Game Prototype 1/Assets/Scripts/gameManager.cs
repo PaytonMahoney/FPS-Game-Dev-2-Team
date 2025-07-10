@@ -34,8 +34,6 @@ public class gameManager : MonoBehaviour
         playerScript = player.GetComponent<playerController>();
         timescaleOriginal = Time.timeScale;
         
-        
-        
     }
 
     // Update is called once per frame
@@ -55,11 +53,6 @@ public class gameManager : MonoBehaviour
                 stateUnpause();
             }
         }
-
-        //if (mainBoss.HP <= 0)
-        //{
-        //    youWin();
-        //}
     }
 
     public void statePause()

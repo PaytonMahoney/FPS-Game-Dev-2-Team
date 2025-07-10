@@ -44,12 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a5169357fa5f844b297cf1cdd5f870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
-  DMG: 10
-  FireRate: 1
-  MaxAmmo: 300
-  MaxMag: 30
-  Range: 150
-  ReloadSpeed: 5
-  currentAmmo: 0
-  currentMag: 0
+  mtype: 0
+  mDMG: 5
+  mFireRate: 1
+  mMaxAmmo: 15
+  mMaxMag: 20
+  mRange: 50
+  mReloadSpeed: 1
+  currentAmmo: 15
+  currentMag: 1

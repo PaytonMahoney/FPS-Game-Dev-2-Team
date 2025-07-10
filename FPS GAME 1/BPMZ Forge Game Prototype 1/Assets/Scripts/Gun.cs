@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
         currentMag = mMaxMag;
     }
 
-    public Gun(int type, int DMG = 0, float FireRate = 0, int MaxAmmo = 0,int MaxMag = 0,int Range = 0,int ReloadSpeed = 0)
+    public Gun(int type)
     {
         switch (type) {
             case 0:
@@ -54,51 +54,24 @@ public class Gun : MonoBehaviour
                     break;
             }
         }
-        mDMG = DMG;
-        mFireRate = FireRate;
-        mMaxAmmo = MaxAmmo;
-        mMaxMag = MaxMag;
-        mRange = Range;
-        mReloadSpeed = ReloadSpeed;
-        currentAmmo = MaxAmmo;
-        currentMag = mMaxMag;
     }
     
-  
-
     public IEnumerator ReloadGun()
     {
-        if (currentMag < mMaxMag && currentAmmo > 0)
+        if (currentMag < mMaxMag && currentAmmo >= 0)
         {
             yield return new WaitForSeconds(mReloadSpeed);
-            if (currentAmmo > mMaxMag - currentMag) 
-            {
-            currentAmmo -= mMaxMag - currentMag;
-                currentMag = mMaxMag;
-            }
-            else
-            {
-                currentMag += currentAmmo;
-                currentAmmo = 0;
-            }
-
-
-                
+            currentAmmo = mMaxAmmo;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
             if (other.gameObject.CompareTag("Player"))
             {
           //  Instantiate(other.GetComponent<playerController>().equipGun,transform.position,transform.rotation);
             other.GetComponent<playerController>().equipGun = this;
                 Destroy(gameObject);
             }
-        
-        
     }
-
-
 }

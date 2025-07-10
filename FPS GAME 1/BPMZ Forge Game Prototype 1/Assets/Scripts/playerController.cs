@@ -164,14 +164,11 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         //First person view location
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, equipGun.mRange, ~ignoreLayer))
         {
-            //Will tell me what the Raycast hit
-            //Debug.Log(hit.collider.name);
-
-            //Damage code: Everything you need is here
             IDamage dmg = hit.collider.GetComponent<IDamage>();
 
             if (dmg != null)
             {
+                //Debug.Log(equipGun.mDMG);
                 dmg.takeDamage(equipGun.mDMG);
             }
         }
