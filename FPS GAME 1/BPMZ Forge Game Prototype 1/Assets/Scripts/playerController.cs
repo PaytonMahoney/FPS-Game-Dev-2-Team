@@ -1,8 +1,9 @@
-using UnityEngine;
-using TMPro;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TMPro;
+using UnityEngine;
 using UnityEngine.Video;
 
 public class playerController : MonoBehaviour, IDamage, IHeal
@@ -59,8 +60,16 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     [SerializeField] float slopeForce;
     private RaycastHit slopeHit;
 
+    //Dash Handling
+    [SerializeField] float dashSpeed;
+    [SerializeField] float dashTime;
+
+
     Vector3 moveDir;
     Vector3 playerVel;
+    Vector3 dashVelocity;
+   
+    
 
     int jumpCount;
 
@@ -94,6 +103,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     void movement()
     {
         shootTimer += Time.deltaTime;
+        
 
         //Tie A and D keys to the player character   //Strafe forward
         moveDir = (Input.GetAxis("Horizontal") * transform.right) + (Input.GetAxis("Vertical") * transform.forward);
@@ -112,7 +122,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         {
             //Now Gravity won't stack
             playerVel = Vector3.zero;
-            jumpCount = 0;
+            jumpCount = 0;           
             controller.Move(playerVel * Time.deltaTime);
         }
         else
@@ -122,12 +132,15 @@ public class playerController : MonoBehaviour, IDamage, IHeal
             //jumpCount = 0;
         }
 
+       
         crouch();
+
         
         if (state != MovementState.crouching)
         {
             jump();
             sprint();
+            dash();
         }
         
         if (Input.GetButton("Fire1") && shootTimer > equipGun.mFireRate)
@@ -163,6 +176,25 @@ public class playerController : MonoBehaviour, IDamage, IHeal
             state = stateOrig;
             transform.localScale = new Vector3(transform.localScale.x, standingHeight, transform.localScale.z);
             moveSpeed = moveSpeedOrig;
+        }
+    }
+
+    void dash()
+    {
+        if(Input.GetButtonDown("Dash"))
+        {
+            StartCoroutine(Dash());
+        }
+        
+    }
+    IEnumerator Dash()
+    {
+        float startTime = Time.time;
+
+        while (Time.time < startTime + dashTime)
+        {
+            controller.Move(moveDir * dashSpeed * Time.deltaTime);
+            yield return null;
         }
     }
 

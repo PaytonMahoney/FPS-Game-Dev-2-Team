@@ -224,8 +224,10 @@ MonoBehaviour:
   emptyShotSoundClip: {fileID: 8300000, guid: 92e4b6681ee44474daa0bf1bbb9a6602, type: 3}
   reloadSoundClip: {fileID: 8300000, guid: 1e01a3eff9609af4a91cea332a46838e, type: 3}
   audioSource: {fileID: 8616819062796520740}
-  maxSlopeAngle: 0
-  slopeForce: 0
+  maxSlopeAngle: 40
+  slopeForce: 5
+  dashSpeed: 35
+  dashTime: 0.25
 --- !u!33 &7189910975712374665
 MeshFilter:
   m_ObjectHideFlags: 0
