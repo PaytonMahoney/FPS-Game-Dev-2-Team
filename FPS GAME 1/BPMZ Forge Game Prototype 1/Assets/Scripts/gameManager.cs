@@ -19,7 +19,6 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public playerController playerScript;
     public GameObject mainBoss;
-    public Gun gunScript;
 
     float timescaleOriginal;
     bool bossDead;

@@ -1166,6 +1166,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29137635}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &31478358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 31478360}
+  - component: {fileID: 31478359}
+  m_Layer: 0
+  m_Name: GunManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &31478359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31478358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6d9b5b07f58f845a7d4ded1eee7a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pistolDrop: {fileID: 2838546896668048358, guid: 35cfd5581ef4e9e4b94f9b9583545a3b, type: 3}
+  SMGDrop: {fileID: -2027580932930392710, guid: 2b03803b9b3000d40b16a5c1046a0bd3, type: 3}
+  RifleDrop: {fileID: -5654971947582981807, guid: 82886dd5e13a2ea40bd8933a0a5c55fb, type: 3}
+  SniperDrop: {fileID: 6421157341193849636, guid: 6954928462ab3bd4e999afee0b13a1bc, type: 3}
+--- !u!4 &31478360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31478358}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.63063, y: 7.91882, z: -31.44197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &31549642
 GameObject:
   m_ObjectHideFlags: 0
@@ -7944,6 +7992,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 591948449}
     m_Modifications:
+    - target: {fileID: 1128251797293422609, guid: 2bc6f51543de75c4494146ed81ac5436, type: 3}
+      propertyPath: dropChance
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4010657932655637405, guid: 2bc6f51543de75c4494146ed81ac5436, type: 3}
       propertyPath: m_LocalPosition.x
       value: 37.279312
@@ -13040,6 +13092,10 @@ PrefabInstance:
     - target: {fileID: 8290971487950934346, guid: 886efafff604af34daac2321b39ab783, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021422966910793939, guid: 886efafff604af34daac2321b39ab783, type: 3}
+      propertyPath: dropChance
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36394,6 +36450,10 @@ PrefabInstance:
     - target: {fileID: 2716671765061616890, guid: 704e0df2a6c1c474e959c151be919b9c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992438274895475812, guid: 704e0df2a6c1c474e959c151be919b9c, type: 3}
+      propertyPath: dropChance
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -71841,3 +71901,4 @@ SceneRoots:
   - {fileID: 530836935}
   - {fileID: 591948449}
   - {fileID: 1893788200}
+  - {fileID: 31478360}

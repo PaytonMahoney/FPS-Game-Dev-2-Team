@@ -18,7 +18,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int roamDis;
     [SerializeField] int roamPauseTime;
 
-    Gun pistolDrop, SMGDrop, RifleDrop, SniperDrop;
+    //Gun pistolDrop, SMGDrop, RifleDrop, SniperDrop;
     [SerializeField] int dropChance;
 
     Transform player;
@@ -145,7 +145,8 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             if (Random.Range(0, 100) <= dropChance)
             {
-                DropRandomGun(); ;
+                GunManager.instance.DropRandomGun(transform);
+                //DropRandomGun(); 
             }
             Destroy(gameObject);
             gameManager.instance.enemyCount--;
@@ -187,14 +188,14 @@ public class enemyAI : MonoBehaviour, IDamage
 
     }
 
-    void DropRandomGun()
+    void DropARandomGun()
     {
         int num = Random.Range(0, 4);
         switch (num)
         {
             case 0:
                 {
-                    Gun gun = Instantiate(pistolDrop, transform.position, transform.rotation);
+                    Gun gun = Instantiate(GunManager.instance.pistolDrop, transform.position, transform.rotation);
                     gun.mtype = Gun.WeaponClass.Pistol;
                     gun.mDMG = Random.Range(1, 10);
                     gun.mFireRate = Random.Range(.25f, 2);
@@ -207,7 +208,7 @@ public class enemyAI : MonoBehaviour, IDamage
                 }
             case 1:
                 {
-                    Gun gun = Instantiate(SMGDrop, transform.position, transform.rotation);
+                    Gun gun = Instantiate(GunManager.instance.SMGDrop, transform.position, transform.rotation);
                     gun.mtype = Gun.WeaponClass.SMG;
                     gun.mDMG = Random.Range(3, 10);
                     gun.mFireRate = Random.Range(.05f, .5f);
@@ -220,7 +221,7 @@ public class enemyAI : MonoBehaviour, IDamage
                 }
             case 2:
                 {
-                    Gun gun = Instantiate(RifleDrop, transform.position, transform.rotation);
+                    Gun gun = Instantiate(GunManager.instance.RifleDrop, transform.position, transform.rotation);
                     gun.mtype = Gun.WeaponClass.Rifle;
                     gun.mDMG = Random.Range(10, 20);
                     gun.mFireRate = Random.Range(.2f, 2);
@@ -233,7 +234,7 @@ public class enemyAI : MonoBehaviour, IDamage
                 }
             default:
                 {
-                    Gun gun = Instantiate(SniperDrop, transform.position, transform.rotation);
+                    Gun gun = Instantiate(GunManager.instance.SniperDrop, transform.position, transform.rotation);
                     gun.mtype = Gun.WeaponClass.Sniper;
                     gun.mDMG = Random.Range(50, 100);
                     gun.mFireRate = Random.Range(2f, 5);
