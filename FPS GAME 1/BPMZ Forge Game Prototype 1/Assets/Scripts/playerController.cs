@@ -10,7 +10,6 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 {
     //audio fields
     [SerializeField] private AudioSource playerAudio;
-    [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip footstepSFX;
     [SerializeField] AudioClip gunShotSFX;
     [SerializeField] private AudioClip[] hurtClips;
@@ -190,7 +189,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     {
         if (footstepClips.Length > 0)
         {
-            int rand = Random.Range(0, footstepClips.Length);
+            int rand = UnityEngine.Random.Range(0, footstepClips.Length);
             playerAudio.PlayOneShot(footstepClips[rand]);
         }
     }
@@ -324,7 +323,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
         if (hurtClips.Length > 0)
         {
-            int rand = Random.Range(0, hurtClips.Length);
+            int rand = UnityEngine.Random.Range(0, hurtClips.Length);
             playerAudio.PlayOneShot(hurtClips[rand]);
         }
     }

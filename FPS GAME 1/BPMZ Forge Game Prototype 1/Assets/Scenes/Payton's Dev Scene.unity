@@ -1039,7 +1039,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAudio: {fileID: 867464284}
-  audioSource: {fileID: 0}
   footstepSFX: {fileID: 0}
   gunShotSFX: {fileID: 0}
   hurtClips:
@@ -1049,6 +1048,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f3f6aa4288d1b3949b5ccdf52f3eab35, type: 3}
   - {fileID: 8300000, guid: 8d1519de165041f4f94c2e688ff9cd7f, type: 3}
   - {fileID: 8300000, guid: dc3b50fd6b8930f46bd4e11074e674f0, type: 3}
+  footstepClips:
+  - {fileID: 8300000, guid: efe7db49c15ba3a4190fb5817aef626c, type: 3}
+  - {fileID: 8300000, guid: 75529a847383988449fa89416a0ac348, type: 3}
+  - {fileID: 8300000, guid: a7886d2b75096ca4da28c36575deff2d, type: 3}
+  - {fileID: 8300000, guid: d9ff0bc735f9784419179b29a6eb75ad, type: 3}
+  - {fileID: 8300000, guid: c09b16da1bb573d41b7b235f127ab206, type: 3}
+  - {fileID: 8300000, guid: f857ae79a215f5e4cbefc92f78da6dc2, type: 3}
+  - {fileID: 8300000, guid: 61b7680dacfb36943a2743c8812a1040, type: 3}
+  - {fileID: 8300000, guid: 185660a805d904e43ae7912d709e106c, type: 3}
+  - {fileID: 8300000, guid: 45d29789aa7236c47bd1bf87c08b49c8, type: 3}
+  footstepDelay: 0.4
   controller: {fileID: 867464279}
   ignoreLayer:
     serializedVersion: 2
@@ -1056,13 +1066,24 @@ MonoBehaviour:
   HP: 100
   moveSpeed: 5
   sprintMod: 2
+  BulletCountUIText: {fileID: 0}
+  PistolUI: {fileID: 0}
+  RifleUI: {fileID: 0}
+  SMGUI: {fileID: 0}
+  SniperUI: {fileID: 0}
   crouchHeight: 0
   jumpVel: 5
   jumpMax: 2
   gravity: 9
   equipGun: {fileID: 3182136731845895234, guid: cdbf76f1a0160524a9fab420e5f39304, type: 3}
+  shootingSoundClip: {fileID: 0}
+  emptyShotSoundClip: {fileID: 0}
+  reloadSoundClip: {fileID: 0}
+  audioSource: {fileID: 0}
   maxSlopeAngle: 0
   slopeForce: 0
+  dashSpeed: 0
+  dashTime: 0
 --- !u!82 &867464284
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1225,17 +1246,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99abee81e98e36c4c95b23199d3cf5d7, type: 3}
---- !u!114 &916246515 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8944440426425578335, guid: a6c215a74704a1343a17d620243b6571, type: 3}
-  m_PrefabInstance: {fileID: 3156767397224270382}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &963007008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1541,11 +1551,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99abee81e98e36c4c95b23199d3cf5d7, type: 3}
---- !u!1 &1204874805 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5254135548541367559, guid: a6c215a74704a1343a17d620243b6571, type: 3}
-  m_PrefabInstance: {fileID: 3156767397224270382}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1223420164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1607,11 +1612,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2882664067815794297, guid: 99abee81e98e36c4c95b23199d3cf5d7, type: 3}
   m_PrefabInstance: {fileID: 2142279142}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1285496618 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 594697333989759200, guid: a6c215a74704a1343a17d620243b6571, type: 3}
-  m_PrefabInstance: {fileID: 3156767397224270382}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1297566621
 PrefabInstance:
@@ -2084,11 +2084,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2882664067815794297, guid: 99abee81e98e36c4c95b23199d3cf5d7, type: 3}
   m_PrefabInstance: {fileID: 1223420164}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1766167497 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4519591023656116959, guid: a6c215a74704a1343a17d620243b6571, type: 3}
-  m_PrefabInstance: {fileID: 3156767397224270382}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1818755719
 PrefabInstance:
