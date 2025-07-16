@@ -4,9 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour
 {
+
+    [SerializeField] AudioClip uiClick;
+    [SerializeField] AudioSource uiSource;
+
     public void resume()
     {
+        
+        uiSource.PlayOneShot(uiClick);
+        
         gameManager.instance.stateUnpause();
+       
 
     }
 

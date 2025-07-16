@@ -8,6 +8,18 @@ using UnityEngine.Video;
 
 public class playerController : MonoBehaviour, IDamage, IHeal
 {
+    //audio fields
+    [SerializeField] private AudioSource playerAudio;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip footstepSFX;
+    [SerializeField] AudioClip gunShotSFX;
+    [SerializeField] private AudioClip[] hurtClips;
+    [SerializeField] private AudioClip[] footstepClips;
+    [SerializeField] private float footstepDelay = 0.4f;
+    private float footstepTimer;
+
+
+
 
     [SerializeField] CharacterController controller;
     [SerializeField] LayerMask ignoreLayer;
@@ -78,6 +90,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerAudio = GetComponent<AudioSource>();
         stateOrig = state;
         standingHeight = transform.localScale.y;
         moveSpeedOrig = moveSpeed;
@@ -102,6 +115,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     void movement()
     {
+
         shootTimer += Time.deltaTime;
         
 
@@ -109,6 +123,23 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         moveDir = (Input.GetAxis("Horizontal") * transform.right) + (Input.GetAxis("Vertical") * transform.forward);
         //Time.deltaTime = Ignores Frame Rate
         controller.Move(moveDir * moveSpeed * Time.deltaTime);
+
+        UpdateFootstepDelay();
+
+        if (controller.isGrounded && controller.velocity.magnitude > 0.1f)
+        {
+            footstepTimer += Time.deltaTime;
+
+            if (footstepTimer >= footstepDelay)
+            {
+                PlayFootstep();
+                footstepTimer = 0f;
+            }
+        }
+        else if (moveDir.magnitude < 0.01f || !controller.isGrounded)
+        {
+            footstepTimer = footstepDelay;
+        }
 
         if (OnSlope())
         {
@@ -147,11 +178,33 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         {
             shoot();
         }
-        if (Input.GetButtonDown("Reload"))
+
+        if (controller.isGrounded && moveDir.magnitude > 0.1f && !audioSource.isPlaying)
         {
-            
-            StartCoroutine(ReloadGun());
+            audioSource.PlayOneShot(footstepSFX);
         }
+
+    }
+
+    void PlayFootstep()
+    {
+        if (footstepClips.Length > 0)
+        {
+            int rand = Random.Range(0, footstepClips.Length);
+            playerAudio.PlayOneShot(footstepClips[rand]);
+        }
+    }
+
+    void UpdateFootstepDelay()
+    {
+        if (state == MovementState.sprinting)
+            footstepDelay = 0.3f;
+        else if (state == MovementState.walking)
+            footstepDelay = 0.5f;
+        else if (state == MovementState.crouching)
+            footstepDelay = 0.65f;
+        else
+            footstepDelay = 0.5f; // Default
     }
 
     void jump()
@@ -239,27 +292,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal
                 audioSource.PlayOneShot(shootingSoundClip);
             }
         }
-        else
-        {
-            shootTimer = 0;
-            /*
-            if (equipGun.currentAmmo > 0 )
-            {
-                equipGun.ReloadGun();
-            }
-            */
-            audioSource.PlayOneShot(emptyShotSoundClip);
-        }
-        
-    }
-    
-    IEnumerator ReloadGun()
-    {
-       // if (Input.GetKeyDown)
-       audioSource.PlayOneShot(reloadSoundClip);
-       yield return new WaitForSeconds(equipGun.mReloadSpeed);
-       equipGun.ReloadGun();
-       
+
+        audioSource.PlayOneShot(gunShotSFX);
     }
     private bool OnSlope()
     {
@@ -286,6 +320,12 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         {
             //YOU DIED SCREEN HERE
             gameManager.instance.youLose();
+        }
+
+        if (hurtClips.Length > 0)
+        {
+            int rand = Random.Range(0, hurtClips.Length);
+            playerAudio.PlayOneShot(hurtClips[rand]);
         }
     }
 
