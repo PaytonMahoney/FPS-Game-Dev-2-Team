@@ -80,7 +80,7 @@ public class Gun : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<playerController>().equipGun = this;
+            //other.GetComponent<playerController>().equipGun = this;
             gameObject.SetActive(false);
             //gameManager.instance.GetComponent<playerController>().UpdateGunUI();
         }

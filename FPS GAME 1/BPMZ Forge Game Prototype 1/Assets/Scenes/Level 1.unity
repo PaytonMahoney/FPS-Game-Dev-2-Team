@@ -5753,11 +5753,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139316060}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &139434515 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5254135548541367559, guid: a6c215a74704a1343a17d620243b6571, type: 3}
-  m_PrefabInstance: {fileID: 1893788200}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &141943032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2716671765061616890, guid: 704e0df2a6c1c474e959c151be919b9c, type: 3}
@@ -9779,17 +9774,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272506510}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &272802923 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8944440426425578335, guid: a6c215a74704a1343a17d620243b6571, type: 3}
-  m_PrefabInstance: {fileID: 1893788200}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &275163434
 GameObject:
   m_ObjectHideFlags: 0
@@ -24800,11 +24784,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729858423}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &729933386 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4519591023656116959, guid: a6c215a74704a1343a17d620243b6571, type: 3}
-  m_PrefabInstance: {fileID: 1893788200}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &731447290
 GameObject:
   m_ObjectHideFlags: 0
@@ -45214,11 +45193,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327194784}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1327962659 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6503514492203195150, guid: a6c215a74704a1343a17d620243b6571, type: 3}
-  m_PrefabInstance: {fileID: 1893788200}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1329906933
 GameObject:
   m_ObjectHideFlags: 0
@@ -60756,30 +60730,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 65582962411455334, guid: ab5990fe302cce54a970922d07543a25, type: 3}
-      propertyPath: m_Volume
-      value: 0.019
+    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
+      propertyPath: footstepSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: f857ae79a215f5e4cbefc92f78da6dc2, type: 3}
+    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
+      propertyPath: footstepDelay
+      value: 0.15
       objectReference: {fileID: 0}
-    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
-      propertyPath: SMGUI
-      value: 
-      objectReference: {fileID: 139434515}
-    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
-      propertyPath: RifleUI
-      value: 
-      objectReference: {fileID: 2022916202}
-    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
-      propertyPath: PistolUI
-      value: 
-      objectReference: {fileID: 729933386}
-    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
-      propertyPath: SniperUI
-      value: 
-      objectReference: {fileID: 1327962659}
-    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
-      propertyPath: BulletCountUIText
-      value: 
-      objectReference: {fileID: 272802923}
     - target: {fileID: 7886799120726967710, guid: ab5990fe302cce54a970922d07543a25, type: 3}
       propertyPath: m_Name
       value: Player
@@ -67983,11 +67941,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009245394}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2022916202 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 594697333989759200, guid: a6c215a74704a1343a17d620243b6571, type: 3}
-  m_PrefabInstance: {fileID: 1893788200}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2028225359
 GameObject:
   m_ObjectHideFlags: 0

@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7886799120726967710}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7073566, z: -0, w: 0.7068569}
+  m_LocalRotation: {x: 0, y: 0.7073536, z: 0, w: 0.70685995}
   m_LocalPosition: {x: -81.52, y: 1, z: -1.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -204,9 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAudio: {fileID: 65582962411455334}
-  audioSource: {fileID: 65582962411455334}
   footstepSFX: {fileID: 0}
-  gunShotSFX: {fileID: 0}
   hurtClips:
   - {fileID: 8300000, guid: 8059505112f6e9c4a871a278c02f8486, type: 3}
   - {fileID: 8300000, guid: d3918d0916d55c24b96a29476f648df2, type: 3}
@@ -232,20 +230,12 @@ MonoBehaviour:
   HP: 100
   moveSpeed: 10
   sprintMod: 4
-  BulletCountUIText: {fileID: 0}
-  PistolUI: {fileID: 0}
-  RifleUI: {fileID: 0}
-  SMGUI: {fileID: 0}
-  SniperUI: {fileID: 0}
   crouchHeight: 0
   jumpVel: 10
   jumpMax: 2
   gravity: 35
-  equipGun: {fileID: 3182136731845895234, guid: cdbf76f1a0160524a9fab420e5f39304, type: 3}
-  shootingSoundClip: {fileID: 8300000, guid: 7b889162724f05c4f95da46adbd50ef7, type: 3}
-  emptyShotSoundClip: {fileID: 8300000, guid: 92e4b6681ee44474daa0bf1bbb9a6602, type: 3}
-  reloadSoundClip: {fileID: 8300000, guid: 1e01a3eff9609af4a91cea332a46838e, type: 3}
-  audioSource: {fileID: 8616819062796520740}
+  gunInventory: []
+  currentGun: {fileID: 0}
   maxSlopeAngle: 40
   slopeForce: 5
   dashSpeed: 35
@@ -341,7 +331,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.019
   m_Pitch: 1
   Loop: 0
   Mute: 0

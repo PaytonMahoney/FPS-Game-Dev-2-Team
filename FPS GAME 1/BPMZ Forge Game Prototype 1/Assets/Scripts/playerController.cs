@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -10,16 +9,12 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 {
     //audio fields
     [SerializeField] private AudioSource playerAudio;
-    [SerializeField] AudioClip footstepSFX;
-    [SerializeField] AudioClip gunShotSFX;
     [SerializeField] private AudioClip[] hurtClips;
     [SerializeField] private AudioClip[] footstepClips;
-    [SerializeField] private float footstepDelay = 0.4f;
+    [Range(0.25f, 1f)] [SerializeField] private float footstepDelay;
+    private float originalFootstepDelay;
     private float footstepTimer;
-
-
-
-
+    
     [SerializeField] CharacterController controller;
     [SerializeField] LayerMask ignoreLayer;
     
@@ -27,8 +22,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     int maxHP;
     
     // Movement
-    [SerializeField] int moveSpeed;
-    [SerializeField] int sprintMod;
+    [Range(5, 20)] [SerializeField] int moveSpeed;
+    [Range(1, 5)] [SerializeField] int sprintMod;
     private int moveSpeedOrig;
 
     private MovementState state;
@@ -40,14 +35,6 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         sprinting,
         crouching
     }
-
-    private GameObject gunUIActive;
-
-    [SerializeField] private TMP_Text BulletCountUIText;
-    [SerializeField] public GameObject PistolUI;
-    [SerializeField] public GameObject RifleUI;
-    [SerializeField] public GameObject SMGUI;
-    [SerializeField] public GameObject SniperUI;
     
     //Crouching
     [SerializeField] int crouchHeight;
@@ -59,12 +46,11 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     [SerializeField] int gravity;
 
     //Shooting
-    [SerializeField] public Gun equipGun;
-    
-    [SerializeField] AudioClip shootingSoundClip;
-    [SerializeField] AudioClip emptyShotSoundClip;
-    [SerializeField] AudioClip reloadSoundClip;
-    [SerializeField] AudioSource audioSource;
+    //[SerializeField] public Gun equipGun;
+    [SerializeField] public List<GunStats> gunInventory = new List<GunStats>();
+    public GunStats currentGun;
+    private int gunListPosition;
+    private bool isReloading;
     
     //Slope Handling
     [SerializeField] float maxSlopeAngle;
@@ -74,16 +60,12 @@ public class playerController : MonoBehaviour, IDamage, IHeal
     //Dash Handling
     [SerializeField] float dashSpeed;
     [SerializeField] float dashTime;
-
-
+    
     Vector3 moveDir;
     Vector3 playerVel;
     Vector3 dashVelocity;
-   
     
-
     int jumpCount;
-
     float shootTimer;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -94,116 +76,119 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         standingHeight = transform.localScale.y;
         moveSpeedOrig = moveSpeed;
         maxHP = HP;
-        gunUIActive = null;
-        equipGun.currentAmmo = equipGun.mMaxAmmo;
-        equipGun.currentMag = equipGun.mMaxMag;
+        originalFootstepDelay = footstepDelay;
+        updatePlayerUI();
     }
 
     // Update is called once per frame    //Should be on input functions
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.K))
         {
             takeDamage(10);
         }
+        */
         //Drawing it so I can see it in action
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * equipGun.mRange, Color.violet);
-        movement();
-        UpdateGunUI();
+        if(gunInventory.Count > 0)
+            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * currentGun.shootDistance, Color.violet);
+        
+        if(!gameManager.instance.isPaused)
+            movement();
+        crouch();
+        sprint();
     }
 
     void movement()
     {
-
         shootTimer += Time.deltaTime;
         
-
         //Tie A and D keys to the player character   //Strafe forward
         moveDir = (Input.GetAxis("Horizontal") * transform.right) + (Input.GetAxis("Vertical") * transform.forward);
         //Time.deltaTime = Ignores Frame Rate
         controller.Move(moveDir * moveSpeed * Time.deltaTime);
 
         UpdateFootstepDelay();
-
-        if (controller.isGrounded && controller.velocity.magnitude > 0.1f)
+        
+        footstepTimer += Time.deltaTime;
+        if (controller.isGrounded)
         {
-            footstepTimer += Time.deltaTime;
-
-            if (footstepTimer >= footstepDelay)
+            //Now Gravity won't stack
+            Debug.Log("Grounded");
+            playerVel = Vector3.zero;
+            jumpCount = 0;
+            if (OnSlope())
             {
-                PlayFootstep();
+                Vector3 slopeMove = GetSlopeMoveDirection() * moveSpeed;
+                slopeMove += Vector3.down * slopeForce;
+                controller.Move(slopeMove * Time.deltaTime);
+
+            }
+            else
+            {
+                controller.Move(playerVel * Time.deltaTime);
+            }
+            
+            if (moveDir.x != 0 || moveDir.z != 0)
+            {
+                //Debug.Log("Moving");
+                //footstepTimer += Time.deltaTime;
+                if (footstepTimer >= footstepDelay)
+                {
+                    PlayFootstep();
+                    footstepTimer = 0f;
+                }
+            }
+            else
+            {
                 footstepTimer = 0f;
             }
         }
-        else if (moveDir.magnitude < 0.01f || !controller.isGrounded)
-        {
-            footstepTimer = footstepDelay;
-        }
-
-        if (OnSlope())
-        {
-            Vector3 slopeMove = GetSlopeMoveDirection() * moveSpeed;
-
-            slopeMove += Vector3.down * slopeForce;
-
-            controller.Move(slopeMove * Time.deltaTime);
-        }
-        else if (controller.isGrounded)
-        {
-            //Now Gravity won't stack
-            playerVel = Vector3.zero;
-            jumpCount = 0;           
-            controller.Move(playerVel * Time.deltaTime);
-        }
         else
         {
+            //footstepTimer = 0f;
             controller.Move(playerVel * Time.deltaTime);
             playerVel.y -= gravity * Time.deltaTime;
             //jumpCount = 0;
         }
 
-       
-        crouch();
-
-        
+        // Crouching or nah
         if (state != MovementState.crouching)
         {
             jump();
-            sprint();
             dash();
         }
         
-        if (Input.GetButton("Fire1") && shootTimer > equipGun.mFireRate)
+        // Fire away
+        if (Input.GetButton("Fire1") && gunInventory.Count > 0 && shootTimer > currentGun.shootRate && !isReloading)
         {
             shoot();
         }
 
-        if (controller.isGrounded && moveDir.magnitude > 0.1f && !audioSource.isPlaying)
+        if (Input.GetButtonDown("Reload") && !isReloading)
         {
-            audioSource.PlayOneShot(footstepSFX);
+            reload();
         }
-
     }
 
     void PlayFootstep()
     {
         if (footstepClips.Length > 0)
         {
-            int rand = UnityEngine.Random.Range(0, footstepClips.Length);
-            playerAudio.PlayOneShot(footstepClips[rand]);
+            playerAudio.PlayOneShot(footstepClips[UnityEngine.Random.Range(0, footstepClips.Length)]);
         }
     }
 
     void UpdateFootstepDelay()
     {
         if (state == MovementState.sprinting)
-            footstepDelay = 0.3f;
+            footstepDelay = originalFootstepDelay / 2;
         else if (state == MovementState.walking)
-            footstepDelay = 0.5f;
+            footstepDelay = originalFootstepDelay;
         else if (state == MovementState.crouching)
-            footstepDelay = 0.65f;
+            footstepDelay = originalFootstepDelay * 2;
         else
-            footstepDelay = 0.5f; // Default
+            footstepDelay = originalFootstepDelay; // Default
     }
 
     void jump()
@@ -266,34 +251,33 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     void shoot()
     {
-        if (equipGun.currentMag > 0)
+        if (currentGun.ammoCurrent > 0)
         {
+            currentGun.ammoCurrent--;
             shootTimer = 0;
             RaycastHit hit;
+
             //First person view location
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, equipGun.mRange,
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit,
+                    currentGun.shootDistance,
                     ~ignoreLayer))
             {
-                //Debug.Log(equipGun.currentAmmo);
-                equipGun.currentMag--;
-                audioSource.PlayOneShot(shootingSoundClip);
+                playerAudio.PlayOneShot(currentGun.shootingSound);
                 IDamage dmg = hit.collider.GetComponent<IDamage>();
 
                 if (dmg != null)
                 {
                     //Debug.Log(equipGun.mDMG);
-                    dmg.takeDamage(equipGun.mDMG);
+                    dmg.takeDamage(currentGun.shootDMG);
                 }
             }
-            else
-            {
-                equipGun.currentMag--;
-                audioSource.PlayOneShot(shootingSoundClip);
-            }
         }
-
-        audioSource.PlayOneShot(gunShotSFX);
+        else
+        {
+            playerAudio.PlayOneShot(currentGun.emptyShotSound);
+        }
     }
+
     private bool OnSlope()
     {
         if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, standingHeight * 0.5f + 0.3f))
@@ -363,42 +347,12 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         yield return new WaitForSeconds(0.3f);
         gameManager.instance.playerHealPanel.SetActive(false);
     }
-
-    public GameObject GetGunUIType()
+    IEnumerator reload()
     {
-        switch (equipGun.mtype)
-        {
-            case Gun.WeaponClass.Pistol:
-                return PistolUI;
-            case Gun.WeaponClass.SMG:
-                return SMGUI;
-            case Gun.WeaponClass.Rifle:
-                return RifleUI;
-            case Gun.WeaponClass.Sniper:
-                return SniperUI;
-            default:
-                return PistolUI;
-        }
-    }
-    
-    public void UpdateGunUI()
-    {
-        //Debug.Log("Step 1");
-        if (gunUIActive == null)
-        {
-            gunUIActive = GetGunUIType();
-            gunUIActive.SetActive(true);
-            //Debug.Log("Step 1");
-        }
-        else
-        {
-            //Debug.Log("Step 2");
-            gunUIActive.SetActive(false);
-            gunUIActive = GetGunUIType();
-            gunUIActive.SetActive(true);
-        }
-
-        BulletCountUIText.text = equipGun.currentMag.ToString() + " / " + equipGun.currentAmmo.ToString();
-
+        isReloading = true;
+        playerAudio.PlayOneShot(currentGun.reloadSound);
+        yield return new WaitForSeconds(currentGun.reloadTime);
+        isReloading = false;
+        currentGun.ammoCurrent = currentGun.ammoMax;
     }
 }
