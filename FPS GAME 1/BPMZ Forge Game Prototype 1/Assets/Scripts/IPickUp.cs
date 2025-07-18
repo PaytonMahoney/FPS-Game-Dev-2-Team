@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IPickUp
 {
-    public void GetGunStats(GunStats gun);
+    public void PickUpGun(Gun gun);
 }
