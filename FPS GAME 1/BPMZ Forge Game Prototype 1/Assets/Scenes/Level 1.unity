@@ -1195,10 +1195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6d9b5b07f58f845a7d4ded1eee7a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pistolDrop: {fileID: 2838546896668048358, guid: 35cfd5581ef4e9e4b94f9b9583545a3b, type: 3}
-  SMGDrop: {fileID: -2027580932930392710, guid: 2b03803b9b3000d40b16a5c1046a0bd3, type: 3}
-  RifleDrop: {fileID: -5654971947582981807, guid: 82886dd5e13a2ea40bd8933a0a5c55fb, type: 3}
-  SniperDrop: {fileID: 6421157341193849636, guid: 6954928462ab3bd4e999afee0b13a1bc, type: 3}
+  pistolDrop: {fileID: 0}
+  SMGDrop: {fileID: 0}
+  RifleDrop: {fileID: 0}
+  SniperDrop: {fileID: 0}
 --- !u!4 &31478360
 Transform:
   m_ObjectHideFlags: 0
@@ -60730,14 +60730,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
-      propertyPath: footstepSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: f857ae79a215f5e4cbefc92f78da6dc2, type: 3}
-    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
-      propertyPath: footstepDelay
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 7886799120726967710, guid: ab5990fe302cce54a970922d07543a25, type: 3}
       propertyPath: m_Name
       value: Player

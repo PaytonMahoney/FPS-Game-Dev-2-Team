@@ -4,7 +4,7 @@ using UnityEngine;
 public class GunStats : ScriptableObject
 {
     public GameObject gunModel;
-    [Range(1, 10)] public int shootDMG;
+    [Range(1, 40)] public int shootDMG;
     [Range(5, 1000)] public int shootDistance;
     [Range(0.1f, 3)] public float shootRate;
     public int ammoCurrent;
@@ -12,7 +12,6 @@ public class GunStats : ScriptableObject
     [Range(0.5f, 3)] public float reloadTime;
 
     public ParticleSystem hitEffect;
-    public AudioClip[] shootSound;
     [Range(0, 1)] public float shootVol;
     
     public AudioClip reloadSound;

@@ -13,14 +13,13 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   gunModel: {fileID: 0}
-  shootDMG: 1
-  shootDistance: 5
-  shootRate: 0.1
+  shootDMG: 3
+  shootDistance: 100
+  shootRate: 0.5
   ammoCurrent: 0
-  ammoMax: 5
-  reloadTime: 0.5
+  ammoMax: 12
+  reloadTime: 1
   hitEffect: {fileID: 0}
-  shootSound: []
   shootVol: 0
   reloadSound: {fileID: 0}
   emptyShotSound: {fileID: 0}
