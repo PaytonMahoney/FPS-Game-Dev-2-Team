@@ -5,14 +5,276 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57763170-3bc3-4ff0-b429-55d6d8ad55cb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/playerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/playerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/Pistol.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/Pistol.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/Rifle.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/Rifle.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/SMG.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/SMG.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/Sniper.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/Sniper.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Materials/Plane.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Materials/Plane.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault1/assault1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault1/assault1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault1/assault1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault1/assault1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault1/assault1_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault1/assault1_diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault1/assault1_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault1/assault1_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault2.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault2/assault2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault2/assault2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault2/assault2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault2/assault2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault2/assault2_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault2/assault2_diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault2/assault2_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault2/assault2_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault3/assault3.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault3/assault3.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault3/assault3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault3/assault3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault3/assault3_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault3/assault3_diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault3/assault3_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault3/assault3_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault4.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault4/assault4.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault4/assault4.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault4/assault4.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault4/assault4.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault4/assault4_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault4/assault4_diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault4/assault4_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/assault4/assault4_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol1/pistol1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol1/pistol1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol1/pistol1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol1/pistol1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol1/pistol1_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol1/pistol1_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol1/pistol1_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol2.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol2/pistol2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol2/pistol2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol2/pistol2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol2/pistol2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol2/pistol2_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol2/pistol2_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol2/pistol2_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol3/pistol3.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol3/pistol3.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol3/pistol3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol3/pistol3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol3/pistol3_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol3/pistol3_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol3/pistol3_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol4.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol4/pistol4.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol4/pistol4.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol4/pistol4.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol4/pistol4.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol4/pistol4_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol4/pistol4_diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol4/pistol4_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol4/pistol4_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun1/shotgun1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun1/shotgun1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun1/shotgun1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun1/shotgun1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun1/shotgun1_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun1/shotgun1_diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun1/shotgun1_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun1/shotgun1_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun2.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun2/shotgun2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun2/shotgun2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun2/shotgun2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun2/shotgun2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun2/shotgun2_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun2/shotgun2_diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun2/shotgun2_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/shotgun2/shotgun2_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg1/smg1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg1/smg1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg1/smg1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg1/smg1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg1/smg1_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg1/smg1_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg2.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg2/smg2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg2/smg2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg2/smg2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg2/smg2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg2/smg2_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg2/smg2_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper1/sniper1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper1/sniper1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper1/sniper1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper1/sniper1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper1/sniper1_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper1/sniper1_diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper1/sniper1_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper1/sniper1_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper2.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper2/sniper2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper2/sniper2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper2/sniper2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper2/sniper2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper2/sniper2_diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper2/sniper2_diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper2/sniper2_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/sniper2/sniper2_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Scenes/Main.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Scenes/Main.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Scripts/GunView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Scripts/GunView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Scripts/GunsMenu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Scripts/GunsMenu.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Guns/Pistol.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/Pistol.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Guns/Rifle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/Rifle.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Guns/SMG.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/SMG.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Guns/Sniper.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Guns/Sniper.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GunStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GunStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Demo.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Materials.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Demo/Demo.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Demo/Demo.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AK-47.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AK-47/ak-47.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AK-47/ak-47.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol1/pistol1_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AK-47/ak-47_round_mag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AK-47/ak-47_round_mag.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg2/smg2_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AK-47/ak-47_unloaded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AK-47/ak-47_unloaded.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol2/pistol2_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AWP.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AWP/apw_silencer_unloaded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AWP/apw_silencer_unloaded.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/pistol3/pistol3_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AWP/awp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AWP/awp.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AWP/awp_silencer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AWP/awp_silencer.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AWP/awp_unloaded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/AWP/awp_unloaded.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Bullets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Bullets/fire_effect.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Bullets/fire_effect.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Bullets/green_shotgun_bullet.png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Bullets/green_shotgun_bullet.png.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Bullets/pistol_bullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Bullets/pistol_bullet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg1/smg1_normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Bullets/red_shotgun_bullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Bullets/red_shotgun_bullet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Bullets/rifle_bullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Bullets/rifle_bullet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Deagle.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Deagle/deagle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Deagle/deagle.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Deagle/deagle_mag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Deagle/deagle_mag.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Deagle/deagle_par2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Deagle/deagle_par2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Deagle/deagle_part1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Deagle/deagle_part1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Deagle/deagle_unloaded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Deagle/deagle_unloaded.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg1/smg1_diffuse.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Five_seven.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Five_seven/five_seven.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Five_seven/five_seven.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/Low Poly Guns/Models/Guns/smg2/smg2_normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Five_seven/five_seven_part1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Five_seven/five_seven_part1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Five_seven/five_seven_part2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Five_seven/five_seven_part2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Five_seven/fiveseven_mag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Five_seven/fiveseven_mag.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Glock_18.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Glock_18/glock-18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Glock_18/glock-18.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Glock_18/glock_18_mag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Glock_18/glock_18_mag.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Glock_18/glock_18_part_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Glock_18/glock_18_part_1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Glock_18/glock_18_part_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Glock_18/glock_18_part_2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Glock_18/glock_18_unloaded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Glock_18/glock_18_unloaded.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Knife.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Knife/knife.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Knife/knife.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/M4A4.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/M4A4/m4a4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/M4A4/m4a4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/M4A4/m4a4_unlaoded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/M4A4/m4a4_unlaoded.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Nova.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Nova/nova_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Nova/nova_.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Nova/nova_part1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Nova/nova_part1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Nova/nova_part2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Nova/nova_part2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/PSL.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/PSL/psl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/PSL/psl.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/PSL/psl_unloaded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/PSL/psl_unloaded.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/README.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Rpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Rpg/rpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Rpg/rpg.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Rpg/rpg_rocket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Rpg/rpg_rocket.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Rpg/rpg_unloaded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Rpg/rpg_unloaded.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Sawed_off.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Sawed_off/sawed_off.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Sawed_off/sawed_off.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Sawed_off/sawed_off_part_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Sawed_off/sawed_off_part_1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Sawed_off/sawed_off_part_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Sawed_off/sawed_off_part_2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UMP.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UMP/ump.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UMP/ump.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UMP/ump_unloaded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UMP/ump_unloaded.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UZI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UZI/uzi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UZI/uzi.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UZI/uzi_silencer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UZI/uzi_silencer.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UZI/uzi_unloaded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/UZI/uzi_unloaded.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Utility.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Utility/HE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Utility/HE.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Utility/incendiary.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Utility/incendiary.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Utility/smoke.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Utility/smoke.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Utility/smoke_empty.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/2DWeaponPack/Sprites/Utility/smoke_empty.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/PolyOne/Free Gun/Prefabs/FN_Five_Seven Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/PolyOne/Free Gun/Prefabs/FN_Five_Seven Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/PolyOne/Free Gun/Prefabs/SM_Ak47 Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/PolyOne/Free Gun/Prefabs/SM_Ak47 Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/PolyOne/Free Gun/Prefabs/SM_Barrett_M82A1 Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/PolyOne/Free Gun/Prefabs/SM_Barrett_M82A1 Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Store DL/PolyOne/Free Gun/Prefabs/SM_HK_MP5 Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity Store DL/PolyOne/Free Gun/Prefabs/SM_HK_MP5 Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +305,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging Payton's-Dev-Branch",
     "ignore.virus.scanning.warn.message": "true",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
@@ -58,6 +320,7 @@
       <updated>1752116754373</updated>
       <workItem from="1752116756320" duration="97000" />
       <workItem from="1752156749922" duration="16000" />
+      <workItem from="1752818584347" duration="10000" />
     </task>
     <servers />
   </component>
