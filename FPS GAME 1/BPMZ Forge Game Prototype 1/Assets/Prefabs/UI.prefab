@@ -2627,6 +2627,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerScript: {fileID: 0}
   mainBoss: {fileID: 0}
+  playerAmmoText: {fileID: 8944440426425578335}
   enemyCount: 0
 --- !u!1 &6108852505934310891
 GameObject:
