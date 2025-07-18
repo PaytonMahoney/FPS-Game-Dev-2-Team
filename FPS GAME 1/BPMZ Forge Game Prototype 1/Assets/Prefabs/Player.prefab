@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 512661699482984070}
   - component: {fileID: 2970099437606560763}
   - component: {fileID: 65582962411455334}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -204,7 +204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAudio: {fileID: 65582962411455334}
-  footstepSFX: {fileID: 0}
   hurtClips:
   - {fileID: 8300000, guid: 8059505112f6e9c4a871a278c02f8486, type: 3}
   - {fileID: 8300000, guid: d3918d0916d55c24b96a29476f648df2, type: 3}
@@ -222,7 +221,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 61b7680dacfb36943a2743c8812a1040, type: 3}
   - {fileID: 8300000, guid: 185660a805d904e43ae7912d709e106c, type: 3}
   - {fileID: 8300000, guid: 45d29789aa7236c47bd1bf87c08b49c8, type: 3}
-  footstepDelay: 0.4
+  footstepDelay: 0.5
   controller: {fileID: 2970099437606560763}
   ignoreLayer:
     serializedVersion: 2

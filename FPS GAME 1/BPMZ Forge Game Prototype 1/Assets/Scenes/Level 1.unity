@@ -60736,7 +60736,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: f857ae79a215f5e4cbefc92f78da6dc2, type: 3}
     - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
       propertyPath: footstepDelay
-      value: 0.15
+      value: 0.508
       objectReference: {fileID: 0}
     - target: {fileID: 7886799120726967710, guid: ab5990fe302cce54a970922d07543a25, type: 3}
       propertyPath: m_Name

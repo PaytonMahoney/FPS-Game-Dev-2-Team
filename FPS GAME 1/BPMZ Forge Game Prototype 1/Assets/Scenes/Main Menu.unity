@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 217201750}
+  - component: {fileID: 217201752}
   - component: {fileID: 217201751}
   - component: {fileID: 217201749}
   - component: {fileID: 217201748}
@@ -335,6 +336,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0d65fa54834b14e8e5516207bc7bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &217201752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217201745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53a3190536cc7440b9b8361e4036747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiClick: {fileID: 0}
+  uiSource: {fileID: 0}
 --- !u!1 &745354362
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,9 +901,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 217201751}
-        m_TargetAssemblyTypeName: menuHandling, Assembly-CSharp
-        m_MethodName: OnQuitButton
+      - m_Target: {fileID: 217201752}
+        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
+        m_MethodName: quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
