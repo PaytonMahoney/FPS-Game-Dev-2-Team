@@ -9,9 +9,4 @@ public class menuHandling : MonoBehaviour
         SceneManager.LoadScene("Level 1");
     }
 
-    public void OnQuitButton()
-    {
-        Application.Quit();
-    }
-
 }

@@ -172,7 +172,6 @@ public class enemyAI : MonoBehaviour, IDamage
     void shoot()
     {
         shootTimer = 0;
-        shootTimer = 0;
         Vector3 directionToPlayer = (GameObject.FindWithTag("Player").transform.position - shootPos.position).normalized;
 
         GameObject bullet1 = Instantiate(bullet, shootPos.position, Quaternion.identity);

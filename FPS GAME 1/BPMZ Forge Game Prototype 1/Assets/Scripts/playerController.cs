@@ -95,6 +95,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         
         if(!gameManager.instance.isPaused)
             movement();
+        
         crouch();
         sprint();
     }
