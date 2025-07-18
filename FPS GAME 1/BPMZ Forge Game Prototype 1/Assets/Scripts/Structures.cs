@@ -61,7 +61,7 @@ public class Structures : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && dropLoot)
         {
-            GunManager.instance.DropRandomGun(transform);
+            //GunManager.instance.DropRandomGun(transform);
             Destroy(gameObject);
         }
     }

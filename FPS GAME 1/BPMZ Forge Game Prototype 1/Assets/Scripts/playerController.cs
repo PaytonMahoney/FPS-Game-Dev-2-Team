@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class playerController : MonoBehaviour, IDamage, IHeal
+public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
 {
     //audio fields
     [SerializeField] private AudioSource playerAudio;
@@ -47,8 +47,9 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     //Shooting
     //[SerializeField] public Gun equipGun;
-    [SerializeField] public List<GunStats> gunInventory = new List<GunStats>();
-    public GunStats currentGun;
+    [SerializeField] GameObject gunModel;
+    [SerializeField] public List<Gun> gunInventory = new List<Gun>();
+    public Gun currentGun;
     private int gunListPosition;
     private bool isReloading;
     
@@ -78,6 +79,9 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         maxHP = HP;
         originalFootstepDelay = footstepDelay;
         updatePlayerUI();
+
+       // currentGun.ammoCurrent = currentGun.ammoMax;
+       // currentGun.magCurrent = currentGun.magMax;
     }
 
     // Update is called once per frame    //Should be on input functions
@@ -164,12 +168,16 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         if (Input.GetButton("Fire1") && gunInventory.Count > 0 && shootTimer > currentGun.shootRate && !isReloading)
         {
             shoot();
+            shootTimer = 0;
         }
 
         if (Input.GetButtonDown("Reload") && !isReloading)
         {
             reload();
+            
         }
+
+        selectGun();
     }
 
     void PlayFootstep()
@@ -252,31 +260,33 @@ public class playerController : MonoBehaviour, IDamage, IHeal
 
     void shoot()
     {
-        if (currentGun.ammoCurrent > 0)
-        {
-            currentGun.ammoCurrent--;
-            shootTimer = 0;
-            RaycastHit hit;
+        currentGun.shoot(ignoreLayer, playerAudio);
+        //if (currentGun.ammoCurrent > 0)
+        //{
+        //    currentGun.ammoCurrent--;
+        //    shootTimer = 0;
+        //    RaycastHit hit;
 
-            //First person view location
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit,
-                    currentGun.shootDistance,
-                    ~ignoreLayer))
-            {
-                playerAudio.PlayOneShot(currentGun.shootingSound);
-                IDamage dmg = hit.collider.GetComponent<IDamage>();
+        //    //First person view location
+        //    if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit,
+        //            currentGun.shootDistance,
+        //            ~ignoreLayer))
+        //    {
+        //        playerAudio.PlayOneShot(currentGun.shootingSound);
+        //        IDamage dmg = hit.collider.GetComponent<IDamage>();
 
-                if (dmg != null)
-                {
-                    //Debug.Log(equipGun.mDMG);
-                    dmg.takeDamage(currentGun.shootDMG);
-                }
-            }
-        }
-        else
-        {
-            playerAudio.PlayOneShot(currentGun.emptyShotSound);
-        }
+        //        if (dmg != null)
+        //        {
+        //            //Debug.Log(equipGun.mDMG);
+        //            dmg.takeDamage(currentGun.shootDMG);
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    playerAudio.PlayOneShot(currentGun.emptyShotSound);
+        //}
+        gameManager.instance.updateAmmoPanel();
     }
 
     private bool OnSlope()
@@ -348,12 +358,52 @@ public class playerController : MonoBehaviour, IDamage, IHeal
         yield return new WaitForSeconds(0.3f);
         gameManager.instance.playerHealPanel.SetActive(false);
     }
-    IEnumerator reload()
+    void reload()
     {
+        if (currentGun.magCurrent == currentGun.magMax || currentGun.ammoCurrent == 0)
+        {
+            return;
+        }
         isReloading = true;
-        playerAudio.PlayOneShot(currentGun.reloadSound);
-        yield return new WaitForSeconds(currentGun.reloadTime);
+        StartCoroutine(currentGun.reload(playerAudio));
+
+        
+        StartCoroutine(reloadWait());
+        
+    }
+
+    public void PickUpGun(Gun gun)
+    {
+        gunInventory.Add(gun);
+        gunListPosition = gunInventory.Count - 1;
+        changeGun();
+        
+    }
+
+    void changeGun()
+    {
+        currentGun = gunInventory[gunListPosition];
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunInventory[gunListPosition].gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunInventory[gunListPosition].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+        gameManager.instance.updateAmmoPanel();
+    }
+
+    void selectGun()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && gunListPosition < gunInventory.Count - 1)
+        {
+            gunListPosition++;
+            changeGun();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && gunListPosition > 0)
+        {
+            gunListPosition--;
+            changeGun();
+        }
+    }
+    IEnumerator reloadWait()
+    {
+        yield return  new WaitForSeconds(currentGun.reloadTime);
         isReloading = false;
-        currentGun.ammoCurrent = currentGun.ammoMax;
     }
 }

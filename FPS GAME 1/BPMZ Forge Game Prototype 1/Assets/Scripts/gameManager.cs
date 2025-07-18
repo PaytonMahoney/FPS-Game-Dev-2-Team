@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Mathematics;
+using TMPro;
 
 public class gameManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public playerController playerScript;
     public GameObject mainBoss;
+    public TMP_Text playerAmmoText;
 
     float timescaleOriginal;
     bool bossDead;
@@ -83,5 +85,10 @@ public class gameManager : MonoBehaviour
         statePause();
         menuActive = menuWin;
         menuActive.SetActive(true);
+    }
+
+    public void updateAmmoPanel()
+    {
+        playerAmmoText.text = playerScript.currentGun.magCurrent.ToString() + " / " + playerScript.currentGun.ammoCurrent;
     }
 }

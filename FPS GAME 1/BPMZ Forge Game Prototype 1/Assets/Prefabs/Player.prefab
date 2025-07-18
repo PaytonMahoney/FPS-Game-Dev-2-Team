@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 621814607152821120}
   - component: {fileID: 1495219152396527259}
   - component: {fileID: 2800257017920903043}
-  - component: {fileID: 8359553115170646305}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Gun Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2823903990041126464}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -1.05, z: 1.75}
+  m_LocalPosition: {x: 0.3870099, y: -0.7920382, z: 0.8343067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,27 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8359553115170646305
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2823903990041126464}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2.4479585
-  m_Center: {x: -0.005947288, y: 0.20827577, z: 0.031448126}
 --- !u!1 &3163851004555210732
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,8 +449,9 @@ MonoBehaviour:
   jumpVel: 10
   jumpMax: 2
   gravity: 35
+  gunModel: {fileID: 2823903990041126464}
   gunInventory: []
-  currentGun: {fileID: 11400000, guid: c24d17f88521c8b4eac4dd13075edbbd, type: 2}
+  currentGun: {fileID: 0}
   maxSlopeAngle: 40
   slopeForce: 5
   dashSpeed: 35

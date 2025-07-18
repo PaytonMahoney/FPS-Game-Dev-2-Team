@@ -1,88 +1,36 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using System.Threading;
-using System.Numerics;
 
-public class Gun : MonoBehaviour
+
+public abstract class Gun : ScriptableObject
 {
-    public enum WeaponClass
-    {
-        Pistol,
-        SMG,
-        Rifle,
-        Sniper,
-    } 
-    [SerializeField] public WeaponClass mtype;
-    [SerializeField] public int mDMG;
-    [SerializeField] public float mFireRate;
-    [SerializeField] public int mMaxAmmo;  
-    [SerializeField] public int mMaxMag;
-    [SerializeField] public int mRange;
-    [SerializeField] public int mReloadSpeed;
+    public GameObject gunModel;
+    [Range(1, 40)] public int shootDMG;
+    [Range(5, 1000)] public int shootDistance;
+    [Range(0.1f, 3)] public float shootRate;
+    public int ammoCurrent;
+    [Range(5, 50)] public int ammoMax;
 
-    public int currentAmmo;
-    public int currentMag;
+    [Range(1,999)]public int magMax;
+    public int magCurrent;
+    [Range(0.5f, 3)] public float reloadTime;
 
-    private void Start()
-    {
-        currentAmmo = mMaxAmmo;
-        currentMag = mMaxMag;
-    }
+    public ParticleSystem hitEffect;
+    [Range(0, 1)] public float shootVol;
 
-
-    //Dont really know why I made this constructor cause I dont think it has been used at all :)
-    public Gun(int type)
-    {
-        switch (type) {
-            case 0:
-                {
-                    mtype = WeaponClass.Pistol;
-                    break;
-            }
-            case 1: 
-                {
-                    mtype = WeaponClass.SMG;
-                    break;
-            }
-            case 2: 
-                { 
-                    mtype = WeaponClass.Rifle;
-                    break;
-            }
-            default: 
-                {
-                    mtype= WeaponClass.Sniper;
-                    break;
-            }
-        }
-    }
     
-    public void ReloadGun()
-    {
-        if (currentMag < mMaxMag && currentAmmo >= 0)
-        {
-            if (mMaxMag < currentAmmo)
-            {
-                currentAmmo -= mMaxMag - currentMag;
-                currentMag = mMaxMag;
-            }
-            else
-            {
-                currentMag += currentAmmo;
-                currentAmmo = 0;
-            }
+    public AudioClip reloadSound;
+    public AudioClip emptyShotSound;
+    public AudioClip shootingSound;
 
-        }
-    }
+   
+    
+    public abstract void shoot(LayerMask ignoreLayer, AudioSource audio);
+    
+       
+    public abstract IEnumerator reload(AudioSource audio);
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            //other.GetComponent<playerController>().equipGun = this;
-            gameObject.SetActive(false);
-            //gameManager.instance.GetComponent<playerController>().UpdateGunUI();
-        }
-    }
+    
 }
+
+
