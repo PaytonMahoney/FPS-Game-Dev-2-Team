@@ -41941,14 +41941,6 @@ PrefabInstance:
       value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 7894614073441900398, guid: 4487b014ece994d4e85fdb7666e07477, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894614073441900398, guid: 4487b014ece994d4e85fdb7666e07477, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894614073441900398, guid: 4487b014ece994d4e85fdb7666e07477, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
