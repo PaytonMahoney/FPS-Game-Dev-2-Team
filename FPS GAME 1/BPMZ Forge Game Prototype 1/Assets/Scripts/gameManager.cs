@@ -14,6 +14,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuLose;
 
     public Image playerHPBar;
+    public TMP_Text playerHPText;
     public GameObject playerDMGPanel;
     public GameObject playerHealPanel;
     public bool isPaused;

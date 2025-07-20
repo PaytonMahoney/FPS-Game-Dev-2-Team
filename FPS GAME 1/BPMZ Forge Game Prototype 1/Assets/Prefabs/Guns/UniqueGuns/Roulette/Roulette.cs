@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-[CreateAssetMenu(fileName = "Roulette", menuName = "ScriptableObjects/Pistols/Roulette", order = 1)]
+//[CreateAssetMenu(fileName = "Roulette", menuName = "ScriptableObjects/Pistols/Roulette", order = 1)]
 
 
 public class Roulette : Gun

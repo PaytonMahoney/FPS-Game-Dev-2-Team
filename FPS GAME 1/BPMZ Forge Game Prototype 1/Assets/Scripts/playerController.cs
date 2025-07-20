@@ -19,7 +19,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     [SerializeField] LayerMask ignoreLayer;
     
     [SerializeField] int HP;
-    int maxHP;
+    public int maxHP;
     
     // Movement
     [Range(5, 20)] [SerializeField] int moveSpeed;
@@ -52,6 +52,9 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     public Gun currentGun;
     private int gunListPosition;
     private bool isReloading;
+
+    //Items
+    [SerializeField] public List<Item> itemInventory = new List<Item>();
     
     //Slope Handling
     [SerializeField] float maxSlopeAngle;
@@ -78,7 +81,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         moveSpeedOrig = moveSpeed;
         maxHP = HP;
         originalFootstepDelay = footstepDelay;
-        updatePlayerUI();
+        //updatePlayerUI();
 
        // currentGun.ammoCurrent = currentGun.ammoMax;
        // currentGun.magCurrent = currentGun.magMax;
@@ -261,31 +264,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     void shoot()
     {
         currentGun.shoot(ignoreLayer, playerAudio);
-        //if (currentGun.ammoCurrent > 0)
-        //{
-        //    currentGun.ammoCurrent--;
-        //    shootTimer = 0;
-        //    RaycastHit hit;
-
-        //    //First person view location
-        //    if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit,
-        //            currentGun.shootDistance,
-        //            ~ignoreLayer))
-        //    {
-        //        playerAudio.PlayOneShot(currentGun.shootingSound);
-        //        IDamage dmg = hit.collider.GetComponent<IDamage>();
-
-        //        if (dmg != null)
-        //        {
-        //            //Debug.Log(equipGun.mDMG);
-        //            dmg.takeDamage(currentGun.shootDMG);
-        //        }
-        //    }
-        //}
-        //else
-        //{
-        //    playerAudio.PlayOneShot(currentGun.emptyShotSound);
-        //}
+       
         gameManager.instance.updateAmmoPanel();
     }
 
@@ -344,6 +323,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     {
         //Debug.Log("HP UI Updated: " + HP + "/" + maxHP);
         gameManager.instance.playerHPBar.fillAmount = (float)HP / maxHP;
+        gameManager.instance.playerHPText.text = HP.ToString() + " / " + maxHP.ToString();
+       
     }
 
     IEnumerator DamageFlashScreen()
@@ -370,6 +351,12 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         
         StartCoroutine(reloadWait());
         
+    }
+
+    public void PickUpItem(Item item)
+    {
+        itemInventory.Add(item);
+        item.OnPickup();
     }
 
     public void PickUpGun(Gun gun)
