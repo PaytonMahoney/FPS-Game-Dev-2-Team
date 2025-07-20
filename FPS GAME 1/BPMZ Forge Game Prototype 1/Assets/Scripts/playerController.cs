@@ -55,11 +55,6 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
 
     //Items
     [SerializeField] public List<Item> itemInventory = new List<Item>();
-    
-    //Slope Handling
-    [SerializeField] float maxSlopeAngle;
-    [SerializeField] float slopeForce;
-    private RaycastHit slopeHit;
 
     //Dash Handling
     [SerializeField] float dashSpeed;
@@ -103,39 +98,29 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         if(!gameManager.instance.isPaused)
             movement();
         
+
         crouch();
-        sprint();
+        sprint();      
     }
 
     void movement()
     {
         shootTimer += Time.deltaTime;
+
+        UpdateFootstepDelay();
         
+        footstepTimer += Time.deltaTime;
+
         //Tie A and D keys to the player character   //Strafe forward
         moveDir = (Input.GetAxis("Horizontal") * transform.right) + (Input.GetAxis("Vertical") * transform.forward);
         //Time.deltaTime = Ignores Frame Rate
         controller.Move(moveDir * moveSpeed * Time.deltaTime);
 
-        UpdateFootstepDelay();
-        
-        footstepTimer += Time.deltaTime;
         if (controller.isGrounded)
         {
-            //Now Gravity won't stack
-            Debug.Log("Grounded");
-            playerVel = Vector3.zero;
+            
             jumpCount = 0;
-            if (OnSlope())
-            {
-                Vector3 slopeMove = GetSlopeMoveDirection() * moveSpeed;
-                slopeMove += Vector3.down * slopeForce;
-                controller.Move(slopeMove * Time.deltaTime);
-
-            }
-            else
-            {
-                controller.Move(playerVel * Time.deltaTime);
-            }
+            playerVel = Vector3.zero;           
             
             if (moveDir.x != 0 || moveDir.z != 0)
             {
@@ -152,21 +137,17 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
                 footstepTimer = 0f;
             }
         }
-        else
-        {
-            //footstepTimer = 0f;
-            controller.Move(playerVel * Time.deltaTime);
-            playerVel.y -= gravity * Time.deltaTime;
-            //jumpCount = 0;
-        }
-
-        // Crouching or nah
+        //Crouching or nah
         if (state != MovementState.crouching)
         {
             jump();
             dash();
         }
-        
+
+        //footstepTimer = 0f; //In the air
+        controller.Move(playerVel * Time.deltaTime);
+        playerVel.y -= gravity * Time.deltaTime;
+
         // Fire away
         if (Input.GetButton("Fire1") && gunInventory.Count > 0 && shootTimer > currentGun.shootRate && !isReloading)
         {
@@ -266,21 +247,6 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         currentGun.shoot(ignoreLayer, playerAudio);
        
         gameManager.instance.updateAmmoPanel();
-    }
-
-    private bool OnSlope()
-    {
-        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, standingHeight * 0.5f + 0.3f))
-        {
-            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            return angle < maxSlopeAngle && angle != 0; 
-        }
-        return false;
-    }
-
-    private Vector3 GetSlopeMoveDirection()
-    {
-        return Vector3.ProjectOnPlane(moveDir, slopeHit.normal).normalized;
     }
 
 
