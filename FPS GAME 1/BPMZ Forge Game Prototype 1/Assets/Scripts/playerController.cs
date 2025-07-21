@@ -105,6 +105,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         
         crouch();
         sprint();
+
     }
 
     void movement()
