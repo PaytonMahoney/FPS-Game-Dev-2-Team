@@ -43,7 +43,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     //Jumping 
     [SerializeField] int jumpVel;
     [SerializeField] int jumpMax;
-    [SerializeField] int gravity;
+    [SerializeField] float gravity;
+    float gravityOrig;
 
     //Shooting
     //[SerializeField] public Gun equipGun;
@@ -77,6 +78,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         moveSpeedOrig = moveSpeed;
         maxHP = HP;
         originalFootstepDelay = footstepDelay;
+        gravityOrig = gravity;
+
         //updatePlayerUI();
 
        // currentGun.ammoCurrent = currentGun.ammoMax;
@@ -116,6 +119,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         moveDir = (Input.GetAxis("Horizontal") * transform.right) + (Input.GetAxis("Vertical") * transform.forward);
         //Time.deltaTime = Ignores Frame Rate
         controller.Move(moveDir * moveSpeed * Time.deltaTime);
+
+        
 
         if (controller.isGrounded)
         {
@@ -209,7 +214,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             moveSpeed = moveSpeedOrig;
         }
     }
-
+    
     void dash()
     {
         if(Input.GetButtonDown("Dash"))
@@ -228,6 +233,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             yield return null;
         }
     }
+
 
     void sprint()
     {
