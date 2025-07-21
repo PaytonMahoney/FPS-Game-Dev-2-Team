@@ -18,7 +18,9 @@ public abstract class Gun : ScriptableObject
     public ParticleSystem hitEffect;
     [Range(0, 1)] public float shootVol;
 
-    
+    [SerializeField] public GameObject projectile;
+    public Transform shootPOS;
+
     public AudioClip reloadSound;
     public AudioClip emptyShotSound;
     public AudioClip shootingSound;

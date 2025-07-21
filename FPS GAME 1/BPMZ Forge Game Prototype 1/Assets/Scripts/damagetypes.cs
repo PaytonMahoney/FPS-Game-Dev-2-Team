@@ -11,6 +11,8 @@ public class damagetypes : MonoBehaviour
         stationary, //Spike walls, etc.
         DOT, //Damage over time
         homing,
+        explosion,
+
         healing //Heals instead of damaging
     }
 
@@ -20,13 +22,13 @@ public class damagetypes : MonoBehaviour
     [SerializeField] int damageAmount;
     [SerializeField] float damageRate; //for DOT effects
     [SerializeField] int speed; //moving or homing type 
-    [SerializeField] int destroyTime; //if moving or homing type doesn't hit  
+    [SerializeField] float destroyTime; //if moving or homing type doesn't hit  
 
     bool isDamaging; //for DOT
     
     void Start()
     {
-        if (type == damageType.moving || type == damageType.homing)
+        if (type == damageType.moving || type == damageType.homing || type == damageType.explosion)
         {
             Destroy(gameObject, destroyTime); //Destroy object by destroy time so memory isn't taken
 
