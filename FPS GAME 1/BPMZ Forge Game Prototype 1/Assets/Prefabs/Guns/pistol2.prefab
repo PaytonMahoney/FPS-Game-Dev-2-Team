@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &449520604051976696
+--- !u!1 &1105465978052354955
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,64 +8,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3796160568877086566}
-  - component: {fileID: -5658000135426294130}
-  - component: {fileID: 4950765960655138166}
-  - component: {fileID: 8305149053457948742}
-  - component: {fileID: 2550753183936928710}
+  - component: {fileID: 4082815837928633139}
+  - component: {fileID: 4885189936599058132}
+  - component: {fileID: 4579905224611406304}
+  - component: {fileID: 5750204774983127437}
+  - component: {fileID: 2408196031944024164}
   m_Layer: 0
-  m_Name: FirstAidKit_Red
+  m_Name: pistol2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3796160568877086566
+--- !u!4 &4082815837928633139
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449520604051976696}
+  m_GameObject: {fileID: 1105465978052354955}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.40135, y: 0.754, z: 5.40836}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5658000135426294130
+--- !u!114 &4885189936599058132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449520604051976696}
+  m_GameObject: {fileID: 1105465978052354955}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 278cc0641c06d5c4eb297d8903326e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
-  gun: {fileID: 0}
-  item: {fileID: 11400000, guid: 884436370781d7e458089b6bf2a14465, type: 2}
-  spin: 1
---- !u!33 &4950765960655138166
+  type: 0
+  gun: {fileID: 11400000, guid: 2b943ad77dfe40b40a2ff61a91d643a0, type: 2}
+  item: {fileID: 0}
+  spin: 0
+--- !u!33 &4579905224611406304
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449520604051976696}
-  m_Mesh: {fileID: 7323452761639777922, guid: 4e3859e7d4623f64ca345e315aebd6e6, type: 3}
---- !u!23 &8305149053457948742
+  m_GameObject: {fileID: 1105465978052354955}
+  m_Mesh: {fileID: -7182689631186222527, guid: 8f9696fb6017be144a307b6586855ac0, type: 3}
+--- !u!23 &5750204774983127437
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449520604051976696}
+  m_GameObject: {fileID: 1105465978052354955}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -82,7 +82,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 026cb6e42ef5d7a42a11ed06e7596e55, type: 2}
+  - {fileID: 2100000, guid: 7c16b6e19b642c247ba765631635ff9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,13 +104,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2550753183936928710
-BoxCollider:
+--- !u!135 &2408196031944024164
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449520604051976696}
+  m_GameObject: {fileID: 1105465978052354955}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -123,5 +123,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.9540792, y: 2.5032947, z: 0.4149846}
-  m_Center: {x: 0, y: 1.2310425, z: 0.20749219}
+  m_Radius: 0.8349871
+  m_Center: {x: 0, y: 0.050266325, z: -0.10166764}

@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0.3870099, y: -0.7920382, z: 0.8343067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3839282892742563508}
   m_Father: {fileID: 5092091467888861859}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1495219152396527259
@@ -242,6 +243,37 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &6521588522290040831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3839282892742563508}
+  m_Layer: 0
+  m_Name: ShootPOS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3839282892742563508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521588522290040831}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.20700988, y: 0.012038231, z: -0.034306705}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 621814607152821120}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7874204012175350094
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,17 +475,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   HP: 100
+  maxHP: 0
   moveSpeed: 10
   sprintMod: 4
   crouchHeight: 0
-  jumpVel: 10
+  jumpVel: 20
   jumpMax: 2
   gravity: 35
   gunModel: {fileID: 2823903990041126464}
+  shootPOS: {fileID: 3839282892742563508}
   gunInventory: []
   currentGun: {fileID: 0}
-  maxSlopeAngle: 40
-  slopeForce: 5
+  itemInventory: []
   dashSpeed: 35
   dashTime: 0.25
 --- !u!33 &7189910975712374665
