@@ -48,6 +48,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     //Shooting
     //[SerializeField] public Gun equipGun;
     [SerializeField] GameObject gunModel;
+    [SerializeField] Transform shootPOS;
     [SerializeField] public List<Gun> gunInventory = new List<Gun>();
     public Gun currentGun;
     private int gunListPosition;
@@ -329,6 +330,10 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     {
         gunInventory.Add(gun);
         gunListPosition = gunInventory.Count - 1;
+        if (gun.projectile != null)
+        {
+            gun.shootPOS = shootPOS;
+        }
         changeGun();
         
     }

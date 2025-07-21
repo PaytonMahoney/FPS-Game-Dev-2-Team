@@ -11,6 +11,7 @@ TagManager:
   - SMGUI
   - SniperUI
   - BulletCount
+  - ShootPOS
   layers:
   - Default
   - TransparentFX
