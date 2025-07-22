@@ -63,9 +63,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rb: {fileID: 1011868720863069471}
-  damageAmount: 25
+  damageAmount: 20
   damageRate: 0
-  speed: 35
+  speed: 365
   destroyTime: 6
 --- !u!65 &6499341530765298430
 BoxCollider:
