@@ -3,49 +3,48 @@ using TMPro;
 using System.Collections;
 using UnityEngine.InputSystem;
 
-public class ChillNPC : MonoBehaviour
+public class ChillNPC : MonoBehaviour, IInteractable
 {
 
 
-    [TextArea]
-    public string[] dialogueLines;
+    [Header("Dialogue")]
+    [TextArea] public string[] firstTimeLines;
+    [TextArea] public string[] repeatLines;
 
+    [Header("UI References")]
     public TMP_Text dialogueText;
     public GameObject dialogueBox;
     public float typingSpeed = 0.03f;
+    public Transform player;
+
+    [Header("Voice Clips")]
+    public AudioClip[] voiceClipsFirstTime;
+    public AudioClip[] voiceClipsRepeat;
 
     private bool inRange = false;
     private bool isTalking = false;
     private int currentLine = 0;
     private Coroutine typingCoroutine;
-    public Transform player; // Drag in the player object
-
     private AudioSource dogAudio;
-    public AudioClip[] voiceClips; // One clip per dialogue line
+    private bool hasTalked = false;
+    public GameObject interactButton;
 
     void Start()
     {
+        dogAudio = GetComponent<AudioSource>();
         dialogueText.text = "";
         dialogueBox.SetActive(false);
-        dogAudio = GetComponent<AudioSource>();
-       
-       
-
     }
 
     void Update()
     {
-        
+
         if (inRange && Input.GetKeyDown(KeyCode.E))
         {
             if (!isTalking)
-            {
                 StartDialogue();
-            }
             else
-            {
                 ShowNextLine();
-            }
         }
     }
 
@@ -53,57 +52,56 @@ public class ChillNPC : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+
+
             inRange = true;
-            Debug.Log("Player entered NPC trigger.");
+            if (interactButton != null)
+                interactButton.SetActive(true);
         }
+
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            EndDialogue();
             inRange = false;
-            Debug.Log("Player left NPC trigger.");
+            EndDialogue();
+            if (interactButton != null)
+                interactButton.SetActive(false);
         }
     }
 
     void StartDialogue()
     {
         isTalking = true;
+        currentLine = 0;
+        if (interactButton != null)
+            interactButton.SetActive(false);
+        dialogueBox.SetActive(true);
         LookAtPlayer();
-        currentLine = 0;
-        dialogueBox.SetActive(true);
-        ShowNextLine();
-
-        isTalking = true;
-        currentLine = 0;
-        dialogueBox.SetActive(true);
-
-        if (voiceClips != null && dogAudio != null)
-            dogAudio.PlayOneShot(voiceClips[currentLine]);
-
         ShowNextLine();
     }
 
     void ShowNextLine()
     {
-        if (currentLine < dialogueLines.Length)
+        string[] lines = hasTalked ? repeatLines : firstTimeLines;
+        AudioClip[] voices = hasTalked ? voiceClipsRepeat : voiceClipsFirstTime;
+
+        if (currentLine < lines.Length)
         {
             if (typingCoroutine != null)
                 StopCoroutine(typingCoroutine);
 
-            // Play matching sound for this line
-            if (currentLine < voiceClips.Length && voiceClips[currentLine] != null && dogAudio != null)
-            {
-                dogAudio.PlayOneShot(voiceClips[currentLine]);
-            }
+            if (currentLine < voices.Length && voices[currentLine] != null)
+                dogAudio.PlayOneShot(voices[currentLine]);
 
-            typingCoroutine = StartCoroutine(TypeLine(dialogueLines[currentLine]));
+            typingCoroutine = StartCoroutine(TypeLine(lines[currentLine]));
             currentLine++;
         }
         else
         {
+            hasTalked = true;
             EndDialogue();
         }
     }
@@ -130,14 +128,22 @@ public class ChillNPC : MonoBehaviour
 
     void LookAtPlayer()
     {
+        if (player == null) return;
+
         Vector3 direction = player.position - transform.position;
-        direction.y = 0; // Keep the dog from tilting up/down
+        direction.y = 0;
         if (direction != Vector3.zero)
-        {
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            transform.rotation = rotation;
-        }
+            transform.rotation = Quaternion.LookRotation(direction);
+    }
+
+    public void Interact()
+    {
+        if (!isTalking)
+            StartDialogue();
+        else
+            ShowNextLine();
     }
 }
+
 
 
