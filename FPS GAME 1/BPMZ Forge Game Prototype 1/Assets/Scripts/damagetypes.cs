@@ -19,9 +19,9 @@ public class damagetypes : MonoBehaviour
     [SerializeField] damageType type;
     [SerializeField] Rigidbody rb;
 
-    [SerializeField] int damageAmount;
-    [SerializeField] float damageRate; //for DOT effects
-    [SerializeField] int speed; //moving or homing type 
+    [SerializeField] public int damageAmount;
+    [SerializeField] public float damageRate; //for DOT effects
+    [SerializeField] public int speed; //moving or homing type 
     [SerializeField] float destroyTime; //if moving or homing type doesn't hit  
 
     bool isDamaging; //for DOT

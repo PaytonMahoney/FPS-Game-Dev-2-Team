@@ -23,8 +23,9 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     public int maxHP;
     
     // Movement
-    [Range(5, 20)] [SerializeField] public int moveSpeed;
+    [Range(5, 40)] [SerializeField] public int moveSpeed;
     [Range(1, 5)] [SerializeField] int sprintMod;
+    [SerializeField] public Transform centerMass;
     private int moveSpeedOrig;
 
     private MovementState state;
@@ -265,7 +266,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         else if (Input.GetButtonUp("Sprint"))
         {
             state = stateOrig;
-            moveSpeed = moveSpeedOrig;
+            moveSpeed /= 2;
         }
     }
 
