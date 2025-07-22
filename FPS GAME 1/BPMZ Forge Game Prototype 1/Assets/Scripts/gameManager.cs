@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.UI;
-using Unity.Mathematics;
 using TMPro;
+using Unity.Mathematics;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -98,4 +99,10 @@ public class gameManager : MonoBehaviour
     {
         playerAmmoText.text = playerScript.currentGun.gunName + "\n" + playerScript.currentGun.magCurrent.ToString() + " / " + playerScript.currentGun.ammoCurrent;
     }
+    public void loadLevel(int lvl)
+    {
+        SceneManager.LoadScene(lvl);
+        gameManager.instance.stateUnpause();
+    }
+
 }

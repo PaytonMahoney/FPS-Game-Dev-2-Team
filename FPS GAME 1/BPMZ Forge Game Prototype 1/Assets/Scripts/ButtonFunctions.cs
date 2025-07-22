@@ -46,4 +46,7 @@ public class ButtonFunctions : MonoBehaviour
 
         // Optional: If your GameManager handles UI, it should hide Lose Menu automatically
     }
+
+   
+
 }
