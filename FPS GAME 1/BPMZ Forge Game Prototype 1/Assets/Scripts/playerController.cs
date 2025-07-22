@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -22,7 +23,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     public int maxHP;
     
     // Movement
-    [Range(5, 20)] [SerializeField] int moveSpeed;
+    [Range(5, 20)] [SerializeField] public int moveSpeed;
     [Range(1, 5)] [SerializeField] int sprintMod;
     private int moveSpeedOrig;
 
@@ -49,14 +50,18 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     //Shooting
     //[SerializeField] public Gun equipGun;
     [SerializeField] GameObject gunModel;
-    [SerializeField] Transform shootPOS;
+    [SerializeField] public Transform shootPOS;
     [SerializeField] public List<Gun> gunInventory = new List<Gun>();
     public Gun currentGun;
     private int gunListPosition;
     private bool isReloading;
 
     //Items
+    public Item activeItem;
     [SerializeField] public List<Item> itemInventory = new List<Item>();
+
+    //Item Modifiers
+    public int DMGreduction;
 
     //Dash Handling
     [SerializeField] float dashSpeed;
@@ -79,6 +84,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         maxHP = HP;
         originalFootstepDelay = footstepDelay;
         gravityOrig = gravity;
+        DMGreduction = 0;
+        
 
 
        // currentGun.ammoCurrent = currentGun.ammoMax;
@@ -110,6 +117,10 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     {
         shootTimer += Time.deltaTime;
 
+        if (activeItem != null && !activeItem.inUse && activeItem.currentCooldown < activeItem.itemCooldown)
+        {
+            activeItem.currentCooldown += Time.deltaTime;
+        }
         UpdateFootstepDelay();
         
         footstepTimer += Time.deltaTime;
@@ -166,6 +177,15 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             
         }
 
+        if (activeItem != null && Input.GetButtonDown("Active Item") && activeItem.currentCooldown >= activeItem.itemCooldown)
+        {
+            activeItem.Activate();
+            activeItem.currentCooldown = 0;
+            if (activeItem.itemDuration > 0)
+            {
+                StartCoroutine(ItemWait(activeItem.itemDuration));
+            }
+        }
         selectGun();
     }
 
@@ -259,6 +279,11 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
 
     public void takeDamage(int amount)
     {
+        amount = amount * (100 - DMGreduction) / 100;
+        if (amount <= 0)
+        {
+            amount = 1;
+        }
         HP -= amount;
         updatePlayerUI();
         StartCoroutine(DamageFlashScreen());
@@ -322,14 +347,28 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         StartCoroutine(currentGun.reload(playerAudio));
 
         
-        StartCoroutine(reloadWait());
+        StartCoroutine(Wait(currentGun.reloadTime));
         
+    }
+
+    void UseActiveItem()
+    {
+
     }
 
     public void PickUpItem(Item item)
     {
-        itemInventory.Add(item);
-        item.OnPickup();
+        if (item.type == Item.itemType.Passive)
+        {
+            itemInventory.Add(item);
+            item.OnPickup();
+        }
+        else
+        {
+            activeItem = item;
+            item.currentCooldown = item.itemCooldown;
+            gameManager.instance.activeItemImage.sprite = item.icon;
+        }
     }
 
     public void PickUpGun(Gun gun)
@@ -365,9 +404,15 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             changeGun();
         }
     }
-    IEnumerator reloadWait()
+    IEnumerator Wait(float sec)
     {
-        yield return  new WaitForSeconds(currentGun.reloadTime);
+        yield return  new WaitForSeconds(sec);
         isReloading = false;
+    }
+
+    IEnumerator ItemWait(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        activeItem.Deactivate();
     }
 }
