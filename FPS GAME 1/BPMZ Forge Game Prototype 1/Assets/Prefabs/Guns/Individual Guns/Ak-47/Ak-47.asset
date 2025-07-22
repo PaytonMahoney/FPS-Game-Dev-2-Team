@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: Ak-47
   gunModel: {fileID: 6864857381789205067, guid: fb045f22aeb8cdb41aa81c247c189fc3, type: 3}
-  shootDMG: 20
+  shootDMG: 50
   shootDistance: 200
   shootRate: 0.1
   ammoCurrent: 150
   ammoMax: 150
   magMax: 30
-  magCurrent: 28
+  magCurrent: 0
   reloadTime: 1
   hitEffect: {fileID: 0}
   shootVol: 0
