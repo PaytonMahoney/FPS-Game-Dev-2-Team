@@ -13,6 +13,7 @@ TagManager:
   - BulletCount
   - ShootPOS
   - Wall
+  - BossHPUI
   layers:
   - Default
   - TransparentFX

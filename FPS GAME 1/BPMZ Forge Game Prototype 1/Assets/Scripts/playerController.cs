@@ -24,6 +24,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     // Movement
     [Range(5, 20)] [SerializeField] int moveSpeed;
     [Range(1, 5)] [SerializeField] int sprintMod;
+    [SerializeField] public Transform centerMass;
     private int moveSpeedOrig;
 
     private MovementState state;

@@ -20,21 +20,26 @@ public class gameManager : MonoBehaviour
     public bool isPaused;
     public GameObject player;
     public playerController playerScript;
-    public GameObject mainBoss;
+    //public GameObject mainBoss;
     public TMP_Text playerAmmoText;
 
     float timescaleOriginal;
     bool bossDead;
     public int enemyCount;
 
+    [SerializeField] public GameObject bossHPUI;
+    [SerializeField] public Image bossHPBar;
+    [SerializeField] public TMP_Text bossNameText;
+
     void Awake()
     {
         instance = this;
         player = GameObject.FindWithTag("Player");
-        mainBoss = GameObject.FindWithTag("MainBoss");
+        //mainBoss = GameObject.FindWithTag("MainBoss");
         playerScript = player.GetComponent<playerController>();
         timescaleOriginal = Time.timeScale;
         enemyCount = 0;
+        //bossHPUI = GameObject.FindWithTag("BossHPUI");
     }
 
     // Update is called once per frame
