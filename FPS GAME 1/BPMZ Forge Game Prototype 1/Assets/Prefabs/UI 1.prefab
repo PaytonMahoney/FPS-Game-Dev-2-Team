@@ -2948,10 +2948,12 @@ MonoBehaviour:
   isPaused: 0
   player: {fileID: 0}
   playerScript: {fileID: 0}
-  mainBoss: {fileID: 0}
   playerAmmoText: {fileID: 5599684003861373091}
   activeItemImage: {fileID: 2147812870691527998}
   enemyCount: 0
+  bossHPUI: {fileID: 0}
+  bossHPBar: {fileID: 0}
+  bossNameText: {fileID: 0}
 --- !u!1 &6730884388421366813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,7 +3687,7 @@ RectTransform:
   - {fileID: 1017493395492468866}
   - {fileID: 5390351888882760049}
   - {fileID: 5625058689831164051}
-  - {fileID: 7137806173065043638}
+  - {fileID: 3885172932225578967}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4598,8 +4600,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 369b0f5fb89a3e84dad176a89ac6ebec, type: 3}
---- !u!4 &7137806173065043638 stripped
+--- !u!4 &3885172932225578967 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3548523249661260548, guid: 369b0f5fb89a3e84dad176a89ac6ebec, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7483469443111279205, guid: 369b0f5fb89a3e84dad176a89ac6ebec, type: 3}
   m_PrefabInstance: {fileID: 5922365441462234546}
   m_PrefabAsset: {fileID: 0}
