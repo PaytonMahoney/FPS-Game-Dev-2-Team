@@ -16,11 +16,11 @@ MonoBehaviour:
   gunModel: {fileID: 1105465978052354955, guid: 9bb42e88fdedb9a4d86115388ecd5102, type: 3}
   shootDMG: 1
   shootDistance: 5
-  shootRate: 3
-  ammoCurrent: 999
-  ammoMax: 999
-  magMax: 210
-  magCurrent: 207
+  shootRate: 1
+  ammoCurrent: 38
+  ammoMax: 40
+  magMax: 5
+  magCurrent: 5
   reloadTime: 0.5
   hitEffect: {fileID: 0}
   shootVol: 0

@@ -65,7 +65,7 @@ MonoBehaviour:
   rb: {fileID: 1011868720863069471}
   damageAmount: 1
   damageRate: 0
-  speed: 45
+  speed: 375
   destroyTime: 5
 --- !u!65 &6499341530765298430
 BoxCollider:
