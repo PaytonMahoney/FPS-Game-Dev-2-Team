@@ -12,6 +12,7 @@ TagManager:
   - SniperUI
   - BulletCount
   - ShootPOS
+  - Wall
   layers:
   - Default
   - TransparentFX
