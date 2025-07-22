@@ -53,10 +53,10 @@ public class bossAI : MonoBehaviour, IDamage
         agentStopDisOrig = agent.stoppingDistance;
         player = GameObject.FindWithTag("Player").transform;
         soundManager = GetComponent<AudioSource>();
-        gameManager.instance.enemyCount++;
+        levelNum = SceneManager.GetActiveScene().buildIndex;
+        //gameManager.instance.enemyCount++;
         HP += (levelNum - 1) * 200;
         maxHP = HP;
-        levelNum = SceneManager.GetActiveScene().buildIndex;
         currentPhase = 1;
         //nextPhase();
         soundManager.loop = true;
