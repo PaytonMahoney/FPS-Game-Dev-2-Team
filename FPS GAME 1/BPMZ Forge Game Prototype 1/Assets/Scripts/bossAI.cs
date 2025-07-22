@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class bossAI : MonoBehaviour, IDamage
 {
@@ -21,8 +23,9 @@ public class bossAI : MonoBehaviour, IDamage
     [SerializeField] int roamDis;
     [SerializeField] int roamPauseTime;
     [SerializeField] private int levelNum;
-    [SerializeField] private int numPhases;
+    private int maxPhase;
     private int currentPhase;
+    private bool canShoot;
 
     //Gun pistolDrop, SMGDrop, RifleDrop, SniperDrop;
     [SerializeField] int dropChance;
@@ -31,6 +34,7 @@ public class bossAI : MonoBehaviour, IDamage
     AudioSource soundManager;
     [SerializeField] private AudioClip[] shootingSoundClips;
     [SerializeField] private AudioClip[] bossMusicClipsPerPhase;
+    [SerializeField] private int[] bulletDMG;
 
     Color colorOrg;
     float[] shootTimers = new float[3];
@@ -53,9 +57,18 @@ public class bossAI : MonoBehaviour, IDamage
         HP += (levelNum - 1) * 200;
         maxHP = HP;
         levelNum = SceneManager.GetActiveScene().buildIndex;
-        currentPhase = 0;
-        nextPhase();
+        currentPhase = 1;
+        //nextPhase();
         soundManager.loop = true;
+        gameManager.instance.bossNameText.SetText(bossNames[currentPhase-1]);
+        canShoot = true;
+        for (int i = 0; i < bullets.Length; i++)
+        {
+            bullets[i].GetComponent<damagetypes>().damageAmount = bulletDMG[i];
+            bullets[i].GetComponent<damagetypes>().speed = 40;
+        }
+
+        maxPhase = ((int)(levelNum / 2)) + 1;
     }
 
     // Update is called once per frame
@@ -137,6 +150,8 @@ public class bossAI : MonoBehaviour, IDamage
         {
             playerInTrigger = true;
             gameManager.instance.bossHPUI.SetActive(true);
+            soundManager.clip = bossMusicClipsPerPhase[currentPhase-1];
+            soundManager.Play();
         }
     }
 
@@ -152,27 +167,20 @@ public class bossAI : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
+        updateBossUI();
         if (HP <= 0)
         {
-            if (Random.Range(0, 100) <= dropChance)
+            if (currentPhase < maxPhase)
             {
-              //  GunManager.instance.DropRandomGun(transform);
-                //DropRandomGun(); 
-            }
-            
-            if (currentPhase != 3)
-            {
+                //Debug.Log("HERE");
                 nextPhase();
             }
             else
             {
-                //Destroy(gameObject);
+                Destroy(gameObject);
+                gameManager.instance.bossHPUI.SetActive(false);
                 // needs to spawn teleporter or game over/you win
             }
-        }
-        else
-        {
-            updateBossUI();
         }
     }
 
@@ -185,7 +193,8 @@ public class bossAI : MonoBehaviour, IDamage
             if (shootTimers[i] >= shootRates[i])
             {
                 //Debug.Log(i);
-                shootWeapon(i);
+                if(canShoot)
+                    shootWeapon(i);
             }
         }
     }
@@ -210,38 +219,37 @@ public class bossAI : MonoBehaviour, IDamage
     void nextPhase()
     {
         currentPhase++;
-        preparePhase();
+        canShoot = false;
+        if(soundManager.isPlaying)
+            soundManager.Stop();
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        gameManager.instance.bossHPUI.SetActive(false);
+        maxHP *= 2;
+        HP = maxHP;
+        //Debug.Log("NEXT PHASE");
+        for (int i = 0; i < 3; i++)
+        {
+            bullets[i].GetComponent<damagetypes>().damageAmount += 1;
+            bullets[i].GetComponent<damagetypes>().speed += 40;
+            for (int j = 0; j < shootRates.Length; j++)
+            {
+                shootRates[j] *= 0.75f;
+            }
+        }
+        updateBossUI();
+        StartCoroutine(preparePhase());
     }
     
     IEnumerator preparePhase()
     {
-        if(soundManager.isPlaying)
-            soundManager.Stop();
-        gameObject.SetActive(false);
-        gameManager.instance.bossHPUI.SetActive(false);
-        HP = maxHP;
-
-        if (currentPhase > 0)
-        {
-            for (int i = 0; i <= 3; i++)
-            {
-                bullets[i].GetComponent<damagetypes>().damageAmount += 1;
-                bullets[i].GetComponent<damagetypes>().speed += 15;
-                for (int j = 0; j < shootRates.Length; j++)
-                {
-                    shootRates[j] *= 0.8f;
-                }
-            }
-            yield return new WaitForSeconds(1.5f);
-        }
-        else
-        {
-            yield return new WaitForSeconds(0f);
-        }
-        updateBossUI();
+        gameManager.instance.bossNameText.SetText(bossNames[currentPhase-1]);
+        yield return new WaitForSeconds(3f);
+        Debug.Log("preparePhase");
         gameManager.instance.bossHPUI.SetActive(true);
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
         soundManager.clip = bossMusicClipsPerPhase[currentPhase-1];
         soundManager.Play();
+        canShoot = true;
     }
 }
