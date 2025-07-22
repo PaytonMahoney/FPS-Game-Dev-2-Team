@@ -50,6 +50,7 @@ public class bossAI : MonoBehaviour, IDamage
         player = GameObject.FindWithTag("Player").transform;
         soundManager = GetComponent<AudioSource>();
         gameManager.instance.enemyCount++;
+        HP += (levelNum - 1) * 200;
         maxHP = HP;
         levelNum = SceneManager.GetActiveScene().buildIndex;
         currentPhase = 0;
