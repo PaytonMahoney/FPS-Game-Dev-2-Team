@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Gun : ScriptableObject
 {
+    [SerializeField] public string gunName;
     public GameObject gunModel;
     [Range(1, 100)] public int shootDMG;
     [Range(5, 1000)] public int shootDistance;

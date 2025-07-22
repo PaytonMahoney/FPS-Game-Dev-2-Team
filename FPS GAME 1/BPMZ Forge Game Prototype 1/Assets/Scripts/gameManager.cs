@@ -22,6 +22,7 @@ public class gameManager : MonoBehaviour
     public playerController playerScript;
     //public GameObject mainBoss;
     public TMP_Text playerAmmoText;
+    public Image activeItemImage;
 
     float timescaleOriginal;
     bool bossDead;
@@ -95,6 +96,6 @@ public class gameManager : MonoBehaviour
 
     public void updateAmmoPanel()
     {
-        playerAmmoText.text = playerScript.currentGun.magCurrent.ToString() + " / " + playerScript.currentGun.ammoCurrent;
+        playerAmmoText.text = playerScript.currentGun.gunName + "\n" + playerScript.currentGun.magCurrent.ToString() + " / " + playerScript.currentGun.ammoCurrent;
     }
 }

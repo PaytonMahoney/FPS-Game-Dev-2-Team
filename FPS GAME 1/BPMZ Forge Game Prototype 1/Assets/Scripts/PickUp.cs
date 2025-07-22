@@ -25,7 +25,7 @@ public class PickUp : MonoBehaviour
 
         if (pickup != null && type == pickupType.Gun)
         {
-            
+
             gun.ammoCurrent = gun.ammoMax;
             gun.magCurrent = gun.magMax;
             pickup.PickUpGun(gun);
@@ -33,8 +33,11 @@ public class PickUp : MonoBehaviour
         }
         else if (pickup != null && type == pickupType.Item)
         {
-            pickup.PickUpItem(item);
-            Destroy(gameObject);
+            
+            
+                pickup.PickUpItem(item);
+                Destroy(gameObject);
+            
         }
 
     }
