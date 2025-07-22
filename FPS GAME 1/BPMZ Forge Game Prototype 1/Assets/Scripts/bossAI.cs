@@ -68,7 +68,9 @@ public class bossAI : MonoBehaviour, IDamage
             bullets[i].GetComponent<damagetypes>().speed = 40;
         }
 
-        maxPhase = ((int)(levelNum / 2)) + 1;
+        maxPhase = Math.Min(((int)(levelNum / 2)) + 1, 3);
+        gameManager.instance.teleporter.SetActive(false);
+        Debug.Log(levelNum);
     }
 
     // Update is called once per frame
@@ -151,7 +153,8 @@ public class bossAI : MonoBehaviour, IDamage
             playerInTrigger = true;
             gameManager.instance.bossHPUI.SetActive(true);
             soundManager.clip = bossMusicClipsPerPhase[currentPhase-1];
-            soundManager.Play();
+            if(!soundManager.isPlaying)
+                soundManager.Play();
         }
     }
 
@@ -177,10 +180,22 @@ public class bossAI : MonoBehaviour, IDamage
             }
             else
             {
-                Destroy(gameObject);
                 gameManager.instance.bossHPUI.SetActive(false);
-                // needs to spawn teleporter or game over/you win
-            }
+                gameManager.instance.teleporter.transform.position = this.transform.position;
+                Destroy(gameObject);
+                if (levelNum < 5)
+                {
+                    Debug.Log("NEXT");
+                    gameManager.instance.teleporter.SetActive(true);
+                }
+                else
+                {
+                    Debug.Log("WINNER");
+                    gameManager.instance.youWin();
+                }
+
+
+        }
         }
     }
 
