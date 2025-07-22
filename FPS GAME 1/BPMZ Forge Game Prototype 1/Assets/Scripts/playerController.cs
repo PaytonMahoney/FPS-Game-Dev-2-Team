@@ -80,7 +80,6 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         originalFootstepDelay = footstepDelay;
         gravityOrig = gravity;
 
-        //updatePlayerUI();
 
        // currentGun.ammoCurrent = currentGun.ammoMax;
        // currentGun.magCurrent = currentGun.magMax;
@@ -189,6 +188,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         else
             footstepDelay = originalFootstepDelay; // Default
     }
+
 
     void jump()
     {
