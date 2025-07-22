@@ -22,7 +22,7 @@ public class bossAI : MonoBehaviour, IDamage
     [SerializeField] int roamPauseTime;
     [SerializeField] private int levelNum;
     [SerializeField] private int numPhases;
-    private bool[] phase;
+    private int currentPhase;
 
     //Gun pistolDrop, SMGDrop, RifleDrop, SniperDrop;
     [SerializeField] int dropChance;
@@ -31,7 +31,6 @@ public class bossAI : MonoBehaviour, IDamage
     AudioSource soundManager;
     [SerializeField] private AudioClip[] shootingSoundClips;
     [SerializeField] private AudioClip[] bossMusicClipsPerPhase;
-    private bool isPlayingMusic;
 
     Color colorOrg;
     float[] shootTimers = new float[3];
@@ -53,9 +52,9 @@ public class bossAI : MonoBehaviour, IDamage
         gameManager.instance.enemyCount++;
         maxHP = HP;
         levelNum = SceneManager.GetActiveScene().buildIndex;
-        phase = new bool[numPhases];
-        isPlayingMusic = false;
+        currentPhase = 0;
         nextPhase();
+        soundManager.loop = true;
     }
 
     // Update is called once per frame
@@ -86,7 +85,7 @@ public class bossAI : MonoBehaviour, IDamage
     void roam()
     {
         roamTime = 0;
-        agent.stoppingDistance = 0;
+        agent.stoppingDistance = 24;
         Vector3 ranPos = Random.insideUnitSphere * roamDis;
         ranPos += startPos;
         NavMeshHit hit;
@@ -146,7 +145,6 @@ public class bossAI : MonoBehaviour, IDamage
         {
             playerInTrigger = false;
             agent.stoppingDistance = 0;
-            
         }
     }
 
@@ -161,13 +159,13 @@ public class bossAI : MonoBehaviour, IDamage
                 //DropRandomGun(); 
             }
             
-            if (!phase[numPhases - 1])
+            if (currentPhase != 3)
             {
                 nextPhase();
-                
             }
             else
             {
+                //Destroy(gameObject);
                 // needs to spawn teleporter or game over/you win
             }
         }
@@ -199,7 +197,8 @@ public class bossAI : MonoBehaviour, IDamage
         Vector3 directionToPlayer = (playerPosition - shootPositions[weapon].position).normalized;
         GameObject bullet = Instantiate(bullets[weapon], shootPositions[weapon].position, Quaternion.identity);
         bullet.GetComponent<BulletMovement>().SetDirection(directionToPlayer);
-        Debug.Log(bullet.name);
+        soundManager.PlayOneShot(shootingSoundClips[weapon]);
+        //Debug.Log(bullet.name);
     }
     
     void updateBossUI()
@@ -209,35 +208,19 @@ public class bossAI : MonoBehaviour, IDamage
 
     void nextPhase()
     {
-        if (phase[0] == false)
-        {
-            phase[0] = true;
-            
-        }
-        else if (phase[1] == false)
-        {
-            phase[1] = true;
-        }
-        else if (phase[2] == false)
-        {
-            phase[2] = true;
-        }
-        else
-        {
-            // Should never encounter this. If you do, something is wrong
-            Debug.Log("Why are you here?!");
-        }
-
+        currentPhase++;
         preparePhase();
     }
     
     IEnumerator preparePhase()
     {
+        if(soundManager.isPlaying)
+            soundManager.Stop();
         gameObject.SetActive(false);
         gameManager.instance.bossHPUI.SetActive(false);
         HP = maxHP;
 
-        if (phase[2] || phase[1])
+        if (currentPhase > 0)
         {
             for (int i = 0; i <= 3; i++)
             {
@@ -257,5 +240,7 @@ public class bossAI : MonoBehaviour, IDamage
         updateBossUI();
         gameManager.instance.bossHPUI.SetActive(true);
         gameObject.SetActive(true);
+        soundManager.clip = bossMusicClipsPerPhase[currentPhase-1];
+        soundManager.Play();
     }
 }

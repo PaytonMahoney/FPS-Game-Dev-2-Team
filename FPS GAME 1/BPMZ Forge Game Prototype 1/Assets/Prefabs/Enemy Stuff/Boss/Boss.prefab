@@ -646,6 +646,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1990940127225190307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5214417122525697033}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5214417122525697033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990940127225190307}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.18, y: -0, z: 2.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7789527181042194292}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108039745105194576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,7 +1367,7 @@ GameObject:
   - component: {fileID: 5177998405458738026}
   - component: {fileID: 6005047063610891743}
   - component: {fileID: 7373750590812362707}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1351,7 +1382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4909693782615599350}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.00000058114523}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 6.0308475, y: 0.00000047683716, z: 13.680505}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1380,16 +1411,16 @@ MonoBehaviour:
   shootPositions:
   - {fileID: 7513228744949542652}
   - {fileID: 8257202648289438533}
-  - {fileID: 5964226475762058165}
+  - {fileID: 5214417122525697033}
   headPos: {fileID: 3872700540274074861}
   bullets:
   - {fileID: 1953041360110378719, guid: a8f0399e2e51bb34d9babc52d1627700, type: 3}
   - {fileID: 1953041360110378719, guid: 87f180d9bbaaf66479e3f0bd8fab03d3, type: 3}
   - {fileID: 1953041360110378719, guid: c3b5642d0452b8a4d86f7362edf35479, type: 3}
   shootRates:
-  - 5
-  - 5
-  - 0.1
+  - 0.18
+  - 0.4
+  - 1.5
   HP: 500
   fov: 140
   faceTargetSpeed: 4
@@ -1398,6 +1429,8 @@ MonoBehaviour:
   levelNum: 0
   numPhases: 3
   dropChance: 80
+  shootingSoundClips: []
+  bossMusicClipsPerPhase: []
 --- !u!136 &1408094434625907972
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2162,7 +2195,8 @@ Transform:
   m_LocalPosition: {x: -1.7900009, y: 4.8275084, z: 0.3880033}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5214417122525697033}
   m_Father: {fileID: 3472450245045348387}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!33 &4227330243838443840

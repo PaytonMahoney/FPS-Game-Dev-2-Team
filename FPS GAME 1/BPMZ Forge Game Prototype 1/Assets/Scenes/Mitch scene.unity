@@ -718,6 +718,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 7792411353710942525, guid: 8c4e834f64da7d64a80feaa283314ca6, type: 3}
+      propertyPath: 'shootRates.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792411353710942525, guid: 8c4e834f64da7d64a80feaa283314ca6, type: 3}
+      propertyPath: 'shootRates.Array.data[1]'
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
