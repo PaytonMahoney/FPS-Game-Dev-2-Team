@@ -3,8 +3,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject objectSpawn;
-    [SerializeField] int spawnAmount;
-    [SerializeField] int spawnRate;
+    [Range(1, 8)] [SerializeField] int spawnAmount;
+    [Range(0, 2f)] [SerializeField] float spawnRate;
     [SerializeField] Transform[] spawnPos;
 
     float spawnTimer;

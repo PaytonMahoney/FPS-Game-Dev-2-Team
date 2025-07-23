@@ -45,10 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da397462578bf594ab3be5c4ca968982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectSpawn: {fileID: 0}
-  spawnAmount: 0
-  spawnRate: 0
-  spawnPos: []
+  objectSpawn: {fileID: 4010657932655800253, guid: 2bc6f51543de75c4494146ed81ac5436, type: 3}
+  spawnAmount: 2
+  spawnRate: 1
+  spawnPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!65 &4709110637117708854
 BoxCollider:
   m_ObjectHideFlags: 0
