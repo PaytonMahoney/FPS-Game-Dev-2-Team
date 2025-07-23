@@ -359,9 +359,14 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             
             gameManager.instance.activeItemRechargeText.text = (activeItem.itemDuration - (int)(standardItemTimer % 100)).ToString();
         }
-
+        if (activeItem.currentCooldown != activeItem.itemCooldown)
+        {
             gameManager.instance.activeItemRechargePanel.fillAmount = (float)activeItem.currentCooldown / activeItem.itemCooldown;
-        
+        }
+        else
+        {
+            gameManager.instance.activeItemRechargePanel.fillAmount = 0;
+        }
     }
 
     IEnumerator DamageFlashScreen()
@@ -410,6 +415,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             item.currentCooldown = item.itemCooldown;
             item.inUse = false;
             gameManager.instance.activeItemImage.sprite = item.icon;
+            updateItemUI();
         }
     }
 
