@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   explosionEffect: {fileID: 6156798867790261590, guid: 12e6bc541d61ecf46b2f9828981361bf, type: 3}
-  explosionSound: {fileID: 0}
+  explosionSound: {fileID: 8300000, guid: db70598f9b7dba3498116da0bbda2f5e, type: 3}
 --- !u!136 &3425205793583243131
 CapsuleCollider:
   m_ObjectHideFlags: 0

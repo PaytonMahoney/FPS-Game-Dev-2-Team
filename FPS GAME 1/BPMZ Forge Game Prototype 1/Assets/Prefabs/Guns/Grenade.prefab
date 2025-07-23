@@ -54,6 +54,7 @@ MonoBehaviour:
   destroyTime: 3
   impact: 0
   explosion: {fileID: 6156798867790261590, guid: 93ff9add359c8de4ca48b8b0502229b1, type: 3}
+  explosionSound: {fileID: 8300000, guid: db70598f9b7dba3498116da0bbda2f5e, type: 3}
 --- !u!33 &7715325777748035974
 MeshFilter:
   m_ObjectHideFlags: 0
