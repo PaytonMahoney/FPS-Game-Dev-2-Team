@@ -359,9 +359,14 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             
             gameManager.instance.activeItemRechargeText.text = (activeItem.itemDuration - (int)(standardItemTimer % 100)).ToString();
         }
-
+        if (activeItem.currentCooldown != activeItem.itemCooldown)
+        {
             gameManager.instance.activeItemRechargePanel.fillAmount = (float)activeItem.currentCooldown / activeItem.itemCooldown;
-        
+        }
+        else
+        {
+            gameManager.instance.activeItemRechargePanel.fillAmount = 0;
+        }
     }
 
     IEnumerator DamageFlashScreen()
@@ -410,21 +415,39 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             item.currentCooldown = item.itemCooldown;
             item.inUse = false;
             gameManager.instance.activeItemImage.sprite = item.icon;
+            updateItemUI();
         }
     }
 
     public void PickUpGun(Gun gun)
     {
-        gunInventory.Add(gun);
-        gun.shootDMG = gun.defaultDMG;
-        gunListPosition = gunInventory.Count - 1;
-        if (gun.projectile != null)
+        bool alreadyHas = false;
+        for (int i = 0; i < gunInventory.Count; i++)
         {
-            gun.shootPOS = shootPOS;
+            if (gunInventory[i] == gun) { 
+            alreadyHas = true; 
+                currentGun = gunInventory[i];
+                break;
+            }
         }
-        changeGun();
-        shootTimer = currentGun.shootRate;
-
+        if (!alreadyHas)
+        {
+            gunInventory.Add(gun);
+            gun.shootDMG = gun.defaultDMG;
+            gunListPosition = gunInventory.Count - 1;
+            if (gun.projectile != null)
+            {
+                gun.shootPOS = shootPOS;
+            }
+            changeGun();
+            shootTimer = currentGun.shootRate;
+        }
+        else
+        {
+            currentGun.magCurrent = currentGun.magMax;
+            currentGun.ammoCurrent = currentGun.ammoMax;
+            changeGun();
+        }
     }
 
     void changeGun()

@@ -289,7 +289,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 20
+  m_Radius: 35
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &8592930860606399728
 AudioSource:
@@ -304,7 +304,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: ee4ef2f8f89f0834d8c92266456d0922, type: 3}
   m_Resource: {fileID: 8300000, guid: ee4ef2f8f89f0834d8c92266456d0922, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.42
   m_Pitch: 1
   Loop: 0
   Mute: 0

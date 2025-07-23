@@ -17,13 +17,13 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int faceTargetSpeed;
     [SerializeField] int roamDis;
     [SerializeField] int roamPauseTime;
-
+    
     //Gun pistolDrop, SMGDrop, RifleDrop, SniperDrop;
     [SerializeField] int dropChance;
-
+    
     Transform player;
     AudioSource shootingSound;
-
+    
     Color colorOrg;
     float shootTimer;
     float angleToPlayer;
@@ -148,13 +148,18 @@ public class enemyAI : MonoBehaviour, IDamage
               //  GunManager.instance.DropRandomGun(transform);
                 //DropRandomGun(); 
             }
-            Destroy(gameObject);
             gameManager.instance.enemyCount--;
             Debug.Log(gameManager.instance.enemyCount);
             if (gameManager.instance.enemyCount <= 0)
             {
-                gameManager.instance.youWin();
+                if (gameManager.instance.boss == null)
+                {
+                    gameManager.instance.teleporter.transform.position = this.transform.position;
+                    gameManager.instance.teleporter.SetActive(true);
+                }
+                //gameManager.instance.youWin();
             }
+            Destroy(gameObject);
         }
         else
         {

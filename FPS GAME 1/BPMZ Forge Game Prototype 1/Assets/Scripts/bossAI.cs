@@ -193,8 +193,6 @@ public class bossAI : MonoBehaviour, IDamage
                     Debug.Log("WINNER");
                     gameManager.instance.youWin();
                 }
-
-
         }
         }
     }

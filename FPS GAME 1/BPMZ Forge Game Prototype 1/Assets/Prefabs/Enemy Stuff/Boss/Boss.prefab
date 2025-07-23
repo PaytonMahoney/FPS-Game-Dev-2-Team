@@ -1888,7 +1888,7 @@ GameObject:
   - component: {fileID: 226695910469282268}
   m_Layer: 7
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: MainBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1946,7 +1946,6 @@ MonoBehaviour:
   roamDis: 25
   roamPauseTime: 1
   levelNum: 0
-  numPhases: 3
   dropChance: 80
   shootingSoundClips:
   - {fileID: 8300000, guid: 92d35fe1c59bbd14eaee9e3d3b54cea7, type: 3}
@@ -2058,7 +2057,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.345
   m_Pitch: 1
   Loop: 0
   Mute: 0
