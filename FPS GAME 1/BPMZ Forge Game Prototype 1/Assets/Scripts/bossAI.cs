@@ -45,6 +45,8 @@ public class bossAI : MonoBehaviour, IDamage
     Vector3 startPos;
     bool playerInTrigger;
 
+    private AudioSource[] audioSourcesInLevel;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -71,6 +73,7 @@ public class bossAI : MonoBehaviour, IDamage
         maxPhase = Math.Min(((int)(levelNum / 2)) + 1, 3);
         gameManager.instance.teleporter.SetActive(false);
         Debug.Log(levelNum);
+        audioSourcesInLevel = GameObject.FindObjectsOfType<AudioSource>();
     }
 
     // Update is called once per frame
@@ -153,6 +156,10 @@ public class bossAI : MonoBehaviour, IDamage
             playerInTrigger = true;
             gameManager.instance.bossHPUI.SetActive(true);
             soundManager.clip = bossMusicClipsPerPhase[currentPhase-1];
+            foreach (AudioSource audio in audioSourcesInLevel)
+            {
+                audio.Stop();
+            }
             if(!soundManager.isPlaying)
                 soundManager.Play();
             

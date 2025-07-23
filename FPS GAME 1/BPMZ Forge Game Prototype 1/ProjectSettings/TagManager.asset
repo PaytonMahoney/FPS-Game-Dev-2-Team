@@ -15,6 +15,7 @@ TagManager:
   - Wall
   - BossHPUI
   - Teleporter
+  - Ambiance
   layers:
   - Default
   - TransparentFX
