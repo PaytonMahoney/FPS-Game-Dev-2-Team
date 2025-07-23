@@ -35,6 +35,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] public Image bossHPBar;
     [SerializeField] public TMP_Text bossNameText;
 
+    [SerializeField] public GameObject teleporter;
+
     void Awake()
     {
         instance = this;
