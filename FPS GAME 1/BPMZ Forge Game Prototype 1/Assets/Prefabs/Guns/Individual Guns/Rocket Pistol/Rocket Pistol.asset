@@ -10,31 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a7a86980206a3b439c3b11180998f5f, type: 3}
-  m_Name: Rocket Pistol
+  m_Name: Projectile Gun 1
   m_EditorClassIdentifier: 
   gunName: Rocket Pistol
   gunModel: {fileID: 1105465978052354955, guid: 9bb42e88fdedb9a4d86115388ecd5102, type: 3}
-  defaultDMG: 1
   shootDMG: 1
   shootDistance: 5
-  shootRate: 3
-<<<<<<< Updated upstream:FPS GAME 1/BPMZ Forge Game Prototype 1/Assets/Prefabs/Guns/Individual Guns/Rocket Pistol/Projectile Gun 1.asset
-  ammoCurrent: 999
-  ammoMax: 999
-  magMax: 210
-  magCurrent: 207
-  reloadTime: 0.5
-=======
-  ammoCurrent: 15
-  ammoMax: 20
+  shootRate: 1
+  ammoCurrent: 38
+  ammoMax: 40
   magMax: 5
-  magCurrent: 1
-  reloadTime: 2
->>>>>>> Stashed changes:FPS GAME 1/BPMZ Forge Game Prototype 1/Assets/Prefabs/Guns/Individual Guns/Rocket Pistol/Rocket Pistol.asset
+  magCurrent: 5
+  reloadTime: 0.5
   hitEffect: {fileID: 0}
   shootVol: 0
   projectile: {fileID: 494040809143411235, guid: b57975d47a08d464ab3472da2aa010a8, type: 3}
   shootPOS: {fileID: 0}
-  reloadSound: {fileID: 8300000, guid: 6a32a0d49cd240b4cb9934adf37a49a5, type: 3}
-  emptyShotSound: {fileID: 8300000, guid: 92e4b6681ee44474daa0bf1bbb9a6602, type: 3}
-  shootingSound: {fileID: 8300000, guid: 25d8a6b3073dcbf40b0133fdbfeb55ce, type: 3}
+  reloadSound: {fileID: 0}
+  emptyShotSound: {fileID: 0}
+  shootingSound: {fileID: 0}

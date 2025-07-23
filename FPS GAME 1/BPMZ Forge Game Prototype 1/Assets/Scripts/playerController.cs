@@ -281,7 +281,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         else if (Input.GetButtonUp("Sprint"))
         {
             state = stateOrig;
-            moveSpeed /= 2;
+            moveSpeed /= sprintMod;
         }
     }
 

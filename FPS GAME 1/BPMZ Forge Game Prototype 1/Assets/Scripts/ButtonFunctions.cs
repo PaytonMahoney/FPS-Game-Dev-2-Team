@@ -20,7 +20,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(1);
         gameManager.instance.stateUnpause();
 
     }
@@ -46,4 +46,7 @@ public class ButtonFunctions : MonoBehaviour
 
         // Optional: If your GameManager handles UI, it should hide Lose Menu automatically
     }
+
+   
+
 }
