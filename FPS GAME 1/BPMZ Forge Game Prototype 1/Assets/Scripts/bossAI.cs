@@ -155,6 +155,7 @@ public class bossAI : MonoBehaviour, IDamage
             soundManager.clip = bossMusicClipsPerPhase[currentPhase-1];
             if(!soundManager.isPlaying)
                 soundManager.Play();
+            
         }
     }
 
