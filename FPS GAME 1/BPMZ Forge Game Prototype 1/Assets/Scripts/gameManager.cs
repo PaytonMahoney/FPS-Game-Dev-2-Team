@@ -15,6 +15,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuLose;
     public GameObject buttonInteract;
 
+
     public Image playerHPBar;
     public TMP_Text playerHPText;
     public GameObject playerDMGPanel;
@@ -25,11 +26,18 @@ public class gameManager : MonoBehaviour
     //public GameObject mainBoss;
     public TMP_Text playerAmmoText;
     public Image activeItemImage;
+   
+    [Header("Enemy Kill Settings")]
+    public bool useTeleporterSystem;
+    public GameObject teleporterPrefab;
+    public Transform teleporterSpawnPos;
+    public int enemiesToKill;
+    private int enemiesKilled;
 
     float timescaleOriginal;
     bool bossDead;
     public int enemyCount;
-    public bool useTeleporterSystem = false;
+   // public bool useTeleporterSystem = false;
 
     [SerializeField] public GameObject bossHPUI;
     [SerializeField] public Image bossHPBar;
@@ -108,5 +116,24 @@ public class gameManager : MonoBehaviour
         SceneManager.LoadScene(lvl);
         gameManager.instance.stateUnpause();
     }
+    public void EnemyKilled()
+    {
+        enemiesKilled++;
 
+        if (enemiesKilled >= enemiesToKill)
+        {
+            if (useTeleporterSystem)
+            {
+                // Spawn teleporter
+                // Instantiate(teleporterPrefab, teleporterSpawnPos.position, Quaternion.identity);
+                GameObject teleporterInstance = Instantiate(teleporterPrefab, teleporterSpawnPos.position, Quaternion.identity);
+                Debug.Log("Teleporter spawned at: " + teleporterInstance.transform.position);
+            }
+            else
+            {
+                // Show win menu
+                youWin();
+            }
+        }
+    }
 }
