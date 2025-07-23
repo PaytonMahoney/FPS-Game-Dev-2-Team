@@ -1166,7 +1166,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29137635}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< Updated upstream:FPS GAME 1/BPMZ Forge Game Prototype 1/Assets/Scenes/Level 1.unity
 --- !u!1 &31478358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,8 +1211,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> Stashed changes:FPS GAME 1/BPMZ Forge Game Prototype 1/Assets/Scenes/Game Scenes/Level 1.unity
 --- !u!1 &31549642
 GameObject:
   m_ObjectHideFlags: 0
@@ -71964,5 +71961,6 @@ SceneRoots:
   - {fileID: 530836935}
   - {fileID: 591948449}
   - {fileID: 1893788200}
+  - {fileID: 31478360}
   - {fileID: 499130874}
   - {fileID: 1670267409}
