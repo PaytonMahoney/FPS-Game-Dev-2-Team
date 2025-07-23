@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5481130513925546973}
   - component: {fileID: 2630756460260089551}
   - component: {fileID: 4260231827587118643}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teleporter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.93552, y: -0.28, z: -20.90979}
-  m_LocalScale: {x: 8, y: 1, z: 8}
+  m_LocalScale: {x: 8, y: 4, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

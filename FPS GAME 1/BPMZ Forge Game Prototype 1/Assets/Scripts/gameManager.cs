@@ -29,6 +29,7 @@ public class gameManager : MonoBehaviour
     float timescaleOriginal;
     bool bossDead;
     public int enemyCount;
+    public bool useTeleporterSystem = false;
 
     [SerializeField] public GameObject bossHPUI;
     [SerializeField] public Image bossHPBar;

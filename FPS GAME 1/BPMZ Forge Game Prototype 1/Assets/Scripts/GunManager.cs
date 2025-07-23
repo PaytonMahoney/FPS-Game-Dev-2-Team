@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Unity.Collections;
 using System.Collections.Generic;
 
@@ -13,6 +13,17 @@ public class GunManager : MonoBehaviour
     {
         instance = this;
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Transform player = GameObject.FindWithTag("Player").transform;
+            DropRandomGun(player);
+            Debug.Log("💥 Debug gun dropped at player location!");
+        }
+    }
+
 
     // Update is called once per frame
     public void DropRandomGun(Transform pos)

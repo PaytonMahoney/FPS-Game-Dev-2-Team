@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
@@ -38,6 +38,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void respawn()
     {
+        
         // Reload current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 

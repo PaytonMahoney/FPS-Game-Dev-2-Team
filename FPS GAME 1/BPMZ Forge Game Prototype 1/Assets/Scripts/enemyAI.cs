@@ -32,6 +32,8 @@ public class enemyAI : MonoBehaviour, IDamage
     Vector3 playerDir;
     Vector3 startPos;
     bool playerInTrigger;
+    EnemyKillCounter counter;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,6 +44,7 @@ public class enemyAI : MonoBehaviour, IDamage
         player = GameObject.FindWithTag("Player").transform;
         shootingSound = GetComponent<AudioSource>();
         gameManager.instance.enemyCount++;
+        counter = FindFirstObjectByType<EnemyKillCounter>();
     }
 
     // Update is called once per frame
@@ -148,12 +151,18 @@ public class enemyAI : MonoBehaviour, IDamage
               //  GunManager.instance.DropRandomGun(transform);
                 //DropRandomGun(); 
             }
+
+            
+            counter.EnemyKilled();
+
+
             Destroy(gameObject);
             gameManager.instance.enemyCount--;
             Debug.Log(gameManager.instance.enemyCount);
             if (gameManager.instance.enemyCount <= 0)
             {
-                gameManager.instance.youWin();
+                if (!gameManager.instance.useTeleporterSystem)
+                    gameManager.instance.youWin();
             }
         }
         else

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
@@ -44,6 +44,8 @@ public class bossAI : MonoBehaviour, IDamage
     Vector3 playerDir;
     Vector3 startPos;
     bool playerInTrigger;
+    EnemyKillCounter counter;
+    [SerializeField] GameObject teleporterPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,6 +56,8 @@ public class bossAI : MonoBehaviour, IDamage
         player = GameObject.FindWithTag("Player").transform;
         soundManager = GetComponent<AudioSource>();
         levelNum = SceneManager.GetActiveScene().buildIndex;
+        counter = FindFirstObjectByType<EnemyKillCounter>();
+
         //gameManager.instance.enemyCount++;
         HP += (levelNum - 1) * 200;
         maxHP = HP;
@@ -177,8 +181,26 @@ public class bossAI : MonoBehaviour, IDamage
             }
             else
             {
-                Destroy(gameObject);
+
+                
+                  counter.EnemyKilled();
+
+                
+
+
                 gameManager.instance.bossHPUI.SetActive(false);
+                Debug.Log("💀 Boss defeated. Spawning teleporter!");
+                // 💥 Spawn teleporter just before destroying boss
+                Vector3 spawnPos = transform.position + Vector3.up * 0.5f + transform.forward * 3f;
+             
+                Instantiate(teleporterPrefab, spawnPos, Quaternion.identity);
+
+
+
+                Destroy(gameObject);
+                // Destroy(gameObject);
+                //gameManager.instance.bossHPUI.SetActive(false);
+
                 // needs to spawn teleporter or game over/you win
             }
         }
