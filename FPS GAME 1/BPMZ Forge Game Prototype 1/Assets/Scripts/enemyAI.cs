@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
 using System.Threading;
@@ -42,6 +42,7 @@ public class enemyAI : MonoBehaviour, IDamage
         player = GameObject.FindWithTag("Player").transform;
         shootingSound = GetComponent<AudioSource>();
         gameManager.instance.enemyCount++;
+        gameManager.instance.teleporter.SetActive(false);
     }
 
     // Update is called once per frame
@@ -145,12 +146,18 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             if (Random.Range(0, 100) <= dropChance)
             {
-              //  GunManager.instance.DropRandomGun(transform);
-                //DropRandomGun(); 
+                // GunManager.instance.DropRandomGun(transform);
+                // DropRandomGun();
             }
+
             Destroy(gameObject);
+
             gameManager.instance.enemyCount--;
             Debug.Log(gameManager.instance.enemyCount);
+
+            
+            gameManager.instance.EnemyKilled();
+
             if (gameManager.instance.enemyCount <= 0)
             {
                 if (!gameManager.instance.useTeleporterSystem)

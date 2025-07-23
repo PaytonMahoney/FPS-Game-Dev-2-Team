@@ -126,8 +126,8 @@ public class gameManager : MonoBehaviour
             {
                 // Spawn teleporter
                 // Instantiate(teleporterPrefab, teleporterSpawnPos.position, Quaternion.identity);
-                GameObject teleporterInstance = Instantiate(teleporterPrefab, teleporterSpawnPos.position, Quaternion.identity);
-                Debug.Log("Teleporter spawned at: " + teleporterInstance.transform.position);
+                teleporter.SetActive(true);
+                Debug.Log("Teleporter enabled!");
             }
             else
             {

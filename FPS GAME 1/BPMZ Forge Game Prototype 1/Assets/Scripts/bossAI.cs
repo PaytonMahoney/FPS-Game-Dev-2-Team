@@ -54,7 +54,8 @@ public class bossAI : MonoBehaviour, IDamage
         player = GameObject.FindWithTag("Player").transform;
         soundManager = GetComponent<AudioSource>();
         levelNum = SceneManager.GetActiveScene().buildIndex;
-        
+        gameManager.instance.teleporter.SetActive(false);
+
         HP += (levelNum - 1) * 200;
         maxHP = HP;
         currentPhase = 1;
