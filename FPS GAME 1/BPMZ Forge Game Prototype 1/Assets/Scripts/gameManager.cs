@@ -23,7 +23,14 @@ public class gameManager : MonoBehaviour
     public playerController playerScript;
     //public GameObject mainBoss;
     public TMP_Text playerAmmoText;
+
+
     public Image activeItemImage;
+    public TMP_Text activeItemRechargeText;
+    public Image activeItemRechargePanel;
+    public Image activeItemInUse;
+   
+
 
     float timescaleOriginal;
     bool bossDead;
@@ -35,6 +42,7 @@ public class gameManager : MonoBehaviour
 
     [SerializeField] public GameObject teleporter;
 
+
     void Awake()
     {
         instance = this;
@@ -44,6 +52,14 @@ public class gameManager : MonoBehaviour
         timescaleOriginal = Time.timeScale;
         enemyCount = 0;
         //bossHPUI = GameObject.FindWithTag("BossHPUI");
+        
+        
+            activeItemImage.enabled = false;
+        activeItemRechargePanel.enabled = false;
+        activeItemRechargeText.enabled = false;
+        activeItemInUse.enabled = false;
+        
+        
     }
 
     // Update is called once per frame
