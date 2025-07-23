@@ -43,7 +43,6 @@ public class Spawner : MonoBehaviour
     void spawn()
     {
         int arrayPos = Random.Range(0, spawnPos.Length);
-
         Instantiate(objectSpawn, spawnPos[arrayPos].transform.position, spawnPos[arrayPos].transform.rotation);
         spawnCount++;
         spawnTimer = 0;

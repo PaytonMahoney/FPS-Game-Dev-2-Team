@@ -21,7 +21,7 @@ public class gameManager : MonoBehaviour
     public bool isPaused;
     public GameObject player;
     public playerController playerScript;
-    //public GameObject mainBoss;
+    public GameObject boss;
     public TMP_Text playerAmmoText;
     
     public Image activeItemImage;
@@ -49,6 +49,7 @@ public class gameManager : MonoBehaviour
         activeItemRechargePanel.enabled = false;
         activeItemRechargeText.enabled = false;
         activeItemInUse.enabled = false;
+        boss =  GameObject.FindWithTag("MainBoss");
     }
 
     // Update is called once per frame
@@ -84,7 +85,10 @@ public class gameManager : MonoBehaviour
         Time.timeScale = timescaleOriginal;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        menuActive.SetActive(false);
+        if (menuActive != null)
+        {
+            menuActive.SetActive(false);
+        }
         menuActive = null;
     }
 
