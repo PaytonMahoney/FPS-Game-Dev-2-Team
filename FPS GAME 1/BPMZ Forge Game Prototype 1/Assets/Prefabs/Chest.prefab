@@ -114,6 +114,7 @@ MonoBehaviour:
   startDelay: 0
   rotateSpeed: 0
   dropLoot: 1
+  lootType: 2
 --- !u!135 &5368763248112649237
 SphereCollider:
   m_ObjectHideFlags: 0
