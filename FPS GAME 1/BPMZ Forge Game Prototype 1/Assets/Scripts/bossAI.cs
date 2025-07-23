@@ -176,6 +176,10 @@ public class bossAI : MonoBehaviour, IDamage
             updateBossUI();
         }
     }
+    public int getHP()
+    {
+        return HP;
+    }
 
     void shoot()
     {

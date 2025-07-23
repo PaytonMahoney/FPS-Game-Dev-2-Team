@@ -6,7 +6,8 @@ public abstract class Gun : ScriptableObject
 {
     [SerializeField] public string gunName;
     public GameObject gunModel;
-    [Range(1, 100)] public int shootDMG;
+    [Range(1, 1000)] public int defaultDMG;
+    public int shootDMG;
     [Range(5, 1000)] public int shootDistance;
     [Range(0.1f, 5)] public float shootRate;
     public int ammoCurrent;

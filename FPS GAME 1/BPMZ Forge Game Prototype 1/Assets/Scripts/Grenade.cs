@@ -10,11 +10,13 @@ public class Grenade : MonoBehaviour
     [SerializeField] bool impact;
 
     [SerializeField] GameObject explosion;
+
+    [SerializeField] private AudioClip explosionSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
-        body.linearVelocity = transform.forward * speed;// (transform.up * );
+        body.linearVelocity = transform.forward * speed +  (transform.up * upwardSpeed);
         
 
         StartCoroutine(explode());
@@ -40,6 +42,7 @@ public class Grenade : MonoBehaviour
             if (other != null && !other.CompareTag("Player"))
             {
                 Instantiate(explosion, transform.position, Quaternion.identity);
+                gameManager.instance.playerScript.GetGunAudioSource().PlayOneShot(explosionSound);
                 Destroy(gameObject);
             }
         }

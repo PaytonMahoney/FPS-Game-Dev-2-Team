@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class GunManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GunManager : MonoBehaviour
     public static GunManager instance;
 
     public List<GameObject> AllGuns;
+    public List<GameObject> AllItems;
     
     void Start()
     {
@@ -18,8 +20,15 @@ public class GunManager : MonoBehaviour
     public void DropRandomGun(Transform pos)
     {
         int index = Random.Range(0, AllGuns.Count);
-        Instantiate(AllGuns[index], pos.position, pos.rotation);
+        Vector3 newposition = new Vector3(pos.transform.position.x, pos.transform.position.y + 1, pos.transform.position.z);
+        Instantiate(AllGuns[index], newposition, pos.rotation);
     }
 
-    
+    public void DropRandomItem(Transform pos)
+    {
+        int index = Random.Range(0, AllItems.Count);
+        Vector3 newposition = new Vector3(pos.transform.position.x, pos.transform.position.y + 1, pos.transform.position.z);
+        Instantiate(AllItems[index], newposition, pos.rotation);
+    }
+
 }

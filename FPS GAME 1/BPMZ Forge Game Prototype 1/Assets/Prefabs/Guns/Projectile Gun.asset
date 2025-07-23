@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7a86980206a3b439c3b11180998f5f, type: 3}
   m_Name: Projectile Gun
   m_EditorClassIdentifier: 
+  gunName: 
   gunModel: {fileID: 1105465978052354955, guid: 9bb42e88fdedb9a4d86115388ecd5102, type: 3}
+  defaultDMG: 1
   shootDMG: 1
   shootDistance: 5
   shootRate: 3

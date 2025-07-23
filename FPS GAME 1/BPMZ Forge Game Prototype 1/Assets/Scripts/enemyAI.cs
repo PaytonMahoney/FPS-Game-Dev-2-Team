@@ -162,6 +162,11 @@ public class enemyAI : MonoBehaviour, IDamage
         }
     }
 
+    public int getHP()
+    {
+        return HP;
+    }
+
     IEnumerator flashRed()
     {
         model.material.color = Color.green;

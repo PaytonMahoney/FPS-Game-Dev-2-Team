@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9721fff885f2a554ebc8b6a2ce4e1a34, type: 3}
+  m_Name: Benelli M4
+  m_EditorClassIdentifier: 
+  gunName: Benelli M4
+  gunModel: {fileID: 8610398614477138534, guid: 51a45515eb6499d4e8475b48a9ecc45c, type: 3}
+  defaultDMG: 50
+  shootDMG: 50
+  shootDistance: 120
+  shootRate: 1.5
+  ammoCurrent: 64
+  ammoMax: 64
+  magMax: 8
+  magCurrent: 6
+  reloadTime: 3
+  hitEffect: {fileID: 0}
+  shootVol: 0
+  projectile: {fileID: 0}
+  shootPOS: {fileID: 0}
+  reloadSound: {fileID: 8300000, guid: e5198250a6a57408bb36e14bc4a322c4, type: 3}
+  emptyShotSound: {fileID: 8300000, guid: 92e4b6681ee44474daa0bf1bbb9a6602, type: 3}
+  shootingSound: {fileID: 8300000, guid: 97b5820b1e079ab4bbbe90e89bd4db5d, type: 3}

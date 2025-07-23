@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: Roulette
   gunModel: {fileID: 4957135905277488655, guid: 078f76f425b664d43ac8953199963c89, type: 3}
+  defaultDMG: 40
   shootDMG: 40
   shootDistance: 200
   shootRate: 0.75
-  ammoCurrent: 0
+  ammoCurrent: 12
   ammoMax: 12
   magMax: 6
-  magCurrent: 0
+  magCurrent: 6
   reloadTime: 1.5
   hitEffect: {fileID: 0}
   shootVol: 0
@@ -28,4 +29,4 @@ MonoBehaviour:
   shootPOS: {fileID: 0}
   reloadSound: {fileID: 8300000, guid: 8f268095f67575b44b10ea19a4482b2c, type: 3}
   emptyShotSound: {fileID: 8300000, guid: 92e4b6681ee44474daa0bf1bbb9a6602, type: 3}
-  shootingSound: {fileID: 8300000, guid: 97b5820b1e079ab4bbbe90e89bd4db5d, type: 3}
+  shootingSound: {fileID: 8300000, guid: e8210ab1fe6784e7eb15956b135716c9, type: 3}

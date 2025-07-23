@@ -53,7 +53,8 @@ MonoBehaviour:
   upwardSpeed: 0
   destroyTime: 10
   impact: 1
-  explosion: {fileID: 6156798867790261590, guid: 93ff9add359c8de4ca48b8b0502229b1, type: 3}
+  explosion: {fileID: 6156798867790261590, guid: 12e6bc541d61ecf46b2f9828981361bf, type: 3}
+  explosionSound: {fileID: 8300000, guid: 9df806fe51477914bbc573b3236032b5, type: 3}
 --- !u!33 &5131915521827600387
 MeshFilter:
   m_ObjectHideFlags: 0

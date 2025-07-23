@@ -3,6 +3,13 @@ using UnityEngine.UIElements;
 
 public class Structures : MonoBehaviour
 {
+
+    enum LootType
+    {
+        Gun,
+        Item,
+        Random
+    }
     [SerializeField] Transform start;
     [SerializeField] Transform end;
     [SerializeField] int speed;
@@ -12,6 +19,7 @@ public class Structures : MonoBehaviour
     [SerializeField] int rotateSpeed;
 
     [SerializeField] bool dropLoot;
+    [SerializeField] LootType lootType;
    // [SerializeField] Gun pistolDrop, SMGDrop, RifleDrop, SniperDrop;
     float delayTimer;
     bool forward;
@@ -59,10 +67,38 @@ public class Structures : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && dropLoot)
+        if (other.isTrigger)
+        {
+            return;
+        }
+        if (other.gameObject.CompareTag("Player") && dropLoot && lootType == LootType.Gun)
         {
             GunManager.instance.DropRandomGun(transform);
             Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("Player") && dropLoot && lootType == LootType.Item)
+        {
+            GunManager.instance.DropRandomItem(transform);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("Player") && dropLoot && lootType == LootType.Random)
+        {
+            switch(Random.Range(0,2))
+            {
+                case 0:
+                    {
+                        GunManager.instance.DropRandomGun(transform);
+                        Destroy(gameObject);
+                        break;
+                    }
+                case 1:
+                    {
+                        GunManager.instance.DropRandomItem(transform);
+                        Destroy(gameObject);
+                        break;
+                    }
+            }
+            
         }
     }
     //void DropRandomGun()

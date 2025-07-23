@@ -10,21 +10,22 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
 {
     //audio fields
     [SerializeField] private AudioSource playerAudio;
+    [SerializeField] private AudioSource gunAudio;
     [SerializeField] private AudioClip[] hurtClips;
     [SerializeField] private AudioClip[] footstepClips;
-    [Range(0.25f, 1f)] [SerializeField] private float footstepDelay;
+    [Range(0.25f, 1f)][SerializeField] private float footstepDelay;
     private float originalFootstepDelay;
     private float footstepTimer;
-    
+
     [SerializeField] CharacterController controller;
-    [SerializeField] LayerMask ignoreLayer;
-    
+    [SerializeField] public LayerMask ignoreLayer;
+
     [SerializeField] int HP;
     public int maxHP;
-    
+
     // Movement
-    [Range(5, 40)] [SerializeField] public int moveSpeed;
-    [Range(1, 5)] [SerializeField] int sprintMod;
+    [Range(5, 40)][SerializeField] public int moveSpeed;
+    [Range(1, 5)][SerializeField] int sprintMod;
     [SerializeField] public Transform centerMass;
     private int moveSpeedOrig;
 
@@ -37,14 +38,14 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         sprinting,
         crouching
     }
-    
+
     //Crouching
     [SerializeField] int crouchHeight;
     private float standingHeight;
-    
+
     //Jumping 
     [SerializeField] int jumpVel;
-    [SerializeField] int jumpMax;
+    [SerializeField] public int jumpMax;
     [SerializeField] float gravity;
     float gravityOrig;
 
@@ -60,6 +61,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     //Items
     public Item activeItem;
     [SerializeField] public List<Item> itemInventory = new List<Item>();
+    private float standardItemTimer;
+    
 
     //Item Modifiers
     public int DMGreduction;
@@ -67,18 +70,19 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     //Dash Handling
     [SerializeField] float dashSpeed;
     [SerializeField] float dashTime;
-    
+
     Vector3 moveDir;
     Vector3 playerVel;
     Vector3 dashVelocity;
-    
+
     int jumpCount;
     float shootTimer;
-   
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerAudio = GetComponent<AudioSource>();
+        gunAudio = GetComponent<AudioSource>();
         stateOrig = state;
         standingHeight = transform.localScale.y;
         moveSpeedOrig = moveSpeed;
@@ -86,11 +90,11 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         originalFootstepDelay = footstepDelay;
         gravityOrig = gravity;
         DMGreduction = 0;
-        
 
 
-       // currentGun.ammoCurrent = currentGun.ammoMax;
-       // currentGun.magCurrent = currentGun.magMax;
+
+        // currentGun.ammoCurrent = currentGun.ammoMax;
+        // currentGun.magCurrent = currentGun.magMax;
     }
 
     // Update is called once per frame    //Should be on input functions
@@ -103,15 +107,15 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         }
         */
         //Drawing it so I can see it in action
-        if(gunInventory.Count > 0)
+        if (gunInventory.Count > 0)
             Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * currentGun.shootDistance, Color.violet);
-        
-        if(!gameManager.instance.isPaused)
+
+        if (!gameManager.instance.isPaused)
             movement();
-        
+
 
         crouch();
-        sprint();      
+        sprint();
     }
 
     void movement()
@@ -123,7 +127,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             activeItem.currentCooldown += Time.deltaTime;
         }
         UpdateFootstepDelay();
-        
+
         footstepTimer += Time.deltaTime;
 
         //Tie A and D keys to the player character   //Strafe forward
@@ -131,14 +135,14 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         //Time.deltaTime = Ignores Frame Rate
         controller.Move(moveDir * moveSpeed * Time.deltaTime);
 
-        
+
 
         if (controller.isGrounded)
         {
-            
+
             jumpCount = 0;
-            playerVel = Vector3.zero;           
-            
+            playerVel = Vector3.zero;
+
             if (moveDir.x != 0 || moveDir.z != 0)
             {
                 //Debug.Log("Moving");
@@ -175,19 +179,30 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         if (Input.GetButtonDown("Reload") && !isReloading)
         {
             reload();
-            
-        }
 
-        if (activeItem != null && Input.GetButtonDown("Active Item") && activeItem.currentCooldown >= activeItem.itemCooldown)
+        }
+        if (activeItem != null)
         {
-            activeItem.Activate();
-            activeItem.currentCooldown = 0;
-            if (activeItem.itemDuration > 0)
+                updateItemUI();
+            
+            if (Input.GetButtonDown("Active Item") && activeItem.currentCooldown >= activeItem.itemCooldown)
             {
-                StartCoroutine(ItemWait(activeItem.itemDuration));
+                activeItem.Activate();
+                updateItemUI();
+                
+                activeItem.currentCooldown = 0;
+                if (activeItem.itemDuration > 0)
+                {
+                    
+                    standardItemTimer = 0;
+                    StartCoroutine(ItemWait(activeItem.itemDuration));
+                }
+                gameManager.instance.activeItemInUse.enabled = true;
+                
             }
         }
         selectGun();
+        
     }
 
     void PlayFootstep()
@@ -222,7 +237,7 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
 
     void crouch()
     {
-        if(Input.GetButtonDown("Crouch"))
+        if (Input.GetButtonDown("Crouch"))
         {
             state = MovementState.crouching;
             moveSpeed = moveSpeedOrig / 2;
@@ -235,14 +250,14 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             moveSpeed = moveSpeedOrig;
         }
     }
-    
+
     void dash()
     {
-        if(Input.GetButtonDown("Dash"))
+        if (Input.GetButtonDown("Dash"))
         {
             StartCoroutine(Dash());
         }
-        
+
     }
     IEnumerator Dash()
     {
@@ -272,8 +287,8 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
 
     void shoot()
     {
-        currentGun.shoot(ignoreLayer, playerAudio);
-       
+        currentGun.shoot(ignoreLayer, gunAudio);
+
         gameManager.instance.updateAmmoPanel();
     }
 
@@ -301,13 +316,18 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         }
     }
 
+    public int getHP()
+    {
+        return HP;
+    }
+
     public bool Heal(int amount)
     {
-        if (HP < maxHP)   
+        if (HP < maxHP)
         {
             StartCoroutine(HealFlashScreen());
             HP += amount;
-            
+
             if (HP > maxHP)
             {
                 HP = maxHP;
@@ -323,7 +343,25 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         //Debug.Log("HP UI Updated: " + HP + "/" + maxHP);
         gameManager.instance.playerHPBar.fillAmount = (float)HP / maxHP;
         gameManager.instance.playerHPText.text = HP.ToString() + " / " + maxHP.ToString();
-       
+
+    }
+
+    public void updateItemUI()
+    {
+        if (activeItem.inUse && gameManager.instance.activeItemRechargeText.enabled == false)
+        {
+            gameManager.instance.activeItemRechargeText.enabled = true;
+            gameManager.instance.activeItemRechargeText.text = activeItem.itemDuration.ToString();
+        }
+        else if (activeItem.inUse)
+        {
+            standardItemTimer += Time.deltaTime;
+            
+            gameManager.instance.activeItemRechargeText.text = (activeItem.itemDuration - (int)(standardItemTimer % 100)).ToString();
+        }
+
+            gameManager.instance.activeItemRechargePanel.fillAmount = (float)activeItem.currentCooldown / activeItem.itemCooldown;
+        
     }
 
     IEnumerator DamageFlashScreen()
@@ -345,17 +383,14 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             return;
         }
         isReloading = true;
-        StartCoroutine(currentGun.reload(playerAudio));
+        StartCoroutine(currentGun.reload(gunAudio));
 
-        
+
         StartCoroutine(Wait(currentGun.reloadTime));
-        
-    }
-
-    void UseActiveItem()
-    {
 
     }
+
+    
 
     public void PickUpItem(Item item)
     {
@@ -366,8 +401,14 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
         }
         else
         {
+            if (gameManager.instance.activeItemImage.enabled == false)
+            {
+                gameManager.instance.activeItemImage.enabled = true;
+                gameManager.instance.activeItemRechargePanel.enabled = true;
+            }
             activeItem = item;
             item.currentCooldown = item.itemCooldown;
+            item.inUse = false;
             gameManager.instance.activeItemImage.sprite = item.icon;
         }
     }
@@ -375,13 +416,15 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     public void PickUpGun(Gun gun)
     {
         gunInventory.Add(gun);
+        gun.shootDMG = gun.defaultDMG;
         gunListPosition = gunInventory.Count - 1;
         if (gun.projectile != null)
         {
             gun.shootPOS = shootPOS;
         }
         changeGun();
-        
+        shootTimer = currentGun.shootRate;
+
     }
 
     void changeGun()
@@ -405,9 +448,10 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
             changeGun();
         }
     }
+    
     IEnumerator Wait(float sec)
     {
-        yield return  new WaitForSeconds(sec);
+        yield return new WaitForSeconds(sec);
         isReloading = false;
     }
 
@@ -415,5 +459,13 @@ public class playerController : MonoBehaviour, IDamage, IHeal, IPickUp
     {
         yield return new WaitForSeconds(sec);
         activeItem.Deactivate();
+        gameManager.instance.activeItemRechargeText.enabled = false;
+        gameManager.instance.activeItemInUse.enabled = false;
     }
+
+    public AudioSource GetGunAudioSource()
+    {
+        return gunAudio;
+    }
+        
 }
