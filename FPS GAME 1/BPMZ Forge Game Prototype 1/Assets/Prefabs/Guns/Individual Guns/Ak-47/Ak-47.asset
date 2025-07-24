@@ -15,13 +15,13 @@ MonoBehaviour:
   gunName: Ak-47
   gunModel: {fileID: 6864857381789205067, guid: fb045f22aeb8cdb41aa81c247c189fc3, type: 3}
   defaultDMG: 35
-  shootDMG: 35
+  shootDMG: 45
   shootDistance: 200
-  shootRate: 0.4
-  ammoCurrent: 180
+  shootRate: 0.36
+  ammoCurrent: 170
   ammoMax: 180
   magMax: 30
-  magCurrent: 30
+  magCurrent: 14
   reloadTime: 1
   hitEffect: {fileID: 0}
   shootVol: 0

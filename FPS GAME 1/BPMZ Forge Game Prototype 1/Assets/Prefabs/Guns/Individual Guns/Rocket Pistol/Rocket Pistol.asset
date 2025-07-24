@@ -17,11 +17,11 @@ MonoBehaviour:
   defaultDMG: 1
   shootDMG: 1
   shootDistance: 5
-  shootRate: 3
-  ammoCurrent: 15
-  ammoMax: 20
+  shootRate: 1.5
+  ammoCurrent: 20
+  ammoMax: 25
   magMax: 5
-  magCurrent: 1
+  magCurrent: 5
   reloadTime: 2
   hitEffect: {fileID: 0}
   shootVol: 0

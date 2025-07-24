@@ -15,10 +15,10 @@ MonoBehaviour:
   gunName: Reaper
   gunModel: {fileID: 1039624569042513172, guid: bc8a5b988e65ee443ae33940d0d86001, type: 3}
   defaultDMG: 70
-  shootDMG: 70
+  shootDMG: 260
   shootDistance: 500
-  shootRate: 1.75
-  ammoCurrent: 50
+  shootRate: 1.25
+  ammoCurrent: 40
   ammoMax: 50
   magMax: 5
   magCurrent: 5
