@@ -667,7 +667,7 @@ Transform:
   m_GameObject: {fileID: 2570772700353801490}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.92, z: 11.51}
+  m_LocalPosition: {x: 0, y: 4.59, z: 11.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1937,12 +1937,12 @@ MonoBehaviour:
   - {fileID: 1953041360110378719, guid: 87f180d9bbaaf66479e3f0bd8fab03d3, type: 3}
   - {fileID: 1953041360110378719, guid: c3b5642d0452b8a4d86f7362edf35479, type: 3}
   shootRates:
-  - 0.4
-  - 0.8
-  - 1.5
-  HP: 500
+  - 0.75
+  - 1.1
+  - 1.8
+  HP: 100
   fov: 140
-  faceTargetSpeed: 4
+  faceTargetSpeed: 6
   roamDis: 25
   roamPauseTime: 1
   levelNum: 0
@@ -2032,7 +2032,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 4
+  m_Speed: 20
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
