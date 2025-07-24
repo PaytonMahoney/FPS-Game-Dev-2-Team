@@ -158,7 +158,8 @@ public class bossAI : MonoBehaviour, IDamage
             soundManager.clip = bossMusicClipsPerPhase[currentPhase-1];
             foreach (AudioSource audio in audioSourcesInLevel)
             {
-                audio.Stop();
+                if(audio != null)
+                    audio.Stop();
             }
             if(!soundManager.isPlaying)
                 soundManager.Play();

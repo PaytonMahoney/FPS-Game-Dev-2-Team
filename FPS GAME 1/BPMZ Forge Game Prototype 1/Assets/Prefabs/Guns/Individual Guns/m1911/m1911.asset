@@ -15,12 +15,12 @@ MonoBehaviour:
   gunName: m1911
   gunModel: {fileID: 4250884911440594838, guid: 9dbde79dbc9222545b205bdda90cf887, type: 3}
   defaultDMG: 10
-  shootDMG: 10
+  shootDMG: 25
   shootDistance: 200
   shootRate: 0.5
   ammoCurrent: 80
-  ammoMax: 80
-  magMax: 10
+  ammoMax: 200
+  magMax: 12
   magCurrent: 10
   reloadTime: 1
   hitEffect: {fileID: 0}
