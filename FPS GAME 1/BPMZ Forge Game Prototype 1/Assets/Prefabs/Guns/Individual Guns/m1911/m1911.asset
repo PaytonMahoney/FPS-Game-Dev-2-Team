@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: m1911
   gunModel: {fileID: 4250884911440594838, guid: 9dbde79dbc9222545b205bdda90cf887, type: 3}
-  defaultDMG: 25
-  shootDMG: 10
+  defaultDMG: 200
+  shootDMG: 200
   shootDistance: 200
   shootRate: 0.5
   ammoCurrent: 200

@@ -37,7 +37,7 @@ public class bossAI : MonoBehaviour, IDamage
     [SerializeField] private int[] bulletDMG;
 
     Color colorOrg;
-    float[] shootTimers = new float[3];
+    private float[] shootTimers;
     float angleToPlayer;
     float roamTime;
     float agentStopDisOrig;
@@ -74,6 +74,7 @@ public class bossAI : MonoBehaviour, IDamage
         gameManager.instance.teleporter.SetActive(false);
         Debug.Log(levelNum);
         audioSourcesInLevel = GameObject.FindObjectsOfType<AudioSource>();
+        shootTimers = new float[bullets.Length];
     }
 
     // Update is called once per frame
@@ -104,7 +105,7 @@ public class bossAI : MonoBehaviour, IDamage
     void roam()
     {
         roamTime = 0;
-        agent.stoppingDistance = 24;
+        agent.stoppingDistance = agentStopDisOrig;
         Vector3 ranPos = Random.insideUnitSphere * roamDis;
         ranPos += startPos;
         NavMeshHit hit;

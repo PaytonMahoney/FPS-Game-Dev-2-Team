@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1011868720863069471}
   - component: {fileID: 6503255928159155971}
   m_Layer: 8
-  m_Name: Boss Heavy Bullet
+  m_Name: Boss Homing Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,11 +61,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df33e8425615037439189965f72aa5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
   rb: {fileID: 1011868720863069471}
-  damageAmount: 15
+  damageAmount: 8
   damageRate: 0
-  speed: 160
+  speed: 60
   destroyTime: 6
 --- !u!65 &6499341530765298430
 BoxCollider:
@@ -183,9 +183,9 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 0.19607842, b: 0.30079302, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0.6792453, g: 0.43635842, b: 0.21146317, a: 0}
+      key1: {r: 0.2760768, g: 0.8867924, b: 0.35249007, a: 1}
+      key2: {r: 1, g: 1, b: 1, a: 0}
+      key3: {r: 0.7735849, g: 0.73764086, b: 0.16055538, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0.17924517, g: 0.29323924, b: 1, a: 0}
       key6: {r: 0.17924517, g: 0.29323924, b: 1, a: 0}
