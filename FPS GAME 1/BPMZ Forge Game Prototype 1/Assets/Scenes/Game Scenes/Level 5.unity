@@ -4828,6 +4828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3328806180743102657, guid: ecabe6dcbaf825d41b8a75bfdc7c36e8, type: 3}
+      propertyPath: m_TagString
+      value: MainBoss
+      objectReference: {fileID: 0}
     - target: {fileID: 5656893715792614533, guid: ecabe6dcbaf825d41b8a75bfdc7c36e8, type: 3}
       propertyPath: spawnRate
       value: 2
@@ -4853,6 +4857,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7361491217602040288, guid: ecabe6dcbaf825d41b8a75bfdc7c36e8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361491217602040288, guid: ecabe6dcbaf825d41b8a75bfdc7c36e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52.65731
       objectReference: {fileID: 0}
@@ -4862,7 +4870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7361491217602040288, guid: ecabe6dcbaf825d41b8a75bfdc7c36e8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -175.36203
+      value: -173.11203
       objectReference: {fileID: 0}
     - target: {fileID: 7361491217602040288, guid: ecabe6dcbaf825d41b8a75bfdc7c36e8, type: 3}
       propertyPath: m_LocalRotation.w
