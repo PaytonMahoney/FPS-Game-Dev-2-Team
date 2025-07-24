@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: MP5
   gunModel: {fileID: 4818613736063417665, guid: 500a4531634ed9b4f8e70e58938f1f20, type: 3}
-  defaultDMG: 4
-  shootDMG: 6
+  defaultDMG: 40
+  shootDMG: 40
   shootDistance: 200
   shootRate: 0.2
-  ammoCurrent: 240
+  ammoCurrent: 17
   ammoMax: 240
   magMax: 30
   magCurrent: 30

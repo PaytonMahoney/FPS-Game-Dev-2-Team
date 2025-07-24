@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: Benelli M4
   gunModel: {fileID: 8610398614477138534, guid: 51a45515eb6499d4e8475b48a9ecc45c, type: 3}
-  defaultDMG: 50
-  shootDMG: 150
+  defaultDMG: 100
+  shootDMG: 50
   shootDistance: 120
   shootRate: 1.5
-  ammoCurrent: 62
+  ammoCurrent: 54
   ammoMax: 64
   magMax: 8
   magCurrent: 8
