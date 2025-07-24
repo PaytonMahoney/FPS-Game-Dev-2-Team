@@ -554,6 +554,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277771006699888105, guid: ab5990fe302cce54a970922d07543a25, type: 3}
+      propertyPath: sprintMod
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7886799120726967710, guid: ab5990fe302cce54a970922d07543a25, type: 3}
       propertyPath: m_Name
       value: Player
@@ -8684,7 +8692,7 @@ Transform:
   m_GameObject: {fileID: 2141571957}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000006407499}
-  m_LocalPosition: {x: -0.35, y: -0.3125, z: 22.6875}
+  m_LocalPosition: {x: -0.14996718, y: -0.3125, z: 5.6708317}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

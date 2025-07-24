@@ -19,7 +19,7 @@ MonoBehaviour:
   shootDistance: 200
   shootRate: 0.5
   ammoCurrent: 200
-  ammoMax: 200
+  ammoMax: 36
   magMax: 12
   magCurrent: 12
   reloadTime: 1
